@@ -1,6 +1,23 @@
 @charset "UTF-8";
 
-html,body {
+@import "header.css";
+@import "main.css";
+@import "footer.css";
+
+
+html,body,ul,ol,h1,h2,h3,h4,h5 {
   margin: 0;
   padding: 0;
+}
+main, label {
+  display: block;
+}
+a,u,i,em {
+  text-decoration: none;
+}
+li {
+  list-style: none;
+}
+* {
+  box-sizing: border-box;
 }

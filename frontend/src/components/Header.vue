@@ -1,13 +1,19 @@
 <template>
-  <div id="header">헤더 영역</div>
+  <div id="header">
+    헤더 영역
+    <button @click="btnClick">서브 페이지로 이동</button>
+    <router-link :to="'sub'">서브 페이지로 이동2</router-link>
+
+  </div>
 </template>
 
 <script>
-</script>
-
-<style scoped>
-  div#header {
-    height: 60px;
-    border: 1px solid red;
+export default {
+  methods: {
+    btnClick() {
+      console.log("this  ::", this);
+      this.$router.push('sub');
+    }
   }
-</style>
+}
+</script>

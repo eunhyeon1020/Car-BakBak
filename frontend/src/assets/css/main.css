@@ -1,0 +1,61 @@
+
+/**************** 메인 배너 영역 시작 ****************/
+.main-banner {
+  width: 100%;
+  /* 화면 높이 - header 높이 */
+  height: calc(100vh - 50px);
+  position: fixed;
+  top: 50px;
+  background: 
+    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/test.jpg)
+    fixed 
+    center center / 
+    cover;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+.banner-title {
+  color: #FFF;
+  font-size: 2.25rem;
+  font-weight: bold;
+  padding-right: 10vw;
+  filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.555));
+}
+
+/**************** 메인 설명(인트로) 영역 시작 ****************/
+.main-intro {
+  width: 100%;
+  position: relative;
+  top: 100vh;
+  background-color: #FFF;
+}
+.intro-contain { 
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 120px 10px;
+  border: 1px solid black;
+}
+
+/* 인트로 제목  */
+.intro-contain > div:nth-child(1) {
+  font-size: 26px;
+  font-weight: bold;
+}
+/* 인트로 리스트 */
+.intro-contain > ul:nth-child(2) {
+  padding: 40px 0 40px 0;
+  display: flex;
+  justify-content: space-between;
+}
+/* 리스트 bar */
+.bottom-line {
+  width: 170px;
+  padding-bottom: 3px;
+  border-bottom: 4px solid #222;
+}
+/* 인트로 내용(소개)  */
+.intro-contain > div:nth-child(3) {
+  font-size: 16px;
+}
