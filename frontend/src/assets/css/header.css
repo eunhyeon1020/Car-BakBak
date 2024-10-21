@@ -1,4 +1,4 @@
-div#header {
+/* div#header {
   width: 100%;
   height: 50px;
   background-color: #FFF;
@@ -6,4 +6,145 @@ div#header {
   position: fixed;
   top: 0;  
   z-index: 1000;
+} */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* background-color: #eee; */
+}
+
+ol,
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* header 헤더 */
+#header {
+  width: 100%;
+  height: 60px;
+  background-color: #ffffff00;
+  backdrop-filter: blur(7px);
+  box-sizing: border-box;
+  padding: 0 20px;
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+.gnb {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  position: relative;
+}
+
+/* header 왼쪽 */
+
+.gnb .header-left {
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+
+.gnb-logo {
+  min-width: 120px;
+  height: 60px;
+  background: 50% 50% url(../images/차박박로고.svg) no-repeat;
+  background-size: 110%;
+}
+
+.top-menu {
+  text-align: center;
+  height: 60px;
+}
+
+.top-menu > ul {
+  display: flex;
+}
+
+.top-menu > ul > li {
+  width: 100px;
+  height: 60px;
+  line-height: 60px;
+  display: inline-block;
+  text-align: left;
+  transition: 0.3s ease all;
+  position: relative;
+  cursor: pointer;
+  color: #999;
+}
+
+/* 메뉴 리스트 hover 이벤트 */
+.top-menu > ul > li:hover {
+  border-bottom: 1px solid #778f86;
+}
+/* 아이콘 숨김 */
+.top-menu > ul > li:hover i {
+  visibility: hidden;
+}
+/* hover시 글자 표시 및 위치 조정 */
+.top-menu > ul > li:hover > span {
+  display: block;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.top-menu > ul > li > span {
+  font-size: 16px;
+  font-weight: 800;
+  display: none;
+}
+.top-menu li > i.ico:hover {
+  background-size: 120%;
+}
+
+/* 메뉴 아이콘 */
+.about-menu,
+.map-menu,
+.store-menu,
+.notice-menu {
+  display: inline-block;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: 50% 50%;
+  width: 30px;
+  height: 60px;
+}
+
+.about-menu {
+  background-image: url(../images/ico-about.svg);
+}
+.map-menu {
+  background-image: url(../images/ico-map.svg);
+}
+.store-menu {
+  background-image: url(../images/ico-store.svg);
+}
+.notice-menu {
+  background-image: url(../images/ico-notice.svg);
+}
+i.ico {
+  filter: hue-rotate(150deg);
+}
+
+/* 회원정보 */
+.gnb .header-right {
+  min-height: 60px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 0.85rem;
+  color: #999;
+}
+
+.gnb .header-right p {
+  text-align: center;
+  font-size: 13px;
+  font-weight: bold;
 }
