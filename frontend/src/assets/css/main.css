@@ -1,24 +1,23 @@
-
 /**************** 메인 배너 영역 시작 ****************/
+#main {
+  height: auto;
+}
 .main-banner {
   width: 100%;
   /* 화면 높이 - header 높이 */
-  height: calc(100vh - 50px);
+  /* height: calc(100vh - 50px); */
+  height: 100vh;
   position: fixed;
-  top: 50px;
-  background: 
-    linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url(../images/main-bg.png)
-    fixed 
-    center center / 
-    cover;
+  top: 0;
+  background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+    url(../images/main-bg.png) fixed center center / cover;
   display: flex;
   align-items: center;
   justify-content: flex-start;
 }
 
 .banner-title {
-  color: #FFF;
+  color: #fff;
   font-size: 2.25rem;
   font-weight: bold;
   line-height: 3rem;
@@ -29,15 +28,20 @@
 /**************** 메인 설명(인트로) 영역 시작 ****************/
 .main-intro {
   width: 100%;
+  height: auto;
   position: relative;
   top: 100vh;
-  background-color: #FFF;
+  background-color: #fff;
 }
-.intro-contain { 
+.intro-contain {
   max-width: 700px;
+  height: 100vh;
   margin: 0 auto;
   padding: 120px 10px;
   /* border: 1px solid black; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* 인트로 제목  */
@@ -63,15 +67,18 @@
 }
 /* 인트로 버튼 */
 .review-btn {
- margin-top: 35px;
- padding: 10px 15px;
- height: 50px;
- background-color: #01321f;
- color: white;
- border-radius: 5px;
+  margin-top: 35px;
+  padding: 10px 15px;
+  height: 50px;
+  background-color: #01321f;
+  color: white;
+  border-radius: 5px;
 
- display: flex;
- align-items: center;
- justify-content: center;
- gap: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  align-self: flex-start;
 }
+
+/**************** 메인 설명(인트로) 영역 끝 ****************/
