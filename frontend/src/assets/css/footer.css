@@ -1,0 +1,37 @@
+#footer {
+  position: relative;
+  top: 100vh;
+  height: 200px;
+}
+
+.ft_content {
+  position: absolute;
+  bottom: 0;
+  width: 100vw;
+  height: 200px;
+  background-color: #d1d1d1;
+  display: flex;
+  align-items: center;
+}
+.ft_logo {
+  width: 250px;
+  height: 140px;
+  margin: 20px;
+  background-color: gray;
+}
+.ft_content > ul {
+  height: 140px;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.ft_content > ul > li {
+  color: #545454;
+  font-size: 12px;
+}
+.ft_content > ul > p {
+  color: #545454;
+  font-size: 12px;
+  margin: 45px 0 0 0;
+}
