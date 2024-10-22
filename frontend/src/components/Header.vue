@@ -2,24 +2,30 @@
   <div id="header">
     <div class="gnb">
       <div class="header-left">
-        <div class="gnb-logo"></div>
+        <div class="gnb-logo" @click="goHome"></div>
         <div class="top-menu">
           <ul>
             <li>
               <i class="ico about-menu"></i>
-              <span>소개</span>
+              <router-link :to="'intro'">
+                <span>소개</span>
+              </router-link>
             </li>
             <li>
               <i class="ico map-menu"></i>
-              <span>지도</span>
+              <router-link :to="'map'">
+                <span>지도</span>
+              </router-link>
             </li>
             <li>
               <i class="ico store-menu"></i>
-              <span>스토어</span>
+              <router-link :to="'store'">
+                <span>스토어</span>
+              </router-link>
             </li>
             <li>
               <i class="ico notice-menu"></i>
-              <span>고객지원</span>
+              <router-link :to="'notice'">고객지원</router-link>
             </li>
           </ul>
         </div>
@@ -37,5 +43,18 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data:() => ({
+    currentPath: '',
+  }), 
+  mounted() {
+  },
+  methods: {
+    goHome() {
+      if (this.$route.path !== '/main') {
+        this.$router.push({ path: '/main' });
+      }
+    },
+  }
+};
 </script>
