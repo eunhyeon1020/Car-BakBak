@@ -8,12 +8,21 @@ export const router = new VueRouter({
   routes: [
     {
       path: '/main',
-      component: () => import('@/components/Main.vue'),      
+      component: () => import('@/components/Main.vue'),
+    }, {
+      path: '/intro',
+      component: () => import('@/components/Notice.vue'),
+    }, {
+      path: '/map',
+      component: () => import('@/components/Notice.vue'),
+    }, {
+      path: '/store',
+      component: () => import('@/components/Notice.vue'),
+    }, {
+      path: '/notice',
+      component: () => import('@/components/Notice.vue'),
     },
-    {
-      path: '/sub',
-      component: () => import('@/components/SubMain.vue'),
-    },
+
     // redirect : 에러가 나거나 처음 보여줄 페이지를 설정한다.
     {
       path: '/',
