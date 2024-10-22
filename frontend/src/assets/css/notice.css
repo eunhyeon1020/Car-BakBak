@@ -1,0 +1,100 @@
+@charset "UTF-8";
+
+#notice {
+  position: relative;
+  width: 100%;
+  top: 60px;
+  padding: 0 3rem;
+}
+
+.noti-contain {
+  border: 1px solid red;
+  height: calc(100vh - 60px);
+  max-width: 1600px;
+  margin: 0 auto;
+}
+
+.noti-contain>h1 {
+  padding: 13rem 0 6rem;
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+/* select 부분 */
+.order-opt {
+  align-self: flex-end;
+}
+
+select#order {
+  width: 130px;
+  height: 40px;
+  border-radius: 10px;
+  padding: 0.3rem 0.8rem;
+  border: 1px solid #eee;
+}
+
+/* 공지사항 테이블 부분 */
+.noti-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 3vw;
+  gap: 2rem;
+}
+
+.noti-table {
+  width: 100%;
+}
+
+.noti-table tr {
+  border-bottom: 1px solid gray;
+}
+
+.noti-table tr>th,
+.noti-table tr>td {
+  text-align: center;
+}
+
+/* pagenation */
+.page-num {
+  display: flex;
+  gap: 1rem;
+}
+
+.page-num span {
+  display: block;
+  font-weight: 600;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  background-color: #ccc;
+  border-radius: 10px;
+}
+
+/* 하단 검색 부분 */
+.search-contain {
+  display: flex;
+  gap: 0.5rem;
+  flex: 1;
+}
+
+.search-contain input {
+  width: 300px;
+  height: 40px;
+  border: 1px solid #eee;
+  text-indent: 10px;
+}
+
+.search-contain button {
+  width: 60px;
+  border: 1px solid #eee;
+  background-color: #FFF;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.search-contain button:hover {
+  border: none;
+  background-color: #eee;
+}
