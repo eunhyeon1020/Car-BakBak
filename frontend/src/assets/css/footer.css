@@ -9,28 +9,37 @@
   bottom: 0;
   width: 100vw;
   height: 200px;
-  background-color: #d1d1d1;
+  background-color: #FFF;
   display: flex;
   align-items: center;
+  border-top: 1px solid #ccc;
 }
+
 .ft_logo {
   width: 250px;
   height: 140px;
   margin: 20px;
-  background-color: gray;
+  /* background-color: whitesmoke; */
+  background-image: url(../images/차박박.svg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: 90%;
 }
-.ft_content > ul {
+
+.ft_content>ul {
   height: 140px;
   text-align: left;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.ft_content > ul > li {
+
+.ft_content>ul>li {
   color: #545454;
   font-size: 12px;
 }
-.ft_content > ul > p {
+
+.ft_content>ul>p {
   color: #545454;
   font-size: 12px;
   margin: 45px 0 0 0;
