@@ -5,21 +5,75 @@
 @import "header.css";
 @import "main.css";
 @import "footer.css";
+/* @import "intro.css";
+@import "map.css";
+@import "store.css"; */
+@import "notice.css";
 
+html,
+body {
+  width: 100%;
+}
 
-html,body,ul,ol,h1,h2,h3,h4,h5 {
+::-webkit-scrollbar {
+  display: none;
+}
+
+html,
+body,
+ul,
+ol,
+h1,
+h2,
+h3,
+h4,
+h5 {
   margin: 0;
   padding: 0;
 }
-main, label {
+
+main,
+label {
   display: block;
 }
-a,u,i,em {
+
+a,
+u,
+i,
+em {
   text-decoration: none;
 }
+
+a {
+  color: #999;
+}
+
+a:active {
+  color: #777777;
+}
+
+a:visited {
+  color: #999;
+}
+
 li {
   list-style: none;
 }
+
 * {
   box-sizing: border-box;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+}
+
+table,
+tr,
+th,
+td {
+  border: 2px solid gray;
+  border-collapse: collapse;
+  border: none;
 }
