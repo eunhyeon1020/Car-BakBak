@@ -25,15 +25,17 @@
             </li>
             <li>
               <i class="ico notice-menu"></i>
-              <router-link :to="'notice'">고객지원</router-link>
+              <router-link :to="'notice'">
+                <span>고객지원</span>
+              </router-link>
             </li>
           </ul>
         </div>
       </div>
       <div class="header-right">
-        <div class="login"><p>로그인</p></div>
+        <router-link class="login" :to="'Login'"><p>로그인</p></router-link>
         <div>|</div>
-        <div class="sign-up"><p>회원가입</p></div>
+        <div class="sign-up"><router-link :to="'sign'"><p>회원가입</p></router-link></div>
         <div class="user" style="display: none"><p>김은현 님</p></div>
         <div style="display: none">|</div>
         <div class="my-page" style="display: none"><p>마이페이지</p></div>
@@ -43,6 +45,8 @@
 </template>
 
 <script>
+// import { router } from '@/routes/routes';
+
 export default {
   data:() => ({
     currentPath: '',
