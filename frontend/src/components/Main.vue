@@ -7,7 +7,7 @@
 
     <!-- 인트로 영역 -->
     <div class="main-intro">
-      <!-- 차 안에서 만나는 안전의 쉼표, 차박박! -->
+      <!-- 1. 간략 소개 / 차 안에서 만나는 안전의 쉼표, 차박박! -->
       <div class="intro-contain">
         <div>차 안에서 만나는 안전의 쉼표, 차박박</div>
         <ul>
@@ -50,9 +50,9 @@
         </button>
       </div>
 
-      <!-- 두번째 컨텐츠 -->
+      <!-- 2. 자세히 소개 -->
       <div class="intro-contain">
-        <!-- 2-1 -->
+        <!-- 2-1. 안전 지도 소개-->
         <div>
           <div class="use-safe-contain">
             <div class="use-safe">
@@ -68,21 +68,21 @@
                 </svg>
                 <span>안전 지도</span>
               </div>
-              <div style="line-height: 2.2rem; font-weight: 600">
-                편리와 안전<br />그리고 기록을 한 번에
+              <div style="line-height: 2.5rem; font-weight: 600">
+                편리와 안전, <br />그리고 기록을 한 번에
               </div>
             </div>
-            <div style="line-height: 1.5rem">
+            <div>
               사용자가 입력한 장소에 대한 안전 정보와 날씨 예보를 제공합니다.
-              또한, 다른 사용자들의 리뷰를 통해 새로운 차박지를 발견하고 자신의
-              경험을 공유할 수 있습니다.
+              <br>또한, 다른 사용자들의 리뷰를 통해 새로운 차박지를 발견하고 
+              <br>자신의 경험을 공유할 수 있습니다.
             </div>
           </div>
 
-          <div class="map-img">이미지</div>
+          <div class="map-img"></div>
         </div>
 
-        <!-- 2-2 -->
+        <!-- 2-2. 스토어 소개 -->
         <div class="intro-store">
           <div>
             <h3>Store</h3>
@@ -108,20 +108,24 @@
         </div>
       </div>
 
-      <!-- 세번째 컨텐츠 -->
+      <!-- 3. 구성원 소개 -->
       <div class="intro-contain">
         <div class="profile-comment">
-          <div>"안전을 위해 힘내겠습니다."</div>
+          <div>"안전을 위해 항상 힘내겠습니다."</div>
         </div>
         <div class="profile">
           <ul class="park">
-            <img src="../assets/images/profile.png" alt="소정 프로필">
+            <li>
+              <div></div>
+            </li>
             <li>팀장 박소정</li>
             <li><span>웹페이지 디자인</span><br /><span>웹페이지 UI/UX 구현</span></li>
           </ul>
 
           <ul class="kim">
-            <img src="../assets/images/profile.png" alt="은현 프로필">
+            <li>
+              <div></div>
+            </li>
             <li>조원 김은현</li>
             <li><span>웹페이지 디자인</span><br /><span>웹페이지 UI/UX 구현</span></li>
           </ul>
