@@ -10,17 +10,20 @@ export const router = new VueRouter({
       path: '/main',
       component: () => import('@/components/Main.vue'),
     }, {
-      path: '/intro',
-      component: () => import('@/components/Notice.vue'),
-    }, {
       path: '/map',
-      component: () => import('@/components/Notice.vue'),
+      component: () => import('@/components/Map.vue'),
     }, {
       path: '/store',
-      component: () => import('@/components/Notice.vue'),
+      component: () => import('@/components/Store.vue'),
     }, {
       path: '/notice',
       component: () => import('@/components/Notice.vue'),
+    }, {
+      path: '/login',
+      component: () => import('@/components/Login.vue'),
+    }, {
+      path: '/ign',
+      component: () => import('@/components/Sign.vue'),
     },
 
     // redirect : 에러가 나거나 처음 보여줄 페이지를 설정한다.
