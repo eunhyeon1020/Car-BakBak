@@ -16,16 +16,16 @@
 
         <table class="noti-table">
           <thead>
-             <tr>
-              <th>번호</th>
-              <th>제목</th>
-              <th>작성자</th>
-              <th>작성일</th>
-              <th>추천</th>
-              <th>조회</th>
+             <tr class="table-title">
+              <td>번호</td>
+              <td>제목</td>
+              <td>작성자</td>
+              <td>작성일</td>
+              <td>추천</td>
+              <td>조회</td>
              </tr>
           </thead>
-          <tbody>
+          <tbody class="table-content">
             <tr>
               <td>1</td>
               <td>웹 사용 공지사항</td>

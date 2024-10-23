@@ -8,15 +8,15 @@
 }
 
 .noti-contain {
-  border: 1px solid red;
+  /* border: 1px solid red; */
   height: calc(100vh - 60px);
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .noti-contain>h1 {
-  padding: 13rem 0 6rem;
-  font-size: 3rem;
+  padding: 13rem 0 6rem 1.3rem;
+  font-size: 2.8rem;
   font-weight: 700;
 }
 
@@ -26,11 +26,13 @@
 }
 
 select#order {
-  width: 130px;
-  height: 40px;
+  width: 150px;
+  height: 50px;
   border-radius: 10px;
   padding: 0.3rem 0.8rem;
   border: 1px solid #eee;
+  outline: none;
+  font-size: 1rem;
 }
 
 /* 공지사항 테이블 부분 */
@@ -39,7 +41,7 @@ select#order {
   flex-direction: column;
   align-items: center;
   padding: 0 3vw;
-  gap: 2rem;
+  gap: 4rem;
 }
 
 .noti-table {
@@ -47,12 +49,24 @@ select#order {
 }
 
 .noti-table tr {
-  border-bottom: 1px solid gray;
+  border-bottom: 1px solid #ccc;
+  color: #2b2b2b;
 }
 
-.noti-table tr>th,
-.noti-table tr>td {
+.table-title td {
+  font-weight: 600;
+  font-size: 1.4rem;
+}
+
+.table-content td {
+  font-size: 1.2rem;
+  background-color: #eee;
+}
+
+.table-title td,
+.table-content td {
   text-align: center;
+  padding: 8px 0;
 }
 
 /* pagenation */
@@ -70,6 +84,12 @@ select#order {
   text-align: center;
   background-color: #ccc;
   border-radius: 10px;
+  cursor: pointer;
+}
+
+.page-num span:active {
+  border: none;
+  background-color: #bbb;
 }
 
 /* 하단 검색 부분 */
@@ -80,21 +100,28 @@ select#order {
 }
 
 .search-contain input {
-  width: 300px;
-  height: 40px;
+  width: 450px;
+  height: 50px;
   border: 1px solid #eee;
-  text-indent: 10px;
+  text-indent: 15px;
+  font-size: 1.15rem;
 }
 
+/* 검색 버튼 */
 .search-contain button {
   width: 60px;
   border: 1px solid #eee;
   background-color: #FFF;
   border-radius: 10px;
   cursor: pointer;
+  font-size: 0.9rem;
 }
 
 .search-contain button:hover {
   border: none;
   background-color: #eee;
+}
+
+.search-contain button:active {
+  background-color: #ddd;
 }
