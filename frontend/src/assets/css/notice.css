@@ -63,6 +63,12 @@ select#order {
   background-color: #eee;
 }
 
+.table-content td:nth-child(2) {
+  cursor: pointer;
+}
+
+.table-content td:hover {}
+
 .table-title td,
 .table-content td {
   text-align: center;
