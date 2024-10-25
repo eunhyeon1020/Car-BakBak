@@ -17,5 +17,27 @@ export default {
     Header,
     Footer,
   },
+  data:() => ({
+    currentPath : '',
+  }),
+  watch: {
+   $route(to) {
+      console.log("pathname   :: ", window.location.pathname);
+      // console.log();
+      this.currentPath = to.path;
+      window.scrollTo(0,0);
+
+
+      this.$nextTick(() => {
+        const useSafeElement = document.querySelector('#useSafe');
+        if (useSafeElement) {          
+          if (this.currentPath === '/intro') {
+            const topPosition = useSafeElement.getBoundingClientRect().top + window.scrollY; // 요소의 top 위치 계산
+            window.scrollTo({ top: topPosition, behavior: 'smooth' });
+          }
+        }
+      });
+    },
+  },
 };
 </script>

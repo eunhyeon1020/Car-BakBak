@@ -51,7 +51,7 @@
       </div>
 
       <!-- 2. 자세히 소개 -->
-      <div class="intro-contain">
+      <div class="intro-contain" id="useSafe">
         <!-- 2-1. 안전 지도 소개-->
         <div>
           <div class="use-safe-contain">
@@ -68,10 +68,11 @@
                 </svg>
                 <span>안전 지도</span>
               </div>
-              <div style="line-height: 2.5rem; font-weight: 600">
+              <div style="line-height: 2.5rem; font-weight: 600;">
                 편리와 안전, <br />그리고 기록을 한 번에
               </div>
             </div>
+
             <div>
               사용자가 입력한 장소에 대한 안전 정보와 날씨 예보를 제공합니다.
               <br>또한, 다른 사용자들의 리뷰를 통해 새로운 차박지를 발견하고 
@@ -95,9 +96,9 @@
           <div class="store-icon">
             <svg
               xmlns="http://www.w3.org/2000/svg"
-              height="55px"
+              height="47px"
               viewBox="0 -960 960 960"
-              width="55px"
+              width="47px"
               fill="#fff"
             >
               <path
@@ -133,8 +134,18 @@
       </div>
     </div>
   </div>
-</template>
+  </template>
+
 
 <script>
-export default {};
+// export default {};
+
+export default {
+  data:() => ({    
+    scrollTop: 0,
+  }),
+};
+
+
+
 </script>
