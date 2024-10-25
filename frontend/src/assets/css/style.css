@@ -5,10 +5,12 @@
 @import "header.css";
 @import "main.css";
 @import "footer.css";
-/* @import "intro.css";
+/*
 @import "map.css";
 @import "store.css"; */
 @import "notice.css";
+@import "noticedetail.css";
+
 
 html,
 body {
@@ -62,6 +64,10 @@ li {
 
 * {
   box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none
 }
 
 img {
