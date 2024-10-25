@@ -20,13 +20,13 @@ ul {
 /* header 헤더 */
 #header {
   width: 100%;
-  height: 95px;
+  height: 65px;
   background-color: #ffffff00;
   backdrop-filter: blur(15px);
   box-sizing: border-box;
-  padding: 0 50px;
+  padding: 0 43px;
   position: fixed;
-  top: 0;
+  /* top: 0;  */
   z-index: 100;
 }
 
@@ -46,16 +46,16 @@ ul {
 }
 
 .gnb-logo {
-  min-width: 170px;
-  height: 95px;
+  min-width: 130px;
+  height: 65px;
   background: 50% 50% url(../images/차박박.svg) no-repeat;
-  background-size: 100%;
+  background-size: 96%;
   cursor: pointer;
 }
 
 .top-menu {
   text-align: center;
-  height: 70px;
+  height: 65px;
 }
 
 .top-menu>ul {
@@ -63,8 +63,8 @@ ul {
 }
 
 .top-menu>ul>li {
-  width: 100px;
-  height: 70px;
+  width: 110px;
+  height: 65px;
   line-height: 60px;
   display: inline-block;
   text-align: left;
@@ -113,10 +113,10 @@ ul {
 .notice-menu {
   display: inline-block;
   background-repeat: no-repeat;
-  background-size: 100%;
+  background-size: 81%;
   background-position: 50% 50%;
   width: 38px;
-  height: 70px;
+  height: 65px;
 }
 
 .about-menu {
@@ -137,7 +137,7 @@ ul {
 
 /* 로그인, 회원가입*/
 .gnb .header-right {
-  min-height: 95px;
+  min-height: 65px;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -148,8 +148,9 @@ ul {
 
 .gnb .header-right p {
   text-align: center;
-  font-size: 15px;
+  font-size: 14px;
   font-weight: bold;
   cursor: pointer;
   color: #647557;
+  white-space: nowrap;
 }
