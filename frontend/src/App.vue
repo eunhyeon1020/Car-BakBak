@@ -22,15 +22,19 @@ export default {
   }),
   watch: {
    $route(to) {
-      console.log("pathname   :: ", window.location.pathname);
-      // console.log();
       this.currentPath = to.path;
-      window.scrollTo(0,0);
 
+      window.scrollTo(0,0);
 
       this.$nextTick(() => {
         const useSafeElement = document.querySelector('#useSafe');
-        if (useSafeElement) {          
+        
+        const footer = document.querySelector('#footer');
+        if (this.currentPath === '/intro' || this.currentPath === '/main'){
+         footer.style.top = '0';
+        } else footer.style.top = '';
+
+        if (useSafeElement) {  
           if (this.currentPath === '/intro') {
             const topPosition = useSafeElement.getBoundingClientRect().top + window.scrollY; // 요소의 top 위치 계산
             window.scrollTo({ top: topPosition, behavior: 'smooth' });
@@ -39,5 +43,7 @@ export default {
       });
     },
   },
+  methods: {
+  }
 };
 </script>
