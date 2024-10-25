@@ -119,7 +119,6 @@
 }
 
 .use-safe-contain {
-  width: 80%;
   min-width: 300px;
   display: flex;
   flex-direction: column;
@@ -177,7 +176,7 @@
   background-repeat: no-repeat;
   background-position: 100%;
   background-size: 100%;
-  width: 378px;
+  width: 282px;
   height: 320px;
 }
 
