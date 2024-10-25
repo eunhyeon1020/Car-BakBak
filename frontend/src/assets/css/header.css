@@ -94,12 +94,14 @@ ul {
 
 .top-menu>ul>li a {
   width: 100%;
+  height: inherit;
+  line-height: 65px;
   font-size: 17px;
   display: none;
 }
 
 .top-menu>ul>li span {
-  font-weight: 800;
+  font-weight: 600;
 }
 
 .top-menu li>i.ico:hover {

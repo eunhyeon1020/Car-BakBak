@@ -45,19 +45,19 @@
 </template>
 
 <script>
-// import { router } from '@/routes/routes';
 
 export default {
   data:() => ({
     currentPath: '',
   }), 
   mounted() {
+    
   },
   methods: {
     goHome() {
       if (this.$route.path !== '/main') {
         this.$router.push({ path: '/main' });
-      }
+      } else window.location.reload();
     },
   }
 };
