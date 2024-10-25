@@ -10,6 +10,9 @@ export const router = new VueRouter({
       path: '/main',
       component: () => import('@/components/Main.vue'),
     }, {
+      path: '/intro',
+      component: () => import('@/components/Main.vue'),
+    }, {
       path: '/map',
       component: () => import('@/components/Map.vue'),
     }, {
@@ -19,10 +22,13 @@ export const router = new VueRouter({
       path: '/notice',
       component: () => import('@/components/Notice.vue'),
     }, {
+      path: '/noticedetail',
+      component: () => import('@/components/NoticeDetail.vue'),
+    }, {
       path: '/login',
       component: () => import('@/components/Login.vue'),
     }, {
-      path: '/ign',
+      path: '/sign',
       component: () => import('@/components/Sign.vue'),
     },
 
