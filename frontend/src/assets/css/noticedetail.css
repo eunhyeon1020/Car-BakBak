@@ -1,0 +1,22 @@
+ @charset "UTF-8";
+
+ #noticedetail {
+   position: relative;
+   width: 100%;
+   height: calc(100vh - 65px);
+   top: 65px;
+   padding: 0 3rem;
+ }
+
+ .ntDetail-contain {
+   border: 1px solid red;
+   height: calc(100vh - 60px);
+   max-width: 1600px;
+   margin: 0 auto;
+ }
+
+ .ntDetail-contain>h1 {
+   padding: 8rem 0 5rem 5rem;
+   font-size: 2.3rem;
+   font-weight: 700;
+ }
