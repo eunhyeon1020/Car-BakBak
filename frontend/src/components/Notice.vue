@@ -28,7 +28,9 @@
           <tbody class="table-content">
             <tr>
               <td>1</td>
-              <td>웹 사용 공지사항</td>
+              <td>
+                <router-link :to="'noticedetail'">웹 사용 공지사항</router-link>
+              </td>
               <td>차박박</td>
               <td>2024.10.23</td>
               <td>0</td>
@@ -40,7 +42,7 @@
         <div class="pagenation">
           <div class="page-num">
             <span>1</span>
-            <span>2</span>
+            <!-- <span>2</span> -->
           </div>
         </div>
 
@@ -61,6 +63,16 @@
 </script>
 
 <style scoped>
+a {
+  color: #2b2b2b;
+}
 
+a:active {
+  color: #2b2b2b;
+}
+
+a:visited {
+  color: #2b2b2b;
+}
 
 </style>
