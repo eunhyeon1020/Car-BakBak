@@ -1,6 +1,6 @@
 <template>
   <div id="header">
-    <div class="gnb">
+    <div class="gnb" :class="isMobile">
       <div class="header-left">
         <div class="gnb-logo" @click="goHome"></div>
         <div class="top-menu">
@@ -33,13 +33,19 @@
         </div>
       </div>
       <div class="header-right">
-        <router-link class="login" :to="'Login'"><p>로그인</p></router-link>
+        <router-link class="login user" :to="'login'">
+          <p>로그인</p>
+        </router-link>
         <div>|</div>
-        <div class="sign-up"><router-link :to="'sign'"><p>회원가입</p></router-link></div>
-        <div class="user" style="display: none"><p>김은현 님</p></div>
-        <div style="display: none">|</div>
-        <div class="my-page" style="display: none"><p>마이페이지</p></div>
+        <div class="sign-up">
+          <router-link :to="'sign'">
+            <p>회원가입</p>
+          </router-link>
+        </div>
       </div>
+      <!-- <div class="user" style="display: none"><p>김은현 님</p></div>
+      <div style="display: none">|</div>
+      <div class="my-page" style="display: none"><p>마이페이지</p></div> -->
     </div>
   </div>
 </template>
@@ -48,11 +54,11 @@
 
 export default {
   data:() => ({
+    isLogin: false,
     currentPath: '',
-  }), 
-  mounted() {
-    
-  },
+    isMobile: 'mobile',
+  }),
+  
   methods: {
     goHome() {
       if (this.$route.path !== '/main') {
