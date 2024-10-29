@@ -60,8 +60,12 @@ export default {
         }
 
         // 주소 파라미터가 "/login"일 때
-        if (this.currentPath === '/login'){
+        if (this.currentPath === '/login' || this.currentPath === '/sign'){
           this.isShow = false;
+        }
+
+        if (this.currentPath === '/noticdetail'){
+          footer.style.position= 'relative';
         }
       });
     },
