@@ -1,22 +1,58 @@
- @charset "UTF-8";
+  @charset "UTF-8";
 
- #noticedetail {
-   position: relative;
-   width: 100%;
-   height: calc(100vh - 65px);
-   top: 65px;
-   padding: 0 3rem;
- }
+  #noticedetail {
+    height: auto;
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 65px);
+    top: 65px;
+    padding: 0 5rem;
+  }
 
- .ntDetail-contain {
-   border: 1px solid red;
-   height: calc(100vh - 60px);
-   max-width: 1600px;
-   margin: 0 auto;
- }
+  .ntDetail-contain {
+    /* border: 1px solid red; */
+    height: calc(100vh - 60px);
+    max-width: 1600px;
+    margin: 0 auto;
+    word-break: keep-all;
+  }
 
- .ntDetail-contain>h1 {
-   padding: 8rem 0 5rem 5rem;
-   font-size: 2.3rem;
-   font-weight: 700;
- }
+  /* 세부 공지사항 제목 */
+  .ntDetail-title {
+    border-bottom: 1px solid #e6e8eb;
+    padding: 6rem 10px 4rem 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .ntDetail-title>h1 {
+    font-size: 2.7rem;
+    font-weight: 700;
+    line-height: 3rem;
+  }
+
+  .ntDetail-title>span {
+    color: #5a5a5a;
+  }
+
+  /* 세부 공지사항 내용 */
+  .ntDetail-content {
+    padding: 32px 10px 50px;
+    border-bottom: 1px solid #e6e8eb;
+  }
+
+  .ntDetail-content p {
+    font-weight: 300;
+  }
+
+  .ntDetail-content span {
+    color: #01321f;
+  }
+
+  /* 공지사항 목록으로 넘어가는 부분 */
+  .not-comeback p {
+    color: #131313;
+    font-size: 1rem;
+    font-weight: 500;
+  }
