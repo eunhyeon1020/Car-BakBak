@@ -128,7 +128,6 @@
 .use-safe-contain>div:last-child {
   font-size: 1.1rem;
   line-height: 1.7rem;
-  word-break: keep-all;
 }
 
 .use-safe {
@@ -216,7 +215,6 @@
   font-size: 1.17rem;
   font-weight: 600;
   line-height: 1.7rem;
-  word-break: keep-all;
   margin: 0;
   padding: 25px 0 0 0;
 }

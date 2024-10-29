@@ -138,14 +138,5 @@
 
 
 <script>
-// export default {};
-
-export default {
-  data:() => ({    
-    scrollTop: 0,
-  }),
-};
-
-
 
 </script>
