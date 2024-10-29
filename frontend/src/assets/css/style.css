@@ -10,6 +10,7 @@
 @import "store.css"; */
 @import "notice.css";
 @import "noticedetail.css";
+@import "login.css";
 
 
 html,
@@ -32,6 +33,8 @@ h4,
 h5 {
   margin: 0;
   padding: 0;
+  list-style: none;
+  box-sizing: border-box;
 }
 
 main,
@@ -67,7 +70,9 @@ li {
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
-  user-select: none
+  user-select: none;
+  border: none;
+  word-break: keep-all;
 }
 
 img {
