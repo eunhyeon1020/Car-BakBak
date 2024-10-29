@@ -8,33 +8,28 @@
 
         <div class="order-opt">          
           <select name="order" id="order">
-            <option value="current">최신순</option>
-            <option value="date">날짜순</option>
-            <option value="view">조회순</option>
+            <option value="all">전체</option>
+            <option value="current">작업</option>
+            <option value="date">업데이트</option>
+            <option value="view">이벤트</option>
           </select>
         </div>
 
         <table class="noti-table">
           <thead>
              <tr class="table-title">
-              <td>번호</td>
+              <td>종류</td>
               <td>제목</td>
-              <td>작성자</td>
               <td>작성일</td>
-              <td>추천</td>
-              <td>조회</td>
              </tr>
           </thead>
           <tbody class="table-content">
             <tr>
-              <td>1</td>
+              <td>작업</td>
               <td>
                 <router-link :to="'noticedetail'">웹 사용 공지사항</router-link>
               </td>
-              <td>차박박</td>
               <td>2024.10.23</td>
-              <td>0</td>
-              <td>2</td>
             </tr>
           </tbody>
         </table>

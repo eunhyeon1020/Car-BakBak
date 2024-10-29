@@ -5,7 +5,7 @@
   width: 100%;
   height: calc(100vh - 65px);
   top: 65px;
-  padding: 0 3rem;
+  padding: 0 5rem;
 }
 
 .noti-contain {
@@ -16,8 +16,8 @@
 }
 
 .noti-contain>h1 {
-  padding: 8rem 0 5rem 5rem;
-  font-size: 2.3rem;
+  padding: 11rem 0 5rem 1rem;
+  font-size: 2.7rem;
   font-weight: 700;
 }
 
@@ -41,8 +41,8 @@ select#order {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 7vw;
-  gap: 2rem;
+  padding: 0 3vw;
+  gap: 2.4rem;
 }
 
 .noti-table {
@@ -50,30 +50,36 @@ select#order {
 }
 
 .noti-table tr {
+  background-color: #FFF;
   border-bottom: 1px solid #ccc;
   color: #2b2b2b;
 }
 
 .table-title td {
   font-weight: 600;
-  font-size: 1rem;
+  font-size: 1.2rem;
 }
 
 .table-content td {
-  font-size: 0.85rem;
-  background-color: #eee;
+  font-size: 1rem;
+}
+
+.table-content tr:hover {
+  background-color: #f3f3f3 !important;
 }
 
 .table-content td:nth-child(2) {
   cursor: pointer;
 }
 
-/* .table-content td:hover {} */
+.table-content a {
+  display: block;
+}
 
 .table-title td,
 .table-content td {
   text-align: center;
-  padding: 1.5px 0;
+  padding: 0.6rem 0;
 }
 
 /* pagenation */
@@ -85,9 +91,9 @@ select#order {
 .page-num span {
   display: block;
   font-weight: 600;
-  width: 25px;
-  height: 25px;
-  line-height: 25px;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
   text-align: center;
   background-color: #ccc;
   border-radius: 8px;
@@ -108,11 +114,11 @@ select#order {
 }
 
 .search-contain input {
-  width: 350px;
-  height: 35px;
+  width: 400px;
+  height: 40px;
   border: 1px solid #eee;
   text-indent: 15px;
-  font-size: 0.8rem;
+  font-size: 0.85rem;
   outline: none;
 }
 
