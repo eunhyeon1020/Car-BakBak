@@ -1,26 +1,22 @@
   @charset "UTF-8";
 
   #noticedetail {
-    height: auto;
     position: relative;
     width: 100%;
-    height: calc(100vh - 65px);
+    height: auto;
     top: 65px;
-    padding: 0 5rem;
+    padding: 0 9rem;
   }
 
   .ntDetail-contain {
-    /* border: 1px solid red; */
-    height: calc(100vh - 60px);
     max-width: 1600px;
     margin: 0 auto;
-    word-break: keep-all;
   }
 
   /* 세부 공지사항 제목 */
   .ntDetail-title {
     border-bottom: 1px solid #e6e8eb;
-    padding: 6rem 10px 4rem 16px;
+    padding: 6rem 0 4rem;
     display: flex;
     flex-direction: column;
     gap: 40px;
@@ -38,11 +34,12 @@
 
   /* 세부 공지사항 내용 */
   .ntDetail-content {
-    padding: 32px 10px 50px;
+    padding: 3.5rem 0.8rem 5rem;
     border-bottom: 1px solid #e6e8eb;
   }
 
   .ntDetail-content p {
+    line-height: 2.5rem;
     font-weight: 300;
   }
 
@@ -55,4 +52,43 @@
     color: #131313;
     font-size: 1rem;
     font-weight: 500;
+    margin: 0;
+    padding: 3rem 0 5rem 0.6rem;
+  }
+
+  /* 반응형처리 부분 */
+  @media screen and (max-width:1024px) {
+    #noticedetail {
+      padding: 0 3rem;
+    }
+  }
+
+  @media screen and (max-width:768px) {
+
+    #noticedetail {
+      padding: 0 1rem;
+    }
+
+    /* 타이틀  */
+    .ntDetail-title {
+      padding: 5.5rem 0 3rem;
+      gap: 1rem;
+    }
+
+    .ntDetail-title>span {
+      font-size: 1rem;
+    }
+
+    .ntDetail-title>h1 {
+      font-size: 1.7rem;
+    }
+
+    /* 내용 */
+    .ntDetail-content {
+      padding: 1.5rem 0.8rem 3rem;
+    }
+
+    .ntDetail-content p {
+      font-size: 0.95rem;
+    }
   }
