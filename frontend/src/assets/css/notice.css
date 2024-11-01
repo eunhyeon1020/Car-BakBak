@@ -3,22 +3,21 @@
 #notice {
   position: relative;
   width: 100%;
-  height: calc(100vh - 65px);
+  height: auto;
   top: 65px;
-  padding: 0 5rem;
+  padding: 0 6rem;
 }
 
 .noti-contain {
-  /* border: 1px solid red; */
-  height: calc(100vh - 60px);
   max-width: 1600px;
   margin: 0 auto;
 }
 
 .noti-contain>h1 {
-  padding: 11rem 0 5rem 1rem;
+  padding: 11rem 0 5rem;
   font-size: 2.7rem;
   font-weight: 700;
+  color: #01321f;
 }
 
 /* select 부분 */
@@ -38,10 +37,10 @@ select#order {
 
 /* 공지사항 테이블 부분 */
 .noti-content {
+  padding-bottom: 72px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 3vw;
   gap: 2.4rem;
 }
 
@@ -51,13 +50,13 @@ select#order {
 
 .noti-table tr {
   background-color: #FFF;
-  border-bottom: 1px solid #ccc;
-  color: #2b2b2b;
+  border-bottom: 1px solid #eee;
 }
 
 .table-title td {
   font-weight: 600;
   font-size: 1.2rem;
+  color: #01321f;
 }
 
 .table-content td {
@@ -65,10 +64,10 @@ select#order {
 }
 
 .table-content tr:hover {
-  background-color: #f3f3f3 !important;
+  background-color: #b0b9a86b !important;
 }
 
-.table-content td:nth-child(2) {
+.table-content td:nth-child(3) {
   cursor: pointer;
 }
 
@@ -95,7 +94,7 @@ select#order {
   height: 35px;
   line-height: 35px;
   text-align: center;
-  background-color: #ccc;
+  background-color: #c9d4c0;
   border-radius: 8px;
   cursor: pointer;
   font-size: 0.8rem;
@@ -103,7 +102,7 @@ select#order {
 
 .page-num span:active {
   border: none;
-  background-color: #bbb;
+  background-color: #b2bbaa;
 }
 
 /* 하단 검색 부분 */
@@ -134,9 +133,100 @@ select#order {
 
 .search-contain button:hover {
   border: none;
-  background-color: #eee;
+  background-color: #c9d4c0;
 }
 
 .search-contain button:active {
-  background-color: #ddd;
+  background-color: #b2bbaa;
+}
+
+/* 반응형 처리  */
+@media screen and (max-width:1024px) {
+  #notice {
+    padding: 0 3rem;
+  }
+
+  .noti-contain>h1 {
+    padding: 9rem 0 3rem;
+    font-size: 2.2rem;
+  }
+
+  .noti-content {
+    padding-bottom: 8rem;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  #notice {
+    padding: 0 1rem;
+  }
+
+  .noti-content {
+    gap: 4rem;
+    padding-bottom: 10rem;
+  }
+
+  .noti-contain>h1 {
+    font-size: 2rem;
+    padding: 9rem 0 4rem;
+  }
+
+  .table-title td {
+    display: none;
+    font-size: 1rem;
+  }
+
+  .table-content td:nth-child(1) {
+    display: none;
+  }
+
+  .table-content td>a {
+    font-size: 1.2rem;
+    font-weight: 700;
+  }
+
+  .table-content td {
+    display: flex;
+    flex-wrap: wrap;
+    font-size: 0.9rem;
+  }
+
+  .page-num span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+  }
+
+  .search-contain input {
+    width: 300px;
+    height: 35px;
+    font-size: 0.8rem;
+  }
+
+  .search-contain button {
+    width: 50px;
+  }
+}
+
+@media screen and (max-width: 420px) {
+  .noti-contain>h1 {
+    padding: 7rem 0 3rem;
+  }
+
+  .noti-content {
+    gap: 3rem;
+  }
+
+  .table-content td {
+    font-size: 0.8rem;
+  }
+
+  .table-content td:nth-child(3) {
+    padding: 0;
+  }
+
+  .search-contain input {
+    width: 220px;
+  }
+
 }

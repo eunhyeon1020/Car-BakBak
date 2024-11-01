@@ -18,18 +18,26 @@
         <table class="noti-table">
           <thead>
              <tr class="table-title">
+              <td>NO.</td>
               <td>종류</td>
               <td>제목</td>
               <td>작성일</td>
              </tr>
           </thead>
+
           <tbody class="table-content">
-            <tr>
-              <td>작업</td>
+            <!-- vue에서 사용하는 for문 -->
+            <tr v-for="(item, index) in notiList" :key="index"> <!-- 6번 루프 -->
+              <td>{{ item.num }}</td>
+
+              <td>{{ item.type }}</td>
+
               <td>
-                <router-link :to="'noticedetail'">웹 사용 공지사항</router-link>
+                <router-link :to="'noticedetail'">{{ item.title }}</router-link>
               </td>
-              <td>2024.10.23</td>
+
+              <td>{{ item.createDt }}</td>
+
             </tr>
           </tbody>
         </table>
@@ -51,23 +59,37 @@
 
   </div>
 </template>
+
 <script>
   export default {
 
+    data:() => ({
+      notiList: [
+        { num: '1', type: '작업', title: '웹 사용 공지사항', createDt: '2024.10.23' },
+        { num: '2', type: '업데이트', title: '2024 업데이트', createDt: '2024.10.31' },
+        { num: '3', type: '이벤트', title: 'open 이벤트 ', createDt: '2024.10.26' },
+      ],
+    }),
+    mounted() {
+      for (let i=0; i<this.notiList.length; i++ ) {  // 6번 루프
+        console.log(this.notiList[i]);
+      }
+    },
+    methods: {
+    },
   }
 </script>
 
 <style scoped>
-a {
-  color: #2b2b2b;
-}
+  a {
+    color: #2b2b2b;
+  }
 
-a:active {
-  color: #2b2b2b;
-}
+  a:active {
+    color: #2b2b2b;
+  }
 
-a:visited {
-  color: #2b2b2b;
-}
-
+  a:visited {
+    color: #2b2b2b;
+  }
 </style>
