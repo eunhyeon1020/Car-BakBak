@@ -5,7 +5,7 @@
   background-color: #ffffff00;
   backdrop-filter: blur(15px);
   box-sizing: border-box;
-  padding: 0 5rem;
+  padding: 0 10rem;
   position: fixed;
   /* top: 0;  */
   z-index: 100;
@@ -93,7 +93,8 @@
 .about-menu,
 .map-menu,
 .store-menu,
-.notice-menu {
+.notice-menu,
+.hamburger-icon {
   display: inline-block;
   background-repeat: no-repeat;
   background-size: 81%;
@@ -120,6 +121,7 @@
 
 /* 로그인, 회원가입*/
 .gnb .header-right {
+  margin: 0 10px;
   min-height: 65px;
   display: flex;
   flex-direction: row;
@@ -136,4 +138,74 @@
   cursor: pointer;
   color: #647557;
   white-space: nowrap;
+}
+
+.mobile-icon {
+  cursor: pointer;
+  display: none;
+  height: 65px;
+}
+
+/* 드롭다운 내비게이션 */
+.drop-nav {
+  /* display: none; */
+  width: 100vw;
+  height: calc(100vh - 65px);
+  position: fixed;
+  top: 65px;
+  left: 0;
+  background-color: #ffff;
+  transition: 0.7s ease all;
+}
+
+/* 
+  레이아웃
+  display : inline, inline-block, block, flex, grid
+  display에 대한 컨트롤 속성 : flex속성, grid속성
+  width/height : px, em, rem, vw, vh
+  padding/margin : 길이로 부터의 안팍의 길이 조정
+  position : static, relative, absolute, fixed, sticky
+  position에 대한 속성 : top, left, right, bottom, z-index
+  overflow : hidden, scroll
+  color, 등등...
+*/
+
+
+
+
+
+
+
+/* 1024px일 때, 반응형 처리 */
+/* 반응형 처리할 때 아이콘 */
+@media screen and (max-width:1920px) {
+  #header {
+    padding: 0 6rem;
+
+  }
+}
+
+@media screen and (max-width:1024px) {
+  #header {
+    padding: 0 3rem;
+  }
+
+  .header-right,
+  .header-left>.top-menu {
+    display: none !important;
+  }
+
+  .mobile-icon {
+    display: block;
+  }
+
+  .hamburger-icon {
+    background-image: url(../images/hamburger-icon.svg);
+  }
+}
+
+@media screen and (max-width:768px) {
+  #header {
+    padding: 0 1rem;
+  }
 }
