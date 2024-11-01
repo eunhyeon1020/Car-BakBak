@@ -1,8 +1,9 @@
 #login {
-  position: relative;
+  content: "";
+  position: absolute;
   width: 100%;
   height: 100vh;
-  background: url(../images/loginsign-bg.png) fixed center center / cover;
+  background: url(../images/blur-background.png) fixed center center / cover;
 }
 
 .login-box {
@@ -14,11 +15,12 @@
   display: flex;
   flex-direction: column;
   gap: 40px;
+
 }
 
 /* 로그인 로고  */
 .login-logo {
-  background-image: url("../images/차박박.png");
+  background-image: url("../images/차박박.svg");
   background-size: 256px 103px;
   width: 256px;
   height: 103px;
