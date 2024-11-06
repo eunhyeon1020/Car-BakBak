@@ -30,6 +30,9 @@ export const router = new VueRouter({
     }, {
       path: '/sign',
       component: () => import('@/components/Sign.vue'),
+    },{
+      path: '/mypage',
+      component: () => import('@/components/Mypage.vue'),
     },
 
     // redirect : 에러가 나거나 처음 보여줄 페이지를 설정한다.
