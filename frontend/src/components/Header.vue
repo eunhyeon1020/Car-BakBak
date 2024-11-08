@@ -95,7 +95,6 @@
 
       <div class="mobile-icon" @click="NavToggle">
         <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ecedee"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
-        {{ toggleProp }} 
       </div>
       
       <!-- 1200px 일 때, 햄버거 아이콘 생성  -->

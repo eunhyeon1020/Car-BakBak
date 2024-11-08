@@ -63,25 +63,32 @@
         // // 마커를 지도에 표시
         marker.setMap(this.map);
 
-        const content = `
-        <div class="wrap">
-          <div class="info">
-            <div class="title">
-              카카오 스페이스닷원
-              <div id="overCloseBtn" class="close" title="닫기" onclick="closeOverlay()"></div>
+        // content 를 벡틱 문자열로 작성하는 것이 아니라 실제 DOM 요소로 생성했음!
+        const content = document.createElement('div');
+        content.className = 'wrap';
+        content.innerHTML = `
+        <div class="info">
+          <div class="title">
+            역삼역
+            <div id="overCloseBtn" class="close" title="닫기"></div>
+          </div>
+          <div class="body">
+            <div class="img">
+              <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/thumnail.png" width="73" height="70">
             </div>
-            <div class="body">
-              <div class="img">
-                <img src="https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/thumnail.png" width="73" height="70">
-              </div>
-              <div class="desc">
-                <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>
-                <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>
-                <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>
-              </div>
+            <div class="desc">
+              <div class="ellipsis">제주특별자치도 제주시 첨단로 242</div>
+              <div class="jibun ellipsis">(우) 63309 (지번) 영평동 2181</div>
+              <div><a href="https://www.kakaocorp.com/main" target="_blank" class="link">홈페이지</a></div>
             </div>
           </div>
         </div>`;
+
+        // 닫기 버튼 이벤트 리스너 추가
+        const closeButton = content.querySelector('#overCloseBtn');
+        closeButton.addEventListener('click', () => {
+          this.closeOverlay();
+        });
 
         // 커스텀 오버레이 생성
         this.overlay = new window.kakao.maps.CustomOverlay({
@@ -99,12 +106,11 @@
         });
       },
       // marker overlay 삭제 이벤트
-      closeOverlay() {        
-        console.log('작동되나?');
-
+      closeOverlay() {
+        console.log('이벤트 발생!!!');
         if (this.overlay) {
           this.overlay.setMap(null);
-        }        
+        }
       },
     },
   };
