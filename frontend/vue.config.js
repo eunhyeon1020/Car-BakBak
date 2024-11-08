@@ -1,4 +1,4 @@
-const port = 8001;
+const port = 8080;
 
 module.exports = {
   publicPath: '/',
