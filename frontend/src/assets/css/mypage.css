@@ -1,10 +1,13 @@
 #mypage {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
+  /* position: absolute; */
 }
 
 .mypage-contain {
-  width: 1200px;
+  /* position: relative; */
+  max-width: 1200px;
+  height: 100vh;
   margin: 0 auto;
 
   display: flex;
@@ -15,45 +18,35 @@
   width: 395px;
   height: 100vh;
 
-  display: flex;
-  justify-content: center;
-
   border-left: 1px solid rgba(0,0,0,.08);
   box-shadow: 5px 1px 8px 0 rgba(0,0,0,.06);
 }
 
-.mypage-header ul {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  gap: 30px;
-}
+/* 1. 타이틀 로고  */
 
-
-/* 1. 내 프로필 */
-
-.mypage-header li:nth-child(1) > div {
-  padding-top: 1rem;
+.mypage-header li:nth-child(1){
+  padding: 1rem 0.7rem;
   
   display: flex;
-  justify-content: center;
-  
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #01321f ;
+  align-items: center;
 }
 
-  .mypage-logo {
-  width: 300px;
-  height: 122px;
+.mypage-logo {
+  width: 90px;
+  height: 60px;
 
-  background-image: url(../images/차박박\ copy.svg);
+  background-image: url(../images/carbakbakfire-log.svg);
   background-repeat: no-repeat;
-  background-position: center;
-  background-size: 85%;
-  }
+  background-size: 100%;
+}
 
-  /* 2. 프로필 */
+.mypage-header li:nth-child(1) >div {
+  font-size: 1.7rem;
+  font-weight: 700;
+  color: #01321f;
+}
+
+/* 2. 프로필 이미지 */
 .profile-img {
   width: 150px;
   height: 150px;
@@ -67,26 +60,302 @@
   box-shadow: 0 3px 6px 0 rgba(29, 34, 53, .08);
 }
 
-.mypage-profile {
-  padding-bottom: 4rem;
+.mypage-img {
+  padding: 3rem 0 5rem;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 10px;
 }
 
-.mypage-profile div:nth-child(2) {
+.mypage-img div:nth-child(2) {
   font-size: 1.7rem;
   font-weight: 500;
 }
-.mypage-profile div:nth-child(3) {
+.mypage-img div:nth-child(3) {
   color: #aaa;
 }
 
+/* 3. 프로필 내용 */
+.mypage-header li:nth-child(3){
+  padding:0 3rem;
 
-/*******************마이페이지 내용 부분 *******************/
+}
+
+.mypage-menu {
+  padding-bottom: 4rem;
+  
+  display: flex;
+  flex-direction: column;
+  gap: 3.5rem;
+
+  font-size: 1.5rem;
+}
+
+.mypage-menu > div {
+  cursor: pointer;
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: #01321f;
+}
+
+/* 4. 로그아웃 */
+.logout{
+  display: flex;
+  justify-content: center;
+
+  padding: 1.6rem 0;
+}
+
+.logout > div {
+  color: #808080;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/******************* 마이페이지 내용 부분 *******************/
 .mypage-content {
-  width: 800px;
+  padding: 4.5rem 1rem 0 6rem;
+  
+  width: 804px;
   height: 100vh;
+  
   /* border: 1px solid red; */
 }
+
+.mypage-profile{
+  padding: 20px;
+  border: 1px solid #022015af;
+  border-radius: 20px;
+  box-shadow: 2px 2px 14px 0 rgba(1, 59, 27, 0.233);
+}
+
+.mypage-profile > div {
+  color: #696969;
+}
+
+.mypage-profile ul{
+  padding: 10px 0 10px 0;
+
+  display: flex;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid #eee;
+}
+
+.mypage-profile .profile-img {
+  width: 80px;
+  height: 80px;
+}
+
+.mypage-profile .userName {
+  padding-top: 5px;
+  font-size: 1.5rem;
+  font-weight: 500;
+}
+
+.mypage-profile .userId {
+  padding-top: 5px;
+  color: #696969;
+}
+
+/* 내 프로필 이미지 아이콘 넣기 */
+
+.accountCircle, .tel, .id, .pw, .adress, .email{
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.accountCircle >div:nth-child(1){
+  background-image: url(../images/accountCircle.svg);
+}
+
+.tel> div:nth-child(1){
+  background-image: url(../images/tel.svg);
+}
+
+.id> div:nth-child(1){
+  background-image: url(../images/id.svg);
+}
+
+.pw> div:nth-child(1){
+  background-image: url(../images/pw.svg);
+}
+
+.adress> div:nth-child(1){
+  background-image: url(../images/adress.svg);
+}
+
+.email> div:nth-child(1){
+  background-image: url(../images/mail.svg);
+}
+
+.accountCircle > div:nth-child(1),
+.tel > div:nth-child(1),
+.id >div:nth-child(1),
+.pw >div:nth-child(1),
+.adress >div:nth-child(1),
+.email >div:nth-child(1)
+{
+  width: 20px;
+  height: 30px;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+}
+
+.change {
+  padding-top: 10px;
+  cursor: pointer;
+}
+.change:hover {
+  color: #494949;
+  text-decoration: underline;
+}
+
+
+/*******************고객센터 부분 *******************/
+.mypage-service{
+  padding: 0 100px 0 0;
+}
+
+.info-title > div {
+  padding: 40px 0 60px 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.infoBtn{
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.infoBtn > li {
+  padding: 15px;
+
+  /* border: 1px solid #02201563;  */
+  font-size: 1.3em;
+  color: #494949;
+  border-radius: 10px; 
+  box-shadow: 2px 2px 14px 0 rgba(173, 173, 173, 0.308);
+  cursor: pointer;
+}
+.infoBtn li:hover {
+  background-color: #01321f;
+  box-shadow: 2px 2px 14px 0 #01321f61;
+  color: #ffffff;
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+/* 고객센터 상세페이지 - 공통 */
+.login-page > div,
+.paymoney-page > div,
+.service-page > div,
+.ask-page > div {
+  padding: 40px 0 60px 0;
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.login-page li,
+.paymoney-page li,
+.service-page li,
+.ask-page li{
+  width: 40rem;
+  padding: 25px;
+
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  gap: 10px;
+
+  border-bottom: 1px solid #b9b9b9 ;
+  /* border-radius: 15px; */
+  font-size: 1.1rem;
+  font-weight: 400;
+  color: #1f1f1f;
+
+}
+
+.login-page li::before,
+.paymoney-page li::before,
+.service-page li::before
+/* .ask-page li::before  */
+{ content: "";
+  width: 20px;
+  height: 20px;
+
+  display: inline-block;
+  background-image: url(../images/search.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: center;
+  cursor: pointer;
+}
+
+.login-page li::after,
+.paymoney-page li::after,
+.service-page li::after
+/* .ask-page li::before  */
+{
+  content: '';
+  width: 30px;
+  height: 30px;
+
+  margin-left: auto;
+
+  display: inline-block;  
+  background-image: url(../images/keyDown.svg);
+  background-repeat: no-repeat;
+  background-size: 100%;
+  background-position: right center;
+  cursor: pointer;
+}
+
+.backBtn {
+  margin-top: 50px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  color: #494949;
+  font-weight: 600;
+  cursor: pointer;
+}
+.backBtn:hover {
+  background-color: #ddd;
+}
+.backBtn:active {
+  background-color: #aaa;
+}
+
+/* 문의하기 페이지 */
+.ask-content {
+  width: 30rem;
+  height: auto;
+  min-height: 20rem;
+
+  padding: 10px;
+
+  /* border: 1px solid rgb(202, 202, 202); */
+  box-shadow: 2px 1px 10px #dfdfdf;
+  border-radius: 15px;
+  resize: none;
+}
+
+.askBtn {
+  margin: 50px 0 0 15px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  background-color: #0b4e34;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+
+}
+
+

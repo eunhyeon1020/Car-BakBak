@@ -75,6 +75,7 @@ li {
   -ms-user-select: none;
   user-select: none;
   border: none;
+  outline: none;
   word-break: keep-all;
 }
 
