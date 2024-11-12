@@ -50,7 +50,7 @@
         //   userId : 'XXX',
         //   userPw : 'XXXXXXXXXX',
         // }
-        // await res = $axios('http://localhost:18080/login', data);
+        // await res = $axios('http://localhost:8080/login', data);
         if (this.success) {
           confirm('로그인 창으로 이동합니다.'); // 확인 : true, 취소 : false
 
