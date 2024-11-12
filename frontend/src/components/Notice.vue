@@ -17,12 +17,12 @@
 
         <table class="noti-table">
           <thead>
-             <tr class="table-title">
+            <tr class="table-title">
               <td>NO.</td>
               <td>종류</td>
               <td>제목</td>
               <td>작성일</td>
-             </tr>
+            </tr>
           </thead>
 
           <tbody class="table-content">
@@ -57,6 +57,9 @@
       </div>
     </div>
 
+    <noticedetail :data="this.array">
+
+    </noticedetail>
   </div>
 </template>
 

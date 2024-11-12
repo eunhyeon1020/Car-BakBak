@@ -51,6 +51,14 @@
   </div>
 </template>
 
+<script>
+  export default {
+    props: {
+      data: Array,
+    },
+  }
+</script>
+
 <style scoped>
 
 </style>
