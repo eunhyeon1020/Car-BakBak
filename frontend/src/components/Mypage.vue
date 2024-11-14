@@ -225,17 +225,19 @@
           this.infoStatus = 'main'; 
           // main, store 일 때, 고객센터 외의 페이지는 main 상태로 리셋(자연스럽게 넘어감)
         }
-        // console.log(item);
-        // if (item === 'mypage'){
-        //   this.pageStatus = 'mypage';
-        // } else if (item === 'store'){
-        //   this.pageStatus = 'store';
-        // } else{
-        //   this.pageStatus = 'info';
-        // }
       },
       logout() {
-        alert('로그아웃 하시겠습니까?');
+        const logoutAsk = confirm('로그아웃 하시겠습니까?');
+        // console.log('res :: ', res);  // 확인 : true, 취소 : false
+        if (!logoutAsk) return;
+        this.$emit('logInOut', '로그아웃');
+        this.$router.push({path: '/main'});
+      },
+      toggleContent(index) { 
+        console.log("index :: ", index);
+        this.loginInquiries[index].isOpen = !this.loginInquiries[index].isOpen;        
+        this.paymoneyInquiries[index].isOpen = !this.paymoneyInquiries[index].isOpen;        
+        this.serviceInquiries[index].isOpen = !this.serviceInquiries[index].isOpen;        
       },
       showInfoSubPage(status){
         this.infoStatus = status;

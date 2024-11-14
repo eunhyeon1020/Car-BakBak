@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <Header v-if="isShow"></Header>
+    <Header :appLogin="appLogin" v-if="isShow"></Header>
 
-    <router-view></router-view>
+    <router-view @logInOut="logInOutEvent"></router-view>   <!-- mypage 컴포넌트에서 로그아웃 -->
 
     <Footer v-if="isShow"></Footer>
   </div>
@@ -27,6 +27,7 @@ export default {
   data:() => ({
     currentPath : '',
     isShow: true, // Boolean : true / false
+    appLogin: '', // 로그아웃, 로그인
   }),
   
   // 데이터가 수시로 
@@ -68,10 +69,17 @@ export default {
           footer.style.position= 'relative';
         }
       });
-    },
+    }, 
   },
 
   methods: {
+    //  this.$emit('logInOut', '로그아웃');     
+    //  login.vue === > '로그인' : data
+    //  myPage.vue === > '로그아웃' : data
+    logInOutEvent(data) {
+      console.log('emitdata :: ', data);
+      this.appLogin = data;
+    },
   }
 };
 </script>

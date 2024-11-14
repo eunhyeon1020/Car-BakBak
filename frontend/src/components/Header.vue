@@ -59,7 +59,7 @@
             <li>
               <i class="ico notice-menu"></i>
               <router-link :to="'notice'">
-                <span>고객지원</span>
+                <span>공지사항</span>
               </router-link>
             </li>
           </ul>
@@ -127,6 +127,11 @@
 <script>
 
 export default {
+  // Props : App.vue 에서 넘겨준 data
+  props: {
+    appLogin: String, // 로그아웃, 로그인
+  },
+
   data:() => ({
     isLogin: true,
     navToggle: false, //초기값 - 동적으로 변화한다
@@ -156,7 +161,13 @@ export default {
 
   // 창변환에 따라 남겨지는 메뉴들을 삭제 
   mounted() {
-    window.addEventListener('resize', this.handleResize);    
+    window.addEventListener('resize', this.handleResize);
+    console.log("this.appLogin :: ",this.appLogin);
+    if (this.appLogin === '로그아웃') {
+      this.isLogin = false;
+    } else {
+      this.isLogin = true;
+    }
   },
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
@@ -166,10 +177,10 @@ export default {
 <style>
 
 .st0 {
-  fill:#d3d3d3 ;
+  fill: #ecedee ;
 }
 .hamburger-icon {
-  fill: #d3d3d3 ;
+  fill: #ecedee ;
 }
 
 </style>

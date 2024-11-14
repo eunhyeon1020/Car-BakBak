@@ -8,7 +8,8 @@
       </router-link>
 
       <!-- 로그인 입력 부분 -->
-      <form id="login-form" @submit.prevent="formSubmit">
+      <form id="login-form"> 
+        <!-- @submit.prevent="formSubmit" -->
         <div class="login-top-text">
           <h3>로그인</h3>
           <div>
@@ -18,9 +19,9 @@
             </router-link>
           </div>
           
-          <input type="text" name="userID" placeholder="아이디 입력" />
-          <input type="password" name="userPassword" placeholder="비밀번호 입력"/>
-          <input type="submit" value="로그인" style="cursor: pointer;">
+          <input type="text" id="userID" name="userID" placeholder="아이디 입력" v-model="myId" />
+          <input type="password" id="userPassword" name="userPassword" placeholder="비밀번호 입력" v-model="myPw"/>
+          <input @click="login" type="button" value="로그인" style="cursor: pointer;">
           
         </div>
 
@@ -35,52 +36,28 @@
 </template>
 
 <script>
-// import { router } from '@/routes/routes';
 
   export default {
     data: () => ({      
-      myId : 'eunhyeon',
-      myPw : '1234',
-      success: true,
+      myId : '',
+      myPw : '',
     }),
-    methods: {
-      formSubmit() {
-        // const form = document.getElementById('login-form');
-        // const data = {
-        //   userId : 'XXX',
-        //   userPw : 'XXXXXXXXXX',
-        // }
-        // await res = $axios('http://localhost:8080/login', data);
-        if (this.success) {
-          confirm('로그인 창으로 이동합니다.'); // 확인 : true, 취소 : false
+    methods: {      
+      login(event) {
 
-          // 세션 스토리지에 고객 데이터를 등록
-          // sessionStorage.setItem('Key이름', Value);
-          
-          // 고객 데이터를 다시 들고올 때에는
-          // sessionStorage.getItem('Key이름');
+        console.log("id :: ", this.myId);
+        console.log("pw :: ", this.myPw);
 
+        if (this.myId === 'admin' && this.myPw === '123456'){
+          alert('로그인이 되었습니다.');
+          this.$emit('logInOut', '로그인') ;
           this.$router.push({path: '/main'});
-        } 
-        else {
-          this.$router.push({path: '/login'});
-          alert('아이디 패스워드를 확인해주세요.');
+
+        } else {
+          alert('아이디와 비밀번호를 다시 입력해주세요.');
+          event.preventDefault();   // 중지          
         }
-      },
-    }
-    
-    /* 데이터 내려받는 예시
-
-      {
-        data: {
-          userId: 'user123',
-          userNm: '남궁은현',
-          userRate: '마스터',
-        },
-        success: true,
-        statusCd: 202 / 404
       }
-
-    */
+    }
   }
 </script>
