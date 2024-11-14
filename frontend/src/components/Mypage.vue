@@ -18,9 +18,9 @@
 
           <li>
             <div class="mypage-menu">
-              <div @click="amuFounctin('mypage')" :class="{ 'font-700' : pageStatus === 'mypage'}">내프로필</div>
-              <div @click="amuFounctin('store')" :class="{ 'font-700' : pageStatus === 'store'}">스토어</div>
-              <div @click="amuFounctin('info')" :class="{ 'font-700' : pageStatus === 'info'}">고객센터</div>
+              <div @click="listClick('mypage')" :class="{ 'font-700' : pageStatus === 'mypage'}">내프로필</div>
+              <div @click="listClick('store')" :class="{ 'font-700' : pageStatus === 'store'}">스토어</div>
+              <div @click="listClick('info')" :class="{ 'font-700' : pageStatus === 'info'}">고객센터</div>
             </div>
             <div style="border: 1px solid #d7d7d78f;"></div>
           </li>
@@ -130,18 +130,14 @@
           <div class="login-page">
             <div>계정 & 로그인</div>
             <ul>
-              <li>
-                회원 탈퇴/로그아웃은 어떻게 하나요?
-              </li>
-              <li>
-                닉네임을 변경하고 싶어요.
-              </li>
-              <li>
-                회원가입 시 입력한 이메일을 변경하고 싶어요.
-              </li>
-              <li> 
-                비밀번호를 변경하고 싶어요.
-              </li>
+              <li v-for="(inquiry, index) in loginInquiries" :key="index">
+                <div :class="['inquiry-title', {'active' : inquiry.isOpen}]" @click="toggleContent(index)">
+                  {{ inquiry.title }}
+                </div>
+                <div v-if="inquiry.isOpen" class="inquiry-content">
+                  {{ inquiry.content }}
+                </div>
+              </li> 
             </ul>
           </div>
           <button class="backBtn" @click="backBtn"> ← 되돌아가기</button>
@@ -154,15 +150,14 @@
           <div class="paymoney-page">
             <div>결제</div>
             <ul>
-              <li>
-                현금 결제는 어떻게 하나요?
-              </li>
-              <li>
-                임금자 명을 바꾸고 싶어요.
-              </li>
-              <li>
-                현금영수증 발급은 어떻게 받나요?
-              </li>
+              <li v-for="(inquiry, index) in paymoneyInquiries" :key="index">
+                <div :class="['inquiry-title', {'active' : inquiry.isOpen}]" @click="toggleContent(index)">
+                  {{ inquiry.title }}
+                </div>
+                <div v-if="inquiry.isOpen" class="inquiry-content">
+                  {{ inquiry.content }}
+                </div>
+              </li> 
             </ul>
           </div>
           <button class="backBtn" @click="backBtn"> ← 되돌아가기</button>
@@ -175,18 +170,14 @@
           <div class="service-page">
             <div>서비스</div>
             <ul>
-              <li>
-                회원가입 시 어떠한 혜택이 있나요? 
+              <li v-for="(inquiry, index) in serviceInquiries" :key="index">
+                <div :class="['inquiry-title', {'active' : inquiry.isOpen}]" @click="toggleContent(index)">
+                  {{ inquiry.title }}
+                </div>
+                <div v-if="inquiry.isOpen" class="inquiry-content">
+                  {{ inquiry.content }}
+                </div>
               </li> 
-              <li>
-                비회원도 주문이 가능한가요? 
-              </li>
-              <li>
-                리뷰는 어떻게 작성해야 하나요?
-              </li>
-              <li> 
-                리뷰를 삭제하고 싶어요.
-              </li>
             </ul>
           </div>
           <button class="backBtn" @click="backBtn"> ← 되돌아가기</button>
@@ -215,9 +206,27 @@
     data: () => ({
       pageStatus: 'mypage',
       infoStatus: 'main',
+      loginInquiries: [
+        {title: "회원 탈퇴/로그아웃은 어떻게 하나요?", content:"탈퇴 및 로그아웃 방법에 대한 내용입니다.", isOpen: false},
+        {title: "닉네임을 변경하고 싶어요", content: "닉네임 변경 방법에 대한 내용입니다.", isOpen: false},
+        {title: "회원가입 시 입력한 이메일을 변경하고 싶어요", content: "이메일 변경에 대한 내용입니다.", isOpen: false},
+        {title: "비밀번호를 변경하고 싶어요", content: "비밀번호 변경에 대한 내용입니다.", isOpen: false}
+      ],
+      paymoneyInquiries: [
+        {title: "결제를 취소하고 싶어요.", content:"결제 취소에 대한 내용입니다.", isOpen:false},   
+        {title:"현금 결제는 어떻게 하나요?", content: "현금 결제에 대한 내용입니다.", isOpen:false},
+        {title:"입금자명을 바꾸고 싶어요.", content: "입금자명 변경 방법에 대한 내용입니다.", isOpen:false},
+        {title:"현금영수증 발급은 어떻게 받나요?", content: "현금영수증 발급 방법에 대한 내용입니다.", isOpen:false}
+      ],
+      serviceInquiries: [
+        {title:"회원가입 시 어떠한 혜택이 있나요?", content:"회원가입 혜택에 대한 내용입니다.", isOpen:false},
+        {title:"비회원도 주문이 가능한가요?", content:"비회원 주문 방법에 대한 내용입니다.", isOpen:false},
+        {title:"리뷰는 어떻게 작성해야 하나요", content:"리뷰 작성 방법에 대한 내용입니다.", isOpen:false},
+        {title:"리뷰를 삭제하고 싶어요.", content:"리뷰 삭제 방법에 대한 내용입니다. ", isOpen:false},
+      ]
     }),
     methods: {
-      amuFounctin(item){
+      listClick(item){
         this.pageStatus = item;
 
         /* item이 'info'와 같지 않다면 실행 --> 'info'가 아닌 다른 페이지를 선택했을 때만 조건문 실행 */
@@ -245,8 +254,8 @@
       backBtn() {
         this.infoStatus = 'main'; // 고객센터 메인으로 돌아가기
       },
+    }
   }
-}
 </script>
 
 <style scoped>
@@ -255,5 +264,23 @@
     font-weight: 700;
     width: 75px;
     border-bottom: 3px solid #01321f;
+  }
+  
+  .inquiry-title::after {
+    content: '';
+    width: 30px;
+    height: 30px;
+
+    margin-left: auto;
+
+    display: inline-block;  
+    background-image: url(../assets/images/keyDown.svg);
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-position: right center;
+    cursor: pointer;
+  }
+  .inquiry-title.active::after {
+  background-image: url(../assets/images/keyUp.svg);
   }
 </style>

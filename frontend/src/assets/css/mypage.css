@@ -24,7 +24,7 @@
 
 /* 1. 타이틀 로고  */
 
-.mypage-header li:nth-child(1){
+.mypage-header li:nth-child(1){ 
   padding: 1rem 0.7rem;
   
   display: flex;
@@ -77,9 +77,8 @@
 }
 
 /* 3. 프로필 내용 */
-.mypage-header li:nth-child(3){
+.mypage-header li:nth-child(3) {
   padding:0 3rem;
-
 }
 
 .mypage-menu {
@@ -100,7 +99,7 @@
 }
 
 /* 4. 로그아웃 */
-.logout{
+.logout {
   display: flex;
   justify-content: center;
 
@@ -116,7 +115,7 @@
 
 /******************* 마이페이지 내용 부분 *******************/
 .mypage-content {
-  padding: 4.5rem 1rem 0 6rem;
+  padding: 4.5rem 4rem 0 6rem;
   
   width: 804px;
   height: 100vh;
@@ -124,7 +123,7 @@
   /* border: 1px solid red; */
 }
 
-.mypage-profile{
+.mypage-profile {
   padding: 20px;
   border: 1px solid #022015af;
   border-radius: 20px;
@@ -135,7 +134,7 @@
   color: #696969;
 }
 
-.mypage-profile ul{
+.mypage-profile ul {
   padding: 10px 0 10px 0;
 
   display: flex;
@@ -163,7 +162,7 @@
 
 /* 내 프로필 이미지 아이콘 넣기 */
 
-.accountCircle, .tel, .id, .pw, .adress, .email{
+.accountCircle, .tel, .id, .pw, .adress, .email {
   display: flex;
   align-items: center;
   gap: 5px;
@@ -198,8 +197,7 @@
 .id >div:nth-child(1),
 .pw >div:nth-child(1),
 .adress >div:nth-child(1),
-.email >div:nth-child(1)
-{
+.email >div:nth-child(1) {
   width: 20px;
   height: 30px;
 
@@ -219,7 +217,7 @@
 
 
 /*******************고객센터 부분 *******************/
-.mypage-service{
+.mypage-service {
   padding: 0 100px 0 0;
 }
 
@@ -229,7 +227,7 @@
   font-weight: 700;
 }
 
-.infoBtn{
+.infoBtn {
   display: flex;
   flex-direction: column;
   gap: 30px;
@@ -264,30 +262,28 @@
 }
 
 .login-page li,
-.paymoney-page li,
-.service-page li,
-.ask-page li{
+.paymoney-page  li,
+.service-page  li,
+.ask-page  li{
   width: 40rem;
+  border-bottom: 1px solid #c5c5c5ad;
   padding: 25px;
+}
 
+.inquiry-title{
   display: flex;
   justify-items: center;
   align-items: center;
   gap: 10px;
-
-  border-bottom: 1px solid #b9b9b9 ;
   /* border-radius: 15px; */
   font-size: 1.1rem;
   font-weight: 400;
   color: #1f1f1f;
-
+  cursor: pointer;
 }
 
-.login-page li::before,
-.paymoney-page li::before,
-.service-page li::before
-/* .ask-page li::before  */
-{ content: "";
+.inquiry-title::before{
+  content: "";
   width: 20px;
   height: 20px;
 
@@ -299,32 +295,25 @@
   cursor: pointer;
 }
 
-.login-page li::after,
-.paymoney-page li::after,
-.service-page li::after
-/* .ask-page li::before  */
-{
-  content: '';
-  width: 30px;
-  height: 30px;
+.inquiry-content {
+  width: 100%;
+  max-width: 550px;
+  height: 250px;
+  padding: 20px 20px;
+  margin: 20px 15px 10px;
 
-  margin-left: auto;
-
-  display: inline-block;  
-  background-image: url(../images/keyDown.svg);
-  background-repeat: no-repeat;
-  background-size: 100%;
-  background-position: right center;
-  cursor: pointer;
+  color: #575757;
+  /* border: 1px solid #727272bd; */
+  box-shadow: 1px 1px 10px #d1d1d1 ;
+  border-radius: 15px;
 }
 
 .backBtn {
-  margin-top: 50px;
+  margin: 50px 0;
   padding: 5px 10px;
   border-radius: 10px;
   color: #494949;
   font-weight: 600;
-  cursor: pointer;
 }
 .backBtn:hover {
   background-color: #ddd;
@@ -355,7 +344,6 @@
   color: #ffffff;
   font-weight: 600;
   cursor: pointer;
-
 }
 
 
