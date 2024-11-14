@@ -13,9 +13,9 @@
         <div class="login-top-text">
           <h3>로그인</h3>
           <div>
-            <span>신규 이용자신가요?</span>
+            <span class="check-newbie-ment">신규 이용자신가요?</span>
             <router-link :to="'sign'">
-              <span style="color: #016FB6;">계정 만들기</span>
+              <span class="make-account-ment">계정 만들기</span>
             </router-link>
           </div>
           

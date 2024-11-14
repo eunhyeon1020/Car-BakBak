@@ -41,6 +41,10 @@
   gap: 16px;
 }
 
+.make-account-ment {
+  color: #016FB6 !important;
+}
+
 .login-top-text>h3 {
   font-size: 30px;
   color: #000000;
@@ -81,4 +85,52 @@
 
 .find-text p:nth-child(2) {
   cursor: auto;
+}
+/* 반응형 */
+@media screen and (max-width:750px) {
+  .login-logo {
+    background-image: url("../images/차박박\ copy.svg");
+    width: 200px;
+    background-size: 200px 100px;
+  }
+  #login {
+    background: #ffffff;
+    min-width: 319px;
+    padding-top: 20px;
+  }
+  #login-form {
+    box-shadow: 0 0 0;
+    padding: 10px 20px 40px 20px;
+  }
+  .login-top-text>h3 {
+    display: none;
+  }
+  .check-newbie-ment {
+    display: none;
+  }
+  .make-account-ment {
+    position: absolute;
+    top: 320px;
+  }
+  .login-box {
+    padding: 0px;
+    width: auto;
+    gap: 0px;
+  }
+  #login-form input {
+    border-bottom: 1px solid #ccc;
+    background-color: #ffffff;
+    border-radius: 0px;
+  }
+  #login-form input[type="button"] {
+    border: 0px;
+    border-radius: 4px;
+    height: 45px;
+  }
+  .find-text {
+    justify-content: space-evenly;
+    padding: 0;
+    width: 200px;
+    float: right;
+  }
 }
