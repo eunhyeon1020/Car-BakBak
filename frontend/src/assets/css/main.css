@@ -84,14 +84,16 @@
   padding: 10px 15px;
   height: 50px;
   background-color: #01321f;
-  color: white;
   border-radius: 5px;
-
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
   align-self: flex-start;
+}
+
+.review-btn a {
+  color: #fff ;
 }
 
 /**************** 1. 간략 소개 영역 끝  ****************/
@@ -346,11 +348,14 @@
     font-size: 1rem;
   }
 
-  .review-btn {
+  .review-btn{
     height: 40px;
     padding: 8px 8px;
     margin-top: 50px;
     font-size: 0.8rem;
+  }
+  .review-btn a {
+    color: #fff ;
   }
 
   /* 2.자세히 소개*/
