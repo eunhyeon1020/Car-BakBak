@@ -3,8 +3,15 @@
   width: 100%;
   height: 100vh;
   background: url(../images/blur-background.png) fixed center center / cover;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
   }
-  
+
+
+.testdiv {
+  display: flex;
+}
   /* 회원가입 박스 영역 */
 .sign-box {
 float: right;
@@ -20,6 +27,7 @@ gap: 40px;
 /* 로고 */
 .sign-logo {
   display: inline-block;
+  padding: 20px 100px 0px 40px;
 }
 .sign-logo-img {
 background-image: url("../images/차박박.svg");
@@ -40,6 +48,7 @@ background-color: #ffffff;
 display: flex;
 flex-direction: column;
 gap: 16px;
+margin-bottom: 10px;
 }
 
 .sign-top-text>h3 {
@@ -67,7 +76,7 @@ background-color: #f5f5f5;
 }
 
 #sign-form input[type="submit"] {
-background-color: #243516;
+background-color: #01321f;
 color: white;
 height: 40px;
 }
@@ -115,28 +124,75 @@ select {
 .sign-phone-area {
   width: 100%;
   background: #f5f5f5;
+  display: flex;
 }
 .sign-phoneNum {
-  width: 60%;
+  width: 70%;
 }
 
 .verify-btn {
-  width: 17%;
-  height: 80%;
+  width: 60%;
+  height: 70%;
   margin: auto;
   background-color: #ffffff;
   text-align: center;
   cursor: pointer;
   border: 1px solid #d8d8d8;
 }
+.testdiv-btn {
+  width: 30%;
+  display: flex;
 
+}
 /* 회원가입 버튼 */
 .signup-btn {
     padding: 10px;
-    background-color: #243516;
+    background-color: #01321f;
     color: white;
     border: none;
     border-radius: 5px;
     font-size: 16px;
     cursor: pointer;
+}
+.signup-btn:hover {
+  background-color: #044f32;
+}
+
+.signup-btn:active {
+  background-color: #056942;
+}
+
+@media screen and (max-width:1010px) {
+  .sign-logo {
+    padding: 20px 40px;
+  }
+}
+
+@media screen and (max-width:945px) {
+  .sign {
+    background: #ffffff;
+  }
+  .testdiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .sign-logo {
+    padding: 0px;
+}
+.sign-logo-img {
+  background-image: url("../images/차박박\ copy.svg");
+  width: 200px;
+  background-size: 200px 100px;
+}
+#sign-form {
+  box-shadow: 0 0 0;
+  padding: 10px 30px 40px;
+}
+.sign-box {
+  margin: 0px;
+}
+.sign-top-text {
+  display: none;
+}
 }

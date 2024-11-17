@@ -67,9 +67,16 @@
 }
 
 #login-form input[type="button"] {
-  background-color: #243516;
+  background-color: #01321f;
   color: white;
   height: 40px;
+}
+#login-form input[type="button"]:hover {
+  background-color: #044f32;
+}
+
+#login-form input[type="button"]:active {
+  background-color: #056942;
 }
 
 /* 찾기 부분 */
@@ -100,7 +107,10 @@
   }
   #login-form {
     box-shadow: 0 0 0;
-    padding: 10px 20px 40px 20px;
+    padding: 10px 30px 40px;
+  }
+  .login-top-text {
+    gap: 40px;
   }
   .login-top-text>h3 {
     display: none;
@@ -110,12 +120,14 @@
   }
   .make-account-ment {
     position: absolute;
-    top: 320px;
+    top: 451px;
+    font-size: 13px !important;
   }
   .login-box {
     padding: 0px;
     width: auto;
     gap: 0px;
+    margin-top: 60px;
   }
   #login-form input {
     border-bottom: 1px solid #ccc;
