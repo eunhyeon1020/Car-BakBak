@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <Header :appLogin="appLogin" v-if="isShow"></Header>
+    <Header :appLogin="appLogin" v-if="headerShow"></Header>
 
     <router-view @logInOut="logInOutEvent"></router-view>   <!-- mypage 컴포넌트에서 로그아웃 -->
 
-    <Footer v-if="isShow"></Footer>
+    <Footer v-if="footerShow" ></Footer>
   </div>
 </template>
 
@@ -26,7 +26,8 @@ export default {
   // 변수의 초기 값을 지정해주는 부분
   data:() => ({
     currentPath : '',
-    isShow: true, // Boolean : true / false
+    headerShow: true, // Boolean : true / false
+    footerShow: true,
     appLogin: '', // 로그아웃, 로그인
   }),
   
@@ -34,8 +35,9 @@ export default {
   watch: {
     // 페이지 host 뒤에 오는 파라미터가 변화될 때 실행 (주소 뒤 /파라미터)
     $route(to) {  // to 는 route라는 라이브러리(모듈)
-      this.isShow = true;
-      this.currentPath = to.path; // '/map'
+      this.headerShow = true;
+      this.footerShow = true;
+      this.currentPath = to.path; // EX:: '/map'
 
       window.scrollTo(0,0);
 
@@ -62,12 +64,18 @@ export default {
 
         // 주소 파라미터가 "/login"일 때
         if (this.currentPath === '/login' || this.currentPath === '/sign' || this.currentPath === '/mypage'){
-          this.isShow = false;
+          this.headerShow = false,
+          this.footerShow = false;
+        }
+
+        if (this.currentPath === '/map'){
+          this.footerShow = false;
         }
 
         if (this.currentPath === '/noticdetail'){
           footer.style.position= 'relative';
         }
+
       });
     }, 
   },
@@ -77,7 +85,7 @@ export default {
     //  login.vue === > '로그인' : data
     //  myPage.vue === > '로그아웃' : data
     logInOutEvent(data) {
-      console.log('emitdata :: ', data);
+      // console.log('emitdata :: ', data);
       this.appLogin = data;
     },
   }

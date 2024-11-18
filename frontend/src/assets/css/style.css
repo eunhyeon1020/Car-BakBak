@@ -6,13 +6,13 @@
 @import "main.css";
 @import "footer.css";
 /*
-@import "map.css";
 @import "store.css"; */
 @import "notice.css";
 @import "noticedetail.css";
 @import "login.css";
 @import "sign.css";
 @import "mypage.css";
+@import "map.css";
 
 
 
@@ -61,7 +61,7 @@ a:active {
 }
 
 a:visited {
-  color: #999;
+  /* color: #999; */
 }
 
 li {
