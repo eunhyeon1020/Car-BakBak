@@ -1,2 +1,0 @@
-여기에 backend workdirectory 경로 잡고 진행하면 됌.
-
