@@ -243,7 +243,7 @@
         this.$router.push({path: '/main'});
       },
       toggleContent(index) { 
-        console.log("index :: ", index);
+        // console.log("index :: ", index);
         this.loginInquiries[index].isOpen = !this.loginInquiries[index].isOpen;        
         this.paymoneyInquiries[index].isOpen = !this.paymoneyInquiries[index].isOpen;        
         this.serviceInquiries[index].isOpen = !this.serviceInquiries[index].isOpen;        
@@ -274,13 +274,13 @@
     margin-left: auto;
 
     display: inline-block;  
-    background-image: url(../assets/images/keyDown.svg);
+    background-image: url(../assets/images/ico-keyDown.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: right center;
     cursor: pointer;
   }
   .inquiry-title.active::after {
-  background-image: url(../assets/images/keyUp.svg);
+  background-image: url(../assets/images/ico-keyUp.svg);
   }
 </style>

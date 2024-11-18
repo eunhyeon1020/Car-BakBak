@@ -169,27 +169,27 @@
 }
 
 .accountCircle >div:nth-child(1){
-  background-image: url(../images/accountCircle.svg);
+  background-image: url(../images/ico-accountCircle.svg);
 }
 
 .tel> div:nth-child(1){
-  background-image: url(../images/tel.svg);
+  background-image: url(../images/ico-tel.svg);
 }
 
 .id> div:nth-child(1){
-  background-image: url(../images/id.svg);
+  background-image: url(../images/ico-id.svg);
 }
 
 .pw> div:nth-child(1){
-  background-image: url(../images/pw.svg);
+  background-image: url(../images/ico-pw.svg);
 }
 
 .adress> div:nth-child(1){
-  background-image: url(../images/adress.svg);
+  background-image: url(../images/ico-adress.svg);
 }
 
 .email> div:nth-child(1){
-  background-image: url(../images/mail.svg);
+  background-image: url(../images/ico-mail.svg);
 }
 
 .accountCircle > div:nth-child(1),
@@ -288,7 +288,7 @@
   height: 20px;
 
   display: inline-block;
-  background-image: url(../images/search.svg);
+  background-image: url(../images/ico-search.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
