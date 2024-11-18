@@ -45,8 +45,8 @@
     methods: {      
       login(event) {
 
-        console.log("id :: ", this.myId);
-        console.log("pw :: ", this.myPw);
+        // console.log("id :: ", this.myId);
+        // console.log("pw :: ", this.myPw);
 
         if (this.myId === 'admin' && this.myPw === '123456'){
           alert('로그인이 되었습니다.');

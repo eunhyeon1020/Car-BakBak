@@ -75,7 +75,7 @@
     }),
     mounted() {
       for (let i=0; i<this.notiList.length; i++ ) {  // 6번 루프
-        console.log(this.notiList[i]);
+        // console.log(this.notiList[i]);
       }
     },
     methods: {

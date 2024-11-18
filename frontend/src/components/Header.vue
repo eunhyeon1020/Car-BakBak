@@ -162,7 +162,7 @@ export default {
   // 창변환에 따라 남겨지는 메뉴들을 삭제 
   mounted() {
     window.addEventListener('resize', this.handleResize);
-    console.log("this.appLogin :: ",this.appLogin);
+    // console.log("this.appLogin :: ",this.appLogin);
     if (this.appLogin === '로그아웃') {
       this.isLogin = false;
     } else {
