@@ -21,7 +21,7 @@
             <div class="sidebar-contain" v-for="(item, index) in searchList" :key="index" >
               <div>
                 <div class="side-title" v-html="item.title"></div>
-                <a class="side-link" :href="item.url"> → </a>
+                <a class="side-link" :href="item.url" target='_blank'> → </a>
               </div> 
               <div class="side-datetime" v-html="formatDate(item.datetime)"></div>
               <div class="side-contents" v-html="item.contents"></div>
@@ -109,7 +109,7 @@
             query: this.searchText, 
             sort: 'accuracy',
             page: 1, 
-            size: 5, 
+            size: 3, 
           },
           headers: {
             Authorization: 'KakaoAK 6f28d7e14b2449fb380b7a2c0af2d9b4'
