@@ -5,8 +5,8 @@
 @import "header.css";
 @import "main.css";
 @import "footer.css";
-/*
-@import "store.css"; */
+
+@import "store.css"; 
 @import "notice.css";
 @import "noticedetail.css";
 @import "login.css";
@@ -19,10 +19,6 @@
 html,
 body {
   width: 100%;
-}
-
-::-webkit-scrollbar {
-  display: none;
 }
 
 html,
@@ -91,4 +87,8 @@ td {
   border: 2px solid gray;
   border-collapse: collapse;
   border: none;
+}
+
+::-webkit-scrollbar{
+  display: none;
 }
