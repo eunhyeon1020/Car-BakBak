@@ -3,7 +3,6 @@
     <!--  카카오맵이 들어갈 부분을 #mapContain 영역으로 지정 -->
     <div id="mapContain" style="width:100%; height:calc(100vh - 65px); position:relative; top:65px;"></div>
 
-
     <!--------------------- sidebar html ------------------->
       <div v-if="isSidebarOpen" class="sidebar"> 
         <div class="menuBtn">
@@ -12,76 +11,76 @@
         </div>
         
         <!-- 뉴스 page -->
-        <div v-if=" menuPage === 'news'"> 
-          <div class="sidebar-header">
+        <div class="news" v-if=" menuPage === 'news'"> 
+          <div class="newsbar-header">
             <div class="search-icon" v-text="searchText"></div>
           </div>
 
-          <div class="sidebar-body">
-            <div class="sidebar-contain" v-for="(item, index) in searchList" :key="index" >
+          <div class="newsbar-body">
+            <div class="newsbar-contain" v-for="(item, index) in searchList" :key="index" >
               <div>
-                <div class="side-title" v-html="item.title"></div>
-                <a class="side-link" :href="item.url" target='_blank'> → </a>
+                <div class="newsbar-title" v-html="item.title"></div>
+                <a class="newsbar-link" :href="item.url" target='_blank'> → </a>
               </div> 
-              <div class="side-datetime" v-html="formatDate(item.datetime)"></div>
-              <div class="side-contents" v-html="item.contents"></div>
+              <div class="newsbar-datetime" v-html="formatDate(item.datetime)"></div>
+              <div class="newsbar-contents" v-html="item.contents"></div>
             </div>
           </div>
 
-          <div class="sidebar-footer">
-            <button @click="isSidebarOpen = false">닫기</button>
+          <div class="newsbar-footer">
           </div> 
         </div>
-
-
+        
+        
         <!-- 리뷰 page -->
-        <div v-else>
-          안녕
-          <div style="border: 1px solid red; border-radius: 20px; height: auto; padding: 8px;">
-            <div style="display: flex; flex-direction: column;">
-              <div>생각하는 라이언</div>
-              <div style="background-color: #EEE; border-radius: 5px; padding: 3px 8px; width: 70%;">
-                아ㅣ~ 따분하다
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-              <div>고민하는 어피치</div>
-              <div style="background-color: #EEE; border-radius: 5px; padding: 3px 8px; width: 70%;">
-                아ㅣ~ 따분하다
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-              <div>기뻐하는 춘식이</div>
-              <div style="background-color: #EEE; border-radius: 5px; padding: 3px 8px; width: 70%;">
-                아ㅣ~ 따분하다
-              </div>
-            </div>
-            <div style="display: flex; flex-direction: column;">
-              <div>장난치는 콘</div>
-              <div style="background-color: #EEE; border-radius: 5px; padding: 3px 8px; width: 70%;">
-                아ㅣ~ 따분하다
-              </div>
-            </div>
-
-            <!-- 내가 채팅 치는 곳 -->
-            <div v-if="reviewList.length !== 0" style="display: flex; flex-direction: column; align-items: flex-end;">
-              <div>장난치는 콘</div>
-              <div v-for="(item, index) in reviewList" :key="index"
-              style="background-color: #ffff0026; border-radius: 5px;padding: 3px 8px; margin-bottom: 3px; width: 70%;">{{ item }}</div>
-            </div>
-            <!-- 내가 채팅 치는 곳 -->
-
-          </div>
-          <!-- 입력하는 곳 -->
-          <div style="width:100%;text-align:center;padding-top:10px;">
-            <textarea type="text" v-model="reviewText" style="border: 1px solid red; width: 50%;" 
-              @keypress="SendReview"/>
+        <div class="review" v-else>
+          <div class="review-header">
+            <div class="review-icon"></div>
+            <div class="review-title" v-text="searchText"></div>
           </div>
 
+          <div ref="chatArea" class="review-body">
+            <div v-for="(user, index) in reviewContent" :key="index">
+              <div class="userId">
+                {{ user.userID}}
+              </div>
+              <div class="chat" >
+                <div class="chatting">
+                  {{ user.chatting }}
+                </div>
+                <div class="chatdate">
+                  {{ user.chatdate }}
+                </div>
+              </div>
+            </div>
+
+            <!-- 날짜 -->
+            <div v-if="reviewList.length !== 0" style="text-align: center;" v-text="currentDate"></div>
+
+            <!-- 내가 채팅 친 곳 -->
+            <div class="myChat-contain" v-if="reviewList.length !== 0">
+              <div class="myChat">
+                <div class="myChatdate" v-text="currentTime"></div>
+                
+                  <div class="myChatting" v-for="(item, index) in reviewList" :key="index">
+                    {{ item }}
+                  </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="review-footer">
+            <!-- 입력하는 곳 -->
+            <div style="width:100%;text-align:center;padding-top:10px;">
+              <textarea type="text" v-model="reviewText" style="border: 1px solid red; width: 50%;" 
+              @keyup.enter="SendReview"/>
+            </div>
+          </div>
         </div>
 
+        <button class="closeBtn" @click="isSidebarOpen = false">닫기</button>
       </div>
-  </div>
+    </div>
 </template>
 
 <script>
@@ -94,9 +93,21 @@
       searchList: [],   // {}
       reviewText: '',
       reviewList: [],
-      menuPage: 'news', // news, review
+      menuPage: 'review', // news, review
+      reviewContent: [
+        {userID: "차차차", chatting: "여름에 갔는데 샤워실도 있고 수영하기도 좋았어요 !!", chatdate:"2023.7.27",},
+        {userID: "차린이", chatting: "처음 차박하시는 분들께 추천드립니다!", chatdate:"2023.10.20",},
+        {userID: "차박마스터꿈나무", chatting: "바다 보고 싶으시면 왼쪽으로 들어가는 것 ㅊㅊ", chatdate:"2023.11.23",},
+        {userID: "차박박하사탕탕후루", chatting: "근처 00횟집이 레전드 맛있음;;", chatdate:"2024.10.17",},
+        {userID: "차박해볼까", chatting: "상당히 추움. 외투 챙겨가세요", chatdate:"2024.11.16",},
+      ],
+      currentDate: '',
+      currentTime: '',
     }),
     async mounted() {
+
+      this.currentDate = new Date();
+
       if (window.kakao && window.kakao.maps) {  // 카카오맵 라이브러리가 존재할 때,
         this.loadMap();
       } else {  // 카카오, 카카오맵 라이브러리가 존재하지 않을 때,
@@ -104,12 +115,12 @@
       }
 
       // 카카오 검색 API 불러오기
-      const searchRes = await this.$axios.get(`	https://dapi.kakao.com/v2/search/web`, {
+      const searchRes = await this.$axios.get(`https://dapi.kakao.com/v2/search/web`, {
           params: { 
             query: this.searchText, 
             sort: 'accuracy',
             page: 1, 
-            size: 3, 
+            size: 10, 
           },
           headers: {
             Authorization: 'KakaoAK 6f28d7e14b2449fb380b7a2c0af2d9b4'
@@ -121,14 +132,33 @@
     },
     methods: {
       searchAction(e) {
-        this.searchText = e.target.value;
-        
+        this.searchText = e.target.value;        
       },
+      
       formatDate(datetime) {
         if (!datetime) return '';
           const [date] = datetime.split('T'); 
           return date; 
       },
+      
+      dateFormat() {
+        const today = new Date();
+        const year = today.getFullYear(); // 2023
+        const month = (today.getMonth() + 1).toString().padStart(2, '0'); // 06
+        const day = today.getDate().toString().padStart(2, '0'); // 18
+
+        const dateString = year + '.' + month + '.' + day; // 2023-06-18
+
+        return dateString;
+      },
+
+      timeFormat(date = new Date()) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        return hours + ":" + minutes
+      },
+
       loadMap() {   // 카카오 맵을 그리는 함수
         const container = document.getElementById('mapContain');
         const options = {
@@ -187,16 +217,28 @@
         // console.log(item);
       },
       SendReview(e) {
-        // console.log("e.keyCode :: ", e.keyCode);
-        // console.log("e.shiftKey ::", e.shiftKey)
         /* 
           - enter : 13
           - shift+enter : 16
         */
         if (e.keyCode === 13 && !e.shiftKey) {
-        this.reviewList.push(this.reviewText);
+          
+          this.reviewList.push(this.reviewText);
           this.reviewText = '';
+
+          this.$nextTick(() => {
+
+            this.currentDate = this.dateFormat();
+            this.currentTime = this.timeFormat();
+            
+
+            const separateSettingArea = document.querySelector('.review-body');
+            const chatArea = this.$refs.chatArea;
+            chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth', });
+          }
+        )
         }
+
       },
     },
   };
