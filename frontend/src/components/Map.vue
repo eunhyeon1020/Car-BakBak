@@ -34,41 +34,56 @@
         
         <!-- 리뷰 page -->
         <div class="review" v-else>
+          <!-- header -->
           <div class="review-header">
             <div class="review-icon"></div>
             <div class="review-title" v-text="searchText"></div>
           </div>
 
+          <!-- body -->
           <div ref="chatArea" class="review-body">
             <div v-for="(user, index) in reviewContent" :key="index">
+              <div class="chatDate">
+                <div class="chatDate-content">
+                  {{ user.chatDate }}
+                </div>
+              </div>
+
               <div class="userId">
                 {{ user.userID}}
               </div>
+              
               <div class="chat" >
                 <div class="chatting">
                   {{ user.chatting }}
                 </div>
-                <div class="chatdate">
-                  {{ user.chatdate }}
+                <div class="chatTime">
+                  {{ user.chatTime }}
+                </div>
+              </div>
+            
+            </div>
+
+            <!-- 날짜 출력 -->
+            <div v-if="reviewList.length !== 0" style="text-align: center;" v-text="currentDate"></div>
+
+            <!-- 시간과 내용 출력 -->
+            <div class="myChat-contain" v-if="reviewList.length !== 0">
+              <div v-for="(item, index) in reviewList" :key="index" class="myChat">
+                <div class="myChatdate" v-if="index === reviewList.length - 1 || reviewList[index + 1]?.time !== item.time ">
+                  {{ item.time }}
+                </div>
+                <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                  <div class="myChatting">
+                    {{ item.chat }}
+                  </div>
                 </div>
               </div>
             </div>
 
-            <!-- 날짜 -->
-            <div v-if="reviewList.length !== 0" style="text-align: center;" v-text="currentDate"></div>
-
-            <!-- 내가 채팅 친 곳 -->
-            <div class="myChat-contain" v-if="reviewList.length !== 0">
-              <div class="myChat">
-                <div class="myChatdate" v-text="currentTime"></div>
-                
-                  <div class="myChatting" v-for="(item, index) in reviewList" :key="index">
-                    {{ item }}
-                  </div>
-              </div>
-            </div>
           </div>
           
+          <!-- footer -->
           <div class="review-footer">
             <!-- 입력하는 곳 -->
             <div style="width:100%;text-align:center;padding-top:10px;">
@@ -95,11 +110,11 @@
       reviewList: [],
       menuPage: 'review', // news, review
       reviewContent: [
-        {userID: "차차차", chatting: "여름에 갔는데 샤워실도 있고 수영하기도 좋았어요 !!", chatdate:"2023.7.27",},
-        {userID: "차린이", chatting: "처음 차박하시는 분들께 추천드립니다!", chatdate:"2023.10.20",},
-        {userID: "차박마스터꿈나무", chatting: "바다 보고 싶으시면 왼쪽으로 들어가는 것 ㅊㅊ", chatdate:"2023.11.23",},
-        {userID: "차박박하사탕탕후루", chatting: "근처 00횟집이 레전드 맛있음;;", chatdate:"2024.10.17",},
-        {userID: "차박해볼까", chatting: "상당히 추움. 외투 챙겨가세요", chatdate:"2024.11.16",},
+        {userID: "차차차", chatting: "여름에 갔는데 샤워실도 있고 수영하기도 좋았어요 !!", chatDate:"2023 . 7 . 27", chatTime: "11 : 20",},
+        {userID: "차린이", chatting: "처음 차박하시는 분들께 추천드립니다!", chatTime: "14 : 22",},
+        {userID: "차박마스터꿈나무", chatting: "바다 보고 싶으시면 왼쪽으로 들어가는 것 ㅊㅊ", chatDate:"2023 . 11 . 23", chatTime: "18 : 37",},
+        {userID: "차박박하사탕탕후루", chatting: "근처 00횟집이 레전드 맛있음;;", chatDate:"2024 . 10 . 17", chatTime: "15 : 20",},
+        {userID: "차박해볼까", chatting: "상당히 추움. 외투 챙겨가세요", chatDate:"2024 . 11 . 16", chatTime: "18 : 33",},
       ],
       currentDate: '',
       currentTime: '',
@@ -107,6 +122,10 @@
     async mounted() {
 
       this.currentDate = new Date();
+
+      const separateSettingArea = document.querySelector('.review-body');
+      const chatArea = this.$refs.chatArea;
+      chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth', });
 
       if (window.kakao && window.kakao.maps) {  // 카카오맵 라이브러리가 존재할 때,
         this.loadMap();
@@ -140,25 +159,6 @@
           const [date] = datetime.split('T'); 
           return date; 
       },
-      
-      dateFormat() {
-        const today = new Date();
-        const year = today.getFullYear(); // 2023
-        const month = (today.getMonth() + 1).toString().padStart(2, '0'); // 06
-        const day = today.getDate().toString().padStart(2, '0'); // 18
-
-        const dateString = year + '.' + month + '.' + day; // 2023-06-18
-
-        return dateString;
-      },
-
-      timeFormat(date = new Date()) {
-        const hours = date.getHours();
-        const minutes = date.getMinutes();
-
-        return hours + ":" + minutes
-      },
-
       loadMap() {   // 카카오 맵을 그리는 함수
         const container = document.getElementById('mapContain');
         const options = {
@@ -216,30 +216,53 @@
         this.menuPage = item;
         // console.log(item);
       },
+      /* 리뷰창 컨트롤 */
       SendReview(e) {
-        /* 
-          - enter : 13
-          - shift+enter : 16
-        */
         if (e.keyCode === 13 && !e.shiftKey) {
-          
-          this.reviewList.push(this.reviewText);
-          this.reviewText = '';
 
-          this.$nextTick(() => {
+          if (this.reviewText === '*\n'){
+            return;
+          }
 
+          // 현재 입력된 시간과 채팅 내용
+          const newMessage = {
+            chat: this.reviewText,
+            time: this.timeFormat(),
+          };
+
+          this.reviewList.push(newMessage);
+          this.reviewText = ''; // 입력창 초기화
+
+          this.$nextTick(() => {  // DOM이 로딩이 완료된 후
             this.currentDate = this.dateFormat();
             this.currentTime = this.timeFormat();
-            
 
+            // 자동 스크롤
             const separateSettingArea = document.querySelector('.review-body');
             const chatArea = this.$refs.chatArea;
-            chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth', });
-          }
-        )
-        }
+            chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth' });
+          });
 
+          console.log("this.reviewList :: ", this.reviewList);
+        }
+      },      
+      dateFormat() {
+        const today = new Date();
+        const year = today.getFullYear(); // 2023
+        const month = (today.getMonth() + 1).toString().padStart(2, '0'); // 06
+        const day = today.getDate().toString().padStart(2, '0'); // 18
+
+        const dateString = year + '.' + month + '.' + day; // 2023-06-18
+
+        return dateString;
       },
+      timeFormat(date = new Date()) {
+        const hours = date.getHours();
+        const minutes = date.getMinutes();
+
+        return hours + ":" + minutes
+      },
+
     },
   };
 </script>

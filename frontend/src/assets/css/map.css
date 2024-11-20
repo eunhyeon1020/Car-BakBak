@@ -17,7 +17,7 @@
   height: calc(100vh - 65px);
   background-color: white;
   box-shadow: -2px 0px 5px rgba(0, 0, 0, 0.3);
-  z-index: 100;
+  z-index: 20;
 }
 
 
@@ -179,9 +179,48 @@ color: #01321f;
   flex-direction: column;
   gap: 15px;
 
-  background-color: white;
+  background-color: #f1f1f1;
   overflow-y: scroll;
+}
+.review-body::-webkit-scrollbar {
+  display: block !important;
+  width: 15px;
+}
+.review-body::-webkit-scrollbar-thumb {
+  
+  background-color: #00000025;
+  border-radius: 5px;
+}
 
+.chatDate {
+  display: flex;
+  justify-content: center;
+}
+
+.chatDate-content{
+  width: 85px;
+  margin: 10px 0px;
+  padding: px;
+
+  display: flex;
+  justify-content: center;
+
+  color: #636363;
+  background-color: #ffffff;
+  /* box-shadow: 0 0 2px #c0c0c0; */
+  border-radius: 20px;
+  font-size: 0.68rem;
+  font-weight: 300;
+}
+
+.userId, .myId {
+  width: auto;
+  height: auto;
+
+  padding: 0 0 0 7px;
+
+  font-size: 0.7rem;
+  font-weight: 400;
 }
 
 .chat{
@@ -189,16 +228,6 @@ color: #01321f;
   flex-direction: row;
   align-items: flex-end;
   gap: 5px;
-}
-
-.userId, .myId {
-  width: auto;
-  height: auto;
-
-  padding: 0 0 5px 7px;
-
-  font-size: 0.9rem;
-  font-weight: 500;
 }
 
 .chatting {
@@ -214,9 +243,10 @@ color: #01321f;
   font-weight: 300;
 }
 
-.chatdate{
-  font-size: 0.7rem;
+.chatTime {
+  font-size: 0.6rem;
 }
+
 
 .myChat-contain {
   display: flex; 
@@ -240,7 +270,7 @@ color: #01321f;
   margin: 4px 0;
 
   display: flex;
-  flex-direction: column;
+  flex-direction: ;
 
   background-color: #01321f;
   border-radius: 20px;
