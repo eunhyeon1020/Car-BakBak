@@ -77,22 +77,25 @@
   font-size: 1.08rem;
   line-height: 1.75rem;
 }
+.intro-contain > a[href='/login'] {
+  margin-top: 60px;
+  align-self: flex-start;
+}
 
 /* 인트로 버튼 */
 .review-btn {
-  margin-top: 60px;
   padding: 10px 15px;
   height: 50px;
   background-color: #01321f;
   border-radius: 5px;
+  cursor: pointer;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 15px;
-  align-self: flex-start;
 }
 
-.review-btn a {
+a .review-btn {
   color: #fff ;
 }
 
