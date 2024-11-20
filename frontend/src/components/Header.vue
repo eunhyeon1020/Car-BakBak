@@ -38,7 +38,7 @@
 
         <div class="top-menu">
           <ul>
-            <li>
+            <li @click="introLink">
               <i class="ico about-menu"></i>
               <router-link :to="'intro'">
                 <span>소개</span>
@@ -145,6 +145,20 @@ export default {
       if (this.$route.path !== '/main') {
         this.$router.push({ path: '/main' });
       } else window.location.reload();
+    },
+    introLink() {
+      const currentPath = this.$route.path;
+      const targetPath = '/intro';
+
+      if (currentPath === targetPath) {
+        // 동일한 경로로 강제 이동 (reload)
+        this.$router.replace({ path: '/' }).then(() => {
+          this.$router.replace(targetPath);
+        });
+      } else {
+        // 다른 경로에서는 /intro 경로로 이동
+        this.$router.push(targetPath);
+      }
     },
     NavToggle() {
       this.navToggle = !this.navToggle;

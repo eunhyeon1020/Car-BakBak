@@ -64,7 +64,7 @@ export default {
 
         // 주소 파라미터가 "/login"일 때
         if (this.currentPath === '/login' || this.currentPath === '/sign' || this.currentPath === '/mypage'){
-          this.headerShow = false,
+          this.headerShow = false;
           this.footerShow = false;
         }
 
