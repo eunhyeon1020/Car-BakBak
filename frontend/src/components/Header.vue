@@ -38,24 +38,39 @@
 
         <div class="top-menu">
           <ul>
-            <li @click="introLink">
+            <li @click="introLink('/intro')" >
               <i class="ico about-menu"></i>
               <router-link :to="'intro'">
                 <span>소개</span>
               </router-link>
             </li>
-            <li>
+
+            <li @click="introLink('/map')" v-if="isLogin">
               <i class="ico map-menu"></i>
               <router-link :to="'map'">
                 <span>지도</span>
               </router-link>
             </li>
-            <li>
+            <li @click="introLink('/error')" v-else>
+              <i class="ico map-menu"></i>
+              <router-link :to="'error'">
+                <span>지도</span>
+              </router-link>
+            </li>
+
+            <li v-if="isLogin">
               <i class="ico store-menu"></i>
               <router-link :to="'store'">
                 <span>스토어</span>
               </router-link>
             </li>
+            <li v-else>
+              <i class="ico store-menu"></i>
+              <router-link :to="'error'">
+                <span>스토어</span>
+              </router-link>
+            </li>
+
             <li>
               <i class="ico notice-menu"></i>
               <router-link :to="'notice'">
@@ -63,8 +78,10 @@
               </router-link>
             </li>
           </ul>
+
         </div>
       </div>
+
       <div class="header-right">
         
         <template v-if="!isLogin">
@@ -93,32 +110,57 @@
         </template>     
       </div>
 
-      <div class="mobile-icon" @click="NavToggle">
-        <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#ecedee"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+      <div class="mobile-icon">
+        <div class="toMypage" v-if="isLogin">
+          <router-link :to="'/mypage'">
+            <svg class="mypage-person-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ecedee"><path d="M480-480.67q-66 0-109.67-43.66Q326.67-568 326.67-634t43.66-109.67Q414-787.33 480-787.33t109.67 43.66Q633.33-700 633.33-634t-43.66 109.67Q546-480.67 480-480.67ZM160-160v-100q0-36.67 18.5-64.17T226.67-366q65.33-30.33 127.66-45.5 62.34-15.17 125.67-15.17t125.33 15.5q62 15.5 127.34 45.17 30.33 14.33 48.83 41.83T800-260v100H160Z"/></svg>
+          </router-link>
+        </div>
+
+        <div @click="NavToggle" >
+          <svg class="hamburger-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 -960 960 960" fill="#ecedee"><path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/></svg>
+        </div>        
       </div>
-      
       <!-- 1200px 일 때, 햄버거 아이콘 생성  -->
     </div>
     
     <!-- 드롭다운 내비게이션 -->
     <div class="drop-nav" v-if="this.navToggle && isMobile">
-      <div class="nav-content" @click="NavToggle">
-        <div>
-          <router-link :to="'/intro'">소개</router-link>
+
+      <div @click="NavToggle">
+        <div class="nav-content">
+          <div>
+            <router-link :to="'/intro'">소개</router-link>
+          </div>
+          <div>
+            <template v-if="isLogin">
+              <router-link :to="'/map'">지도</router-link>
+            </template>
+            <template v-else>
+              <router-link :to="'/error'">지도</router-link>
+            </template>
+          </div>
+          <div>
+            <template v-if="isLogin">
+              <router-link :to="'/store'">스토어</router-link>
+            </template>
+            <template v-else>
+              <router-link :to="'/error'">스토어</router-link>
+            </template>
+            
+          </div>
+          <div>
+            <router-link :to="'/notice'">공지사항</router-link>
+          </div>
         </div>
-        <div>
-          <router-link :to="'/map'">지도</router-link>
+
+        <div class="loginoutBtn">
+          <router-link :to="'/login'" v-if="!isLogin">로그인</router-link> 
+          <button @click="logOut" v-else>로그아웃</button>
         </div>
-        <div>
-          <router-link :to="'/store'">스토어</router-link>
-        </div>
-        <div>
-          <router-link :to="'/notice'">공지사항</router-link>
-        </div>
-        <button v-if="isMobile">
-          <router-link :to="'/login'">로그인</router-link>
-        </button>  
+
       </div>
+    
     </div>
 
   </div>
@@ -133,11 +175,11 @@ export default {
   },
 
   data:() => ({
-    isLogin: true,
+    isLogin: false,
     navToggle: false, //초기값 - 동적으로 변화한다
     currentPath: '',
     navContain: false,
-    isMobile: window.innerWidth <= 1024
+    isMobile: window.innerWidth <= 1024,
   }),
   
   methods: {
@@ -146,9 +188,16 @@ export default {
         this.$router.push({ path: '/main' });
       } else window.location.reload();
     },
-    introLink() {
+    logOut() {
+      this.isLogin = false;
+      alert('로그아웃 되었습니다.');
+      if (this.$route.path !== '/main') {
+        this.$router.replace('/main');
+      }     
+    },
+    introLink(link) {
       const currentPath = this.$route.path;
-      const targetPath = '/intro';
+      const targetPath = link;
 
       if (currentPath === targetPath) {
         // 동일한 경로로 강제 이동 (reload)
@@ -160,33 +209,40 @@ export default {
         this.$router.push(targetPath);
       }
     },
+
     NavToggle() {
       this.navToggle = !this.navToggle;
-      if(this.navToggle){
+
+      this.$emit('NavToggle', this.navToggle)
+
+      if (this.navToggle){
         document.querySelector('#header').style.height = '100%';
       }else {
         document.querySelector('#header').style.height = '65px';
       }
     },
+
     handleResize() {
       this.isMobile = window.innerWidth <= 1024; // 창 크기 변화에 따라 업데이트    
     },
+
   },
 
   // 창변환에 따라 남겨지는 메뉴들을 삭제 
   mounted() {
     window.addEventListener('resize', this.handleResize);
-    // console.log("this.appLogin :: ",this.appLogin);
+
     if (this.appLogin === '로그아웃') {
       this.isLogin = false;
-    } else {
+    } else if (this.appLogin === '로그인') {
       this.isLogin = true;
     }
   },
+
   beforeDestroy() {
     window.removeEventListener('resize', this.handleResize);
   },
-};
+}
 </script>
 <style>
 
