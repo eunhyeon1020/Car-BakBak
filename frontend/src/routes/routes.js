@@ -33,6 +33,9 @@ export const router = new VueRouter({
     },{
       path: '/mypage',
       component: () => import('@/components/Mypage.vue'),
+    },{
+      path: '/error',
+      component: () => import('@/components/error.vue'),
     },
 
     // redirect : 에러가 나거나 처음 보여줄 페이지를 설정한다.
