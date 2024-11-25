@@ -13,7 +13,7 @@
           <li class="mypage-img">
             <div class="profile-img"></div>
             <div class="userName">김은현</div>
-            <div class="userId">userID</div>
+            <div class="userId">admin</div>
           </li>
 
           <li>
@@ -47,7 +47,7 @@
               <li class="profile-img"></li>
               <li>
                 <div class="userName">김은현</div>
-                <div class="userId">userId</div>
+                <div class="userId">admin</div>
               </li>
             </ul>
   
@@ -64,11 +64,11 @@
               <li>
                 <div class="id">
                   <div></div>
-                  <div>userID</div> 
+                  <div>admin</div> 
                 </div>
                 <div class="pw">
                   <div></div>
-                  <div>userPw</div>
+                  <div>123456</div>
                 </div>
               </li>
             </ul>
@@ -235,13 +235,16 @@
           // main, store 일 때, 고객센터 외의 페이지는 main 상태로 리셋(자연스럽게 넘어감)
         }
       },
+
       logout() {
         const logoutAsk = confirm('로그아웃 하시겠습니까?');
         // console.log('res :: ', res);  // 확인 : true, 취소 : false
+        
         if (!logoutAsk) return;
         this.$emit('logInOut', '로그아웃');
         this.$router.push({path: '/main'});
       },
+
       toggleContent(index) { 
         // console.log("index :: ", index);
         this.loginInquiries[index].isOpen = !this.loginInquiries[index].isOpen;        

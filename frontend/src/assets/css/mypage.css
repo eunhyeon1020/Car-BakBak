@@ -209,11 +209,15 @@
 .change {
   padding-top: 10px;
   cursor: pointer;
+  
 }
-.change:hover {
+.change:hover, 
+.change:active {
   color: #494949;
   text-decoration: underline;
+  text-underline-position : under;
 }
+
 
 
 /*******************고객센터 부분 *******************/
