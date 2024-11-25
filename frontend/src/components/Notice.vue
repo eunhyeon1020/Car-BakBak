@@ -56,10 +56,6 @@
         
       </div>
     </div>
-
-    <noticedetail :data="this.array">
-
-    </noticedetail>
   </div>
 </template>
 
