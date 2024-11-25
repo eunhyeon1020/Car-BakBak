@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <Header :appLogin="appLogin" v-if="headerShow"></Header>
+    <Header @NavToggle="NavToggleEvent" :appLogin="appLogin" v-if="headerShow"></Header>
 
     <router-view @logInOut="logInOutEvent"></router-view>   <!-- mypage 컴포넌트에서 로그아웃 -->
 
@@ -68,7 +68,7 @@ export default {
           this.footerShow = false;
         }
 
-        if (this.currentPath === '/map'){
+        if (this.currentPath === '/map' || this.currentPath === '/error'){
           this.footerShow = false;
         }
 
@@ -85,8 +85,15 @@ export default {
     //  login.vue === > '로그인' : data
     //  myPage.vue === > '로그아웃' : data
     logInOutEvent(data) {
-      // console.log('emitdata :: ', data);
+      // console.log(data);
       this.appLogin = data;
+    },
+    NavToggleEvent(isToggle){
+      if(isToggle){
+        document.querySelector('body').style.overflow = 'hidden';
+      } else {
+        document.querySelector('body').style.overflow = '';
+      }
     },
   }
 };
