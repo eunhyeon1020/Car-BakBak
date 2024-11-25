@@ -1,0 +1,221 @@
+#error {
+  width: 100%;
+  height: calc(100vh - 65px);
+
+  position: absolute;
+  top: 65px;
+}
+
+.error-contain {
+  width: 100%;
+  height: calc(100vh - 65px);
+
+  padding: 20px 50px 20px 30px;
+
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+
+}
+.errorGIF {
+  width: 500px;
+  height: 500px;
+}
+
+.error-content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.error-content > div:nth-child(1){
+  font-size: 3rem;
+  font-weight: 800;
+  /* color: #01321f; */
+}
+
+.error-content > div:nth-child(2){
+  font-size: 2rem;
+  font-weight: 700;
+  
+  color: #414141;
+}
+
+.homeBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  cursor: pointer;
+}
+.homeBtn > div {
+  padding: 0 10px 0 0 ;
+  font-size: 1.2rem;
+  color: #747474;
+}
+.homeBtn > div:hover {
+  text-decoration: underline;
+  text-decoration-color: #838383;
+  text-underline-position : under;
+  text-decoration-thickness: 2px;
+  color: #5f5f5f;
+}
+.homeBtn > div:active {
+  text-decoration: underline; /* 언더라인 */
+  text-underline-position : under; /* 언더라인 간격두기 */
+  text-decoration-thickness: 2px; /* 언더라인 굵기 */
+  text-decoration-color: #01321f; /* 언더라인 색 */
+  color: #01321f;
+}
+
+
+
+@media screen and (max-width:1280px){
+  .error-contain{
+    gap: 25px;
+  }
+  
+  .errorGIF {
+    width: 350px;
+    height: 350px;
+  }
+  
+  .error-content {
+    gap: 25px;
+  }
+  
+  .error-content > div:nth-child(1){
+    font-size: 2.1rem;
+  }
+  
+  .error-content > div:nth-child(2){
+    font-size: 1.3rem;
+  }
+  
+  .homeBtn > div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width:1024px){
+  #error {
+    height: calc(100vh - 71px);
+    top: 71px;
+  }
+}
+
+@media screen and (max-width: 800px){
+  .error-contain{
+    padding: 20px 30px ;
+
+    flex-direction: column;
+    justify-content: flex-start;
+    gap: 10px;
+
+  }
+
+  .errorGIF {
+    width: 400px;
+    height: 400px;
+    margin-top: 8rem;
+  }
+  
+  .error-content {
+    align-items: center;
+    gap: 50px;
+  }
+  
+  .error-content > div:nth-child(1){
+    font-size: 2.8rem;
+  }
+  
+  .error-content > div:nth-child(2){
+    font-size: 1.6rem;
+  }
+
+  .homeBtn > div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 580px){
+  .error-contain{
+    gap: 50px;
+  }
+  .errorGIF {
+    width: 350px;
+    height: 300px;
+    margin-top: 8rem;
+  }
+
+  .error-content{
+    gap: 40px;
+  }
+  
+  .error-content > div:nth-child(1){
+    font-size: 2.5rem;
+  }
+  
+  .error-content > div:nth-child(2){
+    font-size: 1.3rem;
+  }
+
+  .homeBtn > div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .error-contain{
+    gap: 25px;
+  }
+  .errorGIF {
+    width: 300px;
+    height: 300px;
+    margin-top: 8rem;
+  }
+
+  .error-content{
+    gap: 30px;
+  }
+  
+  .error-content > div:nth-child(1){
+    font-size: 2.2rem;
+  }
+  
+  .error-content > div:nth-child(2){
+    font-size: 1.1rem;
+  }
+
+  .homeBtn > div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (max-width: 360px){
+  .error-contain{
+    gap: 20px;
+  }
+  .errorGIF {
+    width: 200px;
+    height: 200px;
+    margin-top: 8rem;
+  }
+
+  .error-content{
+    gap: 20px;
+  }
+  
+  .error-content > div:nth-child(1){
+    font-size: 1.6rem;
+  }
+  
+  .error-content > div:nth-child(2){
+    font-size: 0.9rem;
+  }
+
+  .homeBtn > div {
+    font-size: 0.8rem;
+  }
+}
