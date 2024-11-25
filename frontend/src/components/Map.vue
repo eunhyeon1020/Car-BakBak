@@ -16,11 +16,11 @@
             <div class="search-icon" v-text="searchText"></div>
           </div>
 
-          <div class="newsbar-body">
+          <div ref="chatArea" class="newsbar-body">
             <div class="newsbar-contain" v-for="(item, index) in searchList" :key="index" >
               <div>
                 <div class="newsbar-title" v-html="item.title"></div>
-                <a class="newsbar-link" :href="item.url" target='_blank'> → </a>
+                <a class="newsbar-link" :href="item.url" target='_blank'></a>
               </div> 
               <div class="newsbar-datetime" v-html="formatDate(item.datetime)"></div>
               <div class="newsbar-contents" v-html="item.contents"></div>
@@ -28,7 +28,8 @@
           </div>
 
           <div class="newsbar-footer">
-          </div> 
+            <button @click="isSidebarOpen = false">Close</button>
+          </div>
         </div>
         
         
@@ -65,12 +66,14 @@
             </div>
 
             <!-- 날짜 출력 -->
-            <div v-if="reviewList.length !== 0" style="text-align: center;" v-text="currentDate"></div>
+            <div class="chatDate">
+              <div class="myChatdate" v-if="reviewList.length !== 0" v-text="currentDate"></div>
+            </div>
 
             <!-- 시간과 내용 출력 -->
             <div class="myChat-contain" v-if="reviewList.length !== 0">
               <div v-for="(item, index) in reviewList" :key="index" class="myChat">
-                <div class="myChatdate" v-if="index === reviewList.length - 1 || reviewList[index + 1]?.time !== item.time ">
+                <div class="myChattime" v-if="index === reviewList.length - 1 || reviewList[index + 1]?.time !== item.time ">
                   {{ item.time }}
                 </div>
                 <div style="display: flex; flex-direction: column; align-items: flex-end;">
@@ -86,14 +89,13 @@
           <!-- footer -->
           <div class="review-footer">
             <!-- 입력하는 곳 -->
-            <div style="width:100%;text-align:center;padding-top:10px;">
-              <textarea type="text" v-model="reviewText" style="border: 1px solid red; width: 50%;" 
-              @keyup.enter="SendReview"/>
+            <textarea type="text" v-model="reviewText" @key.enter="SendReview" ref="textarea" placeholder="발자국을 남겨주세요."/>
+            <div class="review-closeBtn">
+              <button @click="isSidebarOpen = false"> Close</button>
             </div>
           </div>
         </div>
 
-        <button class="closeBtn" @click="isSidebarOpen = false">닫기</button>
       </div>
     </div>
 </template>
@@ -108,7 +110,7 @@
       searchList: [],   // {}
       reviewText: '',
       reviewList: [],
-      menuPage: 'review', // news, review
+      menuPage: 'news', // news, review
       reviewContent: [
         {userID: "차차차", chatting: "여름에 갔는데 샤워실도 있고 수영하기도 좋았어요 !!", chatDate:"2023 . 7 . 27", chatTime: "11 : 20",},
         {userID: "차린이", chatting: "처음 차박하시는 분들께 추천드립니다!", chatTime: "14 : 22",},
@@ -122,10 +124,6 @@
     async mounted() {
 
       this.currentDate = new Date();
-
-      const separateSettingArea = document.querySelector('.review-body');
-      const chatArea = this.$refs.chatArea;
-      chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth', });
 
       if (window.kakao && window.kakao.maps) {  // 카카오맵 라이브러리가 존재할 때,
         this.loadMap();
@@ -150,6 +148,15 @@
         this.searchList = searchRes.data && searchRes.data.documents ? searchRes.data.documents : [];
     },
     methods: {
+      handleEnter() {
+      // Enter 키 입력 시 커서 위치를 유지
+      const textarea = this.$refs.textarea;
+      if (textarea) {
+        // 강제로 커서를 텍스트 끝으로 이동
+        const cursorPosition = textarea.selectionEnd;
+        textarea.setSelectionRange(cursorPosition, cursorPosition);
+      }
+      },
       searchAction(e) {
         this.searchText = e.target.value;        
       },
@@ -214,13 +221,21 @@
       },
       menuContent(item) {
         this.menuPage = item;
-        // console.log(item);
+
+        if (this.menuPage === 'review') {
+          this.$nextTick(() => {
+            const separateSettingArea = document.querySelector('.review-body');
+            const chatArea = this.$refs.chatArea;
+            chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth', });
+          });
+        }
       },
       /* 리뷰창 컨트롤 */
       SendReview(e) {
         if (e.keyCode === 13 && !e.shiftKey) {
+          e.preventDefault(); 
 
-          if (this.reviewText === '*\n'){
+          if (!this.reviewText.trim()){
             return;
           }
 
@@ -243,7 +258,7 @@
             chatArea.scrollTo({ top: separateSettingArea.scrollHeight, behavior: 'smooth' });
           });
 
-          console.log("this.reviewList :: ", this.reviewList);
+          // console.log("this.reviewList :: ", this.reviewList);
         }
       },      
       dateFormat() {
@@ -258,7 +273,7 @@
       },
       timeFormat(date = new Date()) {
         const hours = date.getHours();
-        const minutes = date.getMinutes();
+        const minutes = date.getMinutes().toString().padStart(2, '0');
 
         return hours + ":" + minutes
       },
