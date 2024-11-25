@@ -48,7 +48,7 @@
 
           alert('로그인이 되었습니다.');
           this.$emit('logInOut', '로그인') ;
-          this.$router.push({path: '/main'});
+          this.$router.push({path: '/'});
 
         } else {
           alert('아이디와 비밀번호를 다시 입력해주세요.');

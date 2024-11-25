@@ -46,7 +46,7 @@ export default {
         const useSafeElement = document.querySelector('#useSafe');
         const footer = document.querySelector('#footer');      
 
-        if (this.currentPath === '/intro' || this.currentPath === '/main'){
+        if (this.currentPath === '/intro' || this.currentPath === '/'){
           footer.style.top = '0';
         } 
         else {

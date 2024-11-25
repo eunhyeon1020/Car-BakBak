@@ -4,7 +4,7 @@
       <div class="mypage-header">
         <ul>
           <li>
-            <router-link :to="'/main'">
+            <router-link :to="'/'">
               <div class="mypage-logo"></div>
             </router-link>
             <div>My Page</div>
@@ -110,7 +110,7 @@
               <li  @click="showInfoSubPage('login')" class="info-login">
                 계정 & 로그인
               </li>
-              <li @click="showInfoSubPage('paymoney')" class="info-paymoeny">
+              <li @click="showInfoSubPage('paymoney')" class="info-paymoney">
                 결제
               </li>
               <li @click="showInfoSubPage('service')" class="info-service">
@@ -242,7 +242,7 @@
         
         if (!logoutAsk) return;
         this.$emit('logInOut', '로그아웃');
-        this.$router.push({path: '/main'});
+        this.$router.push({path: '/'});
       },
 
       toggleContent(index) { 

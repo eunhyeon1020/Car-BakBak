@@ -184,15 +184,20 @@ export default {
   
   methods: {
     goHome() {
-      if (this.$route.path !== '/main') {
-        this.$router.push({ path: '/main' });
-      } else window.location.reload();
+      if (this.$route.path !== '/') {
+        this.$router.replace({ path: '/' });
+      } 
+      else {
+        this.$router.replace({ path: '/intro' }).then(() => {
+          this.$router.replace({ path: '/' });
+        });
+      }
     },
     logOut() {
       this.isLogin = false;
       alert('로그아웃 되었습니다.');
-      if (this.$route.path !== '/main') {
-        this.$router.replace('/main');
+      if (this.$route.path !== '/') {
+        this.$router.replace('/');
       }     
     },
     introLink(link) {

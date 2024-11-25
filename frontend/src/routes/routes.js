@@ -7,7 +7,7 @@ export const router = new VueRouter({
   mode: 'history',
   routes: [
     {
-      path: '/main',
+      path: '/',
       component: () => import('@/components/Main.vue'),
     }, {
       path: '/intro',
@@ -35,13 +35,13 @@ export const router = new VueRouter({
       component: () => import('@/components/Mypage.vue'),
     },{
       path: '/error',
-      component: () => import('@/components/error.vue'),
+      component: () => import('@/components/Error.vue'),
     },
 
     // redirect : 에러가 나거나 처음 보여줄 페이지를 설정한다.
     {
       path: '/',
-      redirect: '/main',
-    }
+      redirect: '/',
+    },
   ]
 });

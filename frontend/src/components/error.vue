@@ -8,7 +8,7 @@
         <div>죄송합니다.</div>
         <div>로그인 후, 본 페이지는 이용이 가능합니다.</div>
         <div class="homeBtn">
-          <div><router-link :to="'/main'">홈으로</router-link></div>
+          <div><router-link :to="'/'">홈으로</router-link></div>
         </div>
       </div>
       
