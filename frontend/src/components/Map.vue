@@ -89,7 +89,7 @@
           <!-- footer -->
           <div class="review-footer">
             <!-- 입력하는 곳 -->
-            <textarea type="text" v-model="reviewText" @key.enter="SendReview" ref="textarea" placeholder="발자국을 남겨주세요."/>
+            <textarea type="text" v-model="reviewText" @keydown.enter="SendReview" ref="textarea" placeholder="발자국을 남겨주세요."/>
             <div class="review-closeBtn">
               <button @click="isSidebarOpen = false"> Close</button>
             </div>
@@ -105,7 +105,7 @@
     data:() => ({
       map: null,  // map 객체를 초기화해줬다
       overlay: null,
-      isSidebarOpen: true, //사이드 바 기본 열림 상태(false)
+      isSidebarOpen: false, //사이드 바 기본 열림 상태(false)
       searchText: '실미유원지 안전',
       searchList: [],   // {}
       reviewText: '',
