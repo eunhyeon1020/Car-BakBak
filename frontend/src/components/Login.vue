@@ -19,8 +19,8 @@
             </router-link>
           </div>
           
-          <input type="text" id="userID" name="userID" placeholder="아이디 입력" v-model="myId" />
-          <input type="password" id="userPassword" name="userPassword" placeholder="비밀번호 입력" v-model="myPw"/>
+          <input @keydown.enter="login" type="text" id="userID" name="userID" placeholder="아이디 입력" v-model="myId" />
+          <input @keydown.enter="login" type="password" id="userPassword" name="userPassword" placeholder="비밀번호 입력" v-model="myPw"/>
           <input @click="login" type="button" value="로그인" style="cursor: pointer;">
           
         </div>
@@ -44,11 +44,8 @@
     }),
     methods: {      
       login(event) {
-
-        // console.log("id :: ", this.myId);
-        // console.log("pw :: ", this.myPw);
-
         if (this.myId === 'admin' && this.myPw === '123456'){
+
           alert('로그인이 되었습니다.');
           this.$emit('logInOut', '로그인') ;
           this.$router.push({path: '/main'});
