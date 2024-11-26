@@ -3,7 +3,7 @@
     
     <div class="login-box">
 
-      <router-link :to="'main'">
+      <router-link :to="'/'">
         <div class="login-logo"></div>
       </router-link>
 
@@ -26,10 +26,21 @@
         </div>
 
         <div class="find-text">
-          <p>비밀번호 찾기</p>
-          <p>|</p>
-          <p>아이디 찾기</p>
-        </div>          
+
+          <div v-if="isMobile"> 
+            <router-link :to="'/sign'">
+              계정 만들기 
+            </router-link>
+          </div>
+
+          <div>
+            <p>비밀번호 찾기</p>
+            <p>|</p>
+            <p>아이디 찾기</p>
+          </div>
+
+        </div>
+        
       </form>
     </div>
   </div>
@@ -41,6 +52,7 @@
     data: () => ({      
       myId : '',
       myPw : '',
+      isMobile: window.innerWidth <= 1024,
     }),
     methods: {      
       login(event) {
@@ -54,7 +66,16 @@
           alert('아이디와 비밀번호를 다시 입력해주세요.');
           event.preventDefault();   // 중지          
         }
-      }
-    }
+      },
+      updateIsMobile() {
+      this.isMobile = window.innerWidth <= 750;
+      },
+    },
+    mounted() {
+    window.addEventListener('resize', this.updateIsMobile); // 리사이즈 이벤트 등록
+    },
+    beforeDestroy() {
+    window.removeEventListener('resize', this.updateIsMobile); // 이벤트 해제
+    },
   }
 </script>

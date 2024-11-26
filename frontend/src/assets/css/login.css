@@ -43,6 +43,8 @@
 
 .make-account-ment {
   color: #016FB6 !important;
+  text-decoration: underline;
+  text-underline-position : under;
 }
 
 .login-top-text>h3 {
@@ -80,7 +82,7 @@
 }
 
 /* 찾기 부분 */
-.find-text {
+.find-text > div {
   font-size: 13px;
   color: #9B9A9A;
   text-align: center;
@@ -90,59 +92,84 @@
   cursor: pointer;
 }
 
-.find-text p:nth-child(2) {
+.find-text >div > p:nth-child(2) {
   cursor: auto;
 }
-/* 반응형 */
+
+
+
+/************************ 반응형 ************************/
 @media screen and (max-width:750px) {
+  #login {
+    min-width: 319px;
+    /* padding: 10px; */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background: #ffffff;
+  }
+
+  .login-box {
+    margin: 0;
+    gap: 0px;
+    padding: 0;
+  }
+  
+  #login-form {
+    box-shadow: 0 0 0;
+    padding: 10px 30px;
+  }
+
   .login-logo {
     background-image: url("../images/차박박\ copy.svg");
     width: 200px;
     background-size: 200px 100px;
   }
-  #login {
-    background: #ffffff;
-    min-width: 319px;
-    padding-top: 20px;
-  }
-  #login-form {
-    box-shadow: 0 0 0;
-    padding: 10px 30px 40px;
-  }
+
   .login-top-text {
     gap: 40px;
   }
-  .login-top-text>h3 {
-    display: none;
-  }
-  .check-newbie-ment {
-    display: none;
-  }
+  
+  .login-top-text>h3,
+  .check-newbie-ment,
   .make-account-ment {
-    position: absolute;
-    top: 451px;
-    font-size: 13px !important;
+    display: none;
   }
-  .login-box {
-    padding: 0px;
-    width: auto;
-    gap: 0px;
-    margin-top: 60px;
-  }
+
   #login-form input {
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccccccc5;
     background-color: #ffffff;
     border-radius: 0px;
+    text-indent: 5px;
   }
   #login-form input[type="button"] {
     border: 0px;
     border-radius: 4px;
     height: 45px;
   }
+
   .find-text {
-    justify-content: space-evenly;
+    padding: 0 10px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .find-text > div {
     padding: 0;
-    width: 200px;
-    float: right;
+  }
+
+  .find-text > div:nth-child(1) > a{
+    color: #016FB6;
+    text-decoration: underline;
+    text-underline-position : under;
+  }
+
+  .find-text > div:nth-child(2){
+    gap: 10px;
   }
 }
