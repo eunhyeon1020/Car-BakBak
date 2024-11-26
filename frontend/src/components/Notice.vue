@@ -27,17 +27,11 @@
 
           <tbody class="table-content">
             <!-- vue에서 사용하는 for문 -->
-            <tr v-for="(item, index) in notiList" :key="index"> <!-- 6번 루프 -->
+            <tr @click="goToNoticeDetail" v-for="(item, index) in notiList" :key="index"> <!-- 6번 루프 -->
               <td>{{ item.num }}</td>
-
               <td>{{ item.type }}</td>
-
-              <td>
-                <router-link :to="'noticedetail'">{{ item.title }}</router-link>
-              </td>
-
-              <td>{{ item.createDt }}</td>
-
+              <td>{{ item.title }}</td>
+              <td>{{ item.createDt }}</td> 
             </tr>
           </tbody>
         </table>
@@ -68,27 +62,25 @@
         { num: '2', type: '업데이트', title: '2024 업데이트', createDt: '2024.10.31' },
         { num: '3', type: '이벤트', title: 'open 이벤트 ', createDt: '2024.10.26' },
       ],
+      isMobile: window.innerWidth <= 900,
     }),
+    methods: {
+      goToNoticeDetail() {
+        this.$router.push({path: '/noticedetail'});
+      }
+    },
+
     mounted() {
       for (let i=0; i<this.notiList.length; i++ ) {  // 6번 루프
         // console.log(this.notiList[i]);
       }
     },
-    methods: {
+
+    beforeDestroy() {
     },
   }
 </script>
 
 <style scoped>
-  a {
-    color: #2b2b2b;
-  }
 
-  a:active {
-    color: #2b2b2b;
-  }
-
-  a:visited {
-    color: #2b2b2b;
-  }
 </style>
