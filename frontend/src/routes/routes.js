@@ -19,6 +19,9 @@ export const router = new VueRouter({
       path: '/store',
       component: () => import('@/components/Store.vue'),
     }, {
+      path: '/storedetail',
+      component: () => import('@/components/StoreDetail.vue'),
+    }, {
       path: '/notice',
       component: () => import('@/components/Notice.vue'),
     }, {
