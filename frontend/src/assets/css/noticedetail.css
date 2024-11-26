@@ -50,15 +50,23 @@
   /* 공지사항 목록으로 넘어가는 부분 */
   .not-comeback p {
     color: #131313;
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 500;
     margin: 0;
     padding: 3rem 0 5rem 0.6rem;
   }
+  
+  .not-comeback p:hover {
+    color: #01321f;
+    font-weight: 600;
+  }
+
+
 
   /* 반응형처리 부분 */
   @media screen and (max-width:1024px) {
     #noticedetail {
+      top: 71px;
       padding: 0 3rem;
     }
   }
@@ -71,7 +79,7 @@
 
     /* 타이틀  */
     .ntDetail-title {
-      padding: 5.5rem 0 3rem;
+      padding: 5.5rem 15px 3rem ;
       gap: 1rem;
     }
 
