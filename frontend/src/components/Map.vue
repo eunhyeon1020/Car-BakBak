@@ -1,103 +1,104 @@
 <template>
   <div id="map">
-    <!--  카카오맵이 들어갈 부분을 #mapContain 영역으로 지정 -->
-    <div id="mapContain" style="width:100%; height:calc(100vh - 65px); position:relative; top:65px;"></div>
-
     <!--------------------- sidebar html ------------------->
-      <div v-if="isSidebarOpen" class="sidebar"> 
-        <div class="menuBtn">
-          <div @click="menuContent('news')" :class="{'menu': menuPage === 'news'}">NEWS</div>
-          <div @click="menuContent('review')" :class="{'menu': menuPage === 'review'}">REVIEW</div>
-        </div>
-        
-        <!-- 뉴스 page -->
-        <div class="news" v-if=" menuPage === 'news'"> 
-          <div class="newsbar-header">
-            <div class="search-icon" v-text="searchText"></div>
-          </div>
-
-          <div ref="chatArea" class="newsbar-body">
-            <div class="newsbar-contain" v-for="(item, index) in searchList" :key="index" >
-              <div>
-                <div class="newsbar-title" v-html="item.title"></div>
-                <a class="newsbar-link" :href="item.url" target='_blank'></a>
-              </div> 
-              <div class="newsbar-datetime" v-html="formatDate(item.datetime)"></div>
-              <div class="newsbar-contents" v-html="item.contents"></div>
-            </div>
-          </div>
-
-          <div class="newsbar-footer">
-            <button @click="isSidebarOpen = false">Close</button>
-          </div>
-        </div>
-        
-        
-        <!-- 리뷰 page -->
-        <div class="review" v-else>
-          <!-- header -->
-          <div class="review-header">
-            <div class="review-icon"></div>
-            <div class="review-title" v-text="searchText"></div>
-          </div>
-
-          <!-- body -->
-          <div ref="chatArea" class="review-body">
-            <div v-for="(user, index) in reviewContent" :key="index">
-              <div class="chatDate">
-                <div class="chatDate-content">
-                  {{ user.chatDate }}
-                </div>
-              </div>
-
-              <div class="userId">
-                {{ user.userID}}
-              </div>
-              
-              <div class="chat" >
-                <div class="chatting">
-                  {{ user.chatting }}
-                </div>
-                <div class="chatTime">
-                  {{ user.chatTime }}
-                </div>
-              </div>
-            
-            </div>
-
-            <!-- 날짜 출력 -->
-            <div class="chatDate">
-              <div class="myChatdate" v-if="reviewList.length !== 0" v-text="currentDate"></div>
-            </div>
-
-            <!-- 시간과 내용 출력 -->
-            <div class="myChat-contain" v-if="reviewList.length !== 0">
-              <div v-for="(item, index) in reviewList" :key="index" class="myChat">
-                <div class="myChattime" v-if="index === reviewList.length - 1 || reviewList[index + 1]?.time !== item.time ">
-                  {{ item.time }}
-                </div>
-                <div style="display: flex; flex-direction: column; align-items: flex-end;">
-                  <div class="myChatting">
-                    {{ item.chat }}
-                  </div>
-                </div>
-              </div>
-            </div>
-
-          </div>
-          
-          <!-- footer -->
-          <div class="review-footer">
-            <!-- 입력하는 곳 -->
-            <textarea type="text" v-model="reviewText" @keydown.enter="SendReview" ref="textarea" placeholder="발자국을 남겨주세요."/>
-            <div class="review-closeBtn">
-              <button @click="isSidebarOpen = false"> Close</button>
-            </div>
-          </div>
-        </div>
-
+    <div v-if="isSidebarOpen" class="sidebar"> 
+      <div class="menuBtn">
+        <div @click="menuContent('news')" :class="{'menu': menuPage === 'news'}">NEWS</div>
+        <div @click="menuContent('review')" :class="{'menu': menuPage === 'review'}">REVIEW</div>
       </div>
+      
+      <!-- 뉴스 page -->
+      <div class="news" v-if=" menuPage === 'news'"> 
+        <div class="newsbar-header">
+          <div class="search-icon" v-text="searchText"></div>
+        </div>
+
+        <div ref="chatArea" class="newsbar-body">
+          <div class="newsbar-contain" v-for="(item, index) in searchList" :key="index" >
+            <div>
+              <div class="newsbar-title" v-html="item.title"></div>
+              <a class="newsbar-link" :href="item.url" target='_blank'></a>
+            </div> 
+            <div class="newsbar-datetime" v-html="formatDate(item.datetime)"></div>
+            <div class="newsbar-contents" v-html="item.contents"></div>
+          </div>
+        </div>
+
+        <div class="newsbar-footer">
+          <button @click="closeSidebar">Close</button>
+        </div>
+      </div>
+      
+      
+      <!-- 리뷰 page -->
+      <div class="review" v-else>
+        <!-- header -->
+        <div class="review-header">
+          <div class="review-icon"></div>
+          <div class="review-title" v-text="searchText"></div>
+        </div>
+
+        <!-- body -->
+        <div ref="chatArea" class="review-body">
+          <div v-for="(user, index) in reviewContent" :key="index">
+            <div class="chatDate">
+              <div class="chatDate-content">
+                {{ user.chatDate }}
+              </div>
+            </div>
+
+            <div class="userId">
+              {{ user.userID}}
+            </div>
+            
+            <div class="chat" >
+              <div class="chatting">
+                {{ user.chatting }}
+              </div>
+              <div class="chatTime">
+                {{ user.chatTime }}
+              </div>
+            </div>
+          
+          </div>
+
+          <!-- 날짜 출력 -->
+          <div class="chatDate">
+            <div class="myChatdate" v-if="reviewList.length !== 0" v-text="currentDate"></div>
+          </div>
+
+          <!-- 시간과 내용 출력 -->
+          <div class="myChat-contain" v-if="reviewList.length !== 0">
+            <div v-for="(item, index) in reviewList" :key="index" class="myChat">
+              <div class="myChattime" v-if="index === reviewList.length - 1 || reviewList[index + 1]?.time !== item.time ">
+                {{ item.time }}
+              </div>
+              <div style="display: flex; flex-direction: column; align-items: flex-end;">
+                <div class="myChatting">
+                  {{ item.chat }}
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+        
+        <!-- footer -->
+        <div class="review-footer">
+          <!-- 입력하는 곳 -->
+          <textarea type="text" v-model="reviewText" @keydown.enter="SendReview" ref="textarea" placeholder="발자국을 남겨주세요."/>
+          <div class="review-closeBtn">
+            <button @click="closeSidebar"> Close</button>
+          </div>
+        </div>
+      </div>
+
     </div>
+    
+    <!--  카카오맵이 들어갈 부분을 #mapContain 영역으로 지정 -->
+    <div id="mapContain"></div>
+
+  </div>
 </template>
 
 <script>
@@ -106,6 +107,8 @@
       map: null,  // map 객체를 초기화해줬다
       overlay: null,
       isSidebarOpen: false, //사이드 바 기본 열림 상태(false)
+      marker: null,
+      customOverlay: null,
       searchText: '실미유원지 안전',
       searchList: [],   // {}
       reviewText: '',
@@ -189,35 +192,70 @@
       },
       loadMarker() {
         // 마커 변경 
-        // const imageSrc = 'https://img.icons8.com/?size=256w&id=13800&format=png' // 마커이미지의 주소
         const imageSrc = 'https://paperless-dev.bizmeka.com/resources/public/template/_kddx/images/marker.svg' // 마커이미지의 주소
-        const imageSize = new window.kakao.maps.Size(30, 30) // 마커이미지의 크기
-        const imageOption = {offset: new window.kakao.maps.Point(16, 20)}; // 마커이미지의 옵션
-        const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); // 마커의 이미지 정보를 가지고 있는 MarkerImage 객체 생성        
+        const imageSize = new window.kakao.maps.Size(35, 35) // 마커이미지의 크기
+        const imageOption = {offset: new window.kakao.maps.Point(19, 20)}; // 마커이미지의 옵션
+        const markerImage = new window.kakao.maps.MarkerImage(imageSrc, imageSize, imageOption); // 마커의 이미지 정보를 가지고 있는 MarkerImage 객체 생성
         const markerPosition = new window.kakao.maps.LatLng(37.40198, 126.4021); // 마커 위치 설정
 
         // 마커 생성
-        const marker = new window.kakao.maps.Marker({
+        this.marker = new window.kakao.maps.Marker({
           position: markerPosition,
           image: markerImage,
         });
 
         // 마커를 지도에 표시
-        marker.setMap(this.map);
+        this.marker.setMap(this.map);
+        
+        const content = `
+        <div class="marker-tooltip">
+          <span class="center">Click 👇</span>
+        </div>`;
 
-        // 커스텀 오버레이 생성
-        this.overlay = new window.kakao.maps.CustomOverlay({
+        // 커스텀 오버레이를 생성합니다
+        this.customOverlay = new window.kakao.maps.CustomOverlay({
+          position: markerPosition,
+          content: content,
+        });
+          
+        this.customOverlay.setMap(this.map);
+
+        // 마커에 클릭 이벤트가 발생하면 커스텀 오버레이를 지도에 제거합니다
+        window.kakao.maps.event.addListener(this.marker, 'click', () => {
+          this.customOverlay.setMap(null);
+          document.querySelector('#mapContain >div>div>div:last-of-type>div:first-of-type img').style.animationName='none';
+          setTimeout(() => {
+            const mkposition = this.marker.getPosition();
+            this.map.relayout();
+            this.map.setCenter(mkposition);
+          },0);
+        });
+
+        // 커스텀 오버레이(사이드바) 생성
+        this.sidebarOverlay = new window.kakao.maps.CustomOverlay({
           map: this.map,
         });
 
-        // 오버레이를 처음에는 닫은 상태로 설정
-        this.overlay.setMap(null);
+        // 오버레이(사이드바)를 처음에는 닫은 상태로 설정
+        this.sidebarOverlay.setMap(null);
 
-        // 마커 클릭 이벤트
-        window.kakao.maps.event.addListener(marker, "click", () => {
-          this.overlay.setMap(this.map);
+        // 마커 클릭 이벤트 발생 시 사이드바 출력
+        window.kakao.maps.event.addListener(this.marker, "click", () => {
+          this.sidebarOverlay.setMap(this.map);
           this.isSidebarOpen = true;
         });
+      },
+      closeSidebar() {
+        this.isSidebarOpen = false;
+        if (this.customOverlay) {
+          this.customOverlay.setMap(this.map);
+          document.querySelector('#mapContain >div>div>div:last-of-type>div:first-of-type img').style.animationName='tooltip';          
+        }
+        setTimeout(() => {
+          const mkposition = this.marker.getPosition();
+          this.map.relayout();
+          this.map.setCenter(mkposition);
+        },0);
       },
       menuContent(item) {
         this.menuPage = item;
