@@ -163,6 +163,10 @@
 }
 
 @media screen and (max-width:1024px) {
+  #header {
+    height: 71px;
+  }
+
   .gnb {
     padding: 0 3rem;
   }
@@ -171,7 +175,7 @@
   .drop-nav {
     /* display: none; */
     width: 100vw;
-    height: calc(100vh - 65px);
+    height: calc(100vh - 71px);
 
     position: relative;
 
