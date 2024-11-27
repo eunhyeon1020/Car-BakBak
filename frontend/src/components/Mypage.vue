@@ -22,7 +22,7 @@
               <div @click="listClick('store')" :class="{ 'font-700' : pageStatus === 'store'}">스토어</div>
               <div @click="listClick('info')" :class="{ 'font-700' : pageStatus === 'info'}">고객센터</div>
             </div>
-            <div style="border: 1px solid #d7d7d78f;"></div>
+            <div style="border: 1px solid #eee;"></div>
           </li>
           
           <li class="logout"> 
@@ -196,6 +196,10 @@
         </div> 
       </template>
 
+      <div class="isMobile">
+        <div class="mobile-logoutBtn" v-if="isMobile" @click="logout">로그아웃</div>
+      </div>
+
     </div>
   </div>
 </template>
@@ -223,9 +227,14 @@
         {title:"비회원도 주문이 가능한가요?", content:"비회원 주문 방법에 대한 내용입니다.", isOpen:false},
         {title:"리뷰는 어떻게 작성해야 하나요", content:"리뷰 작성 방법에 대한 내용입니다.", isOpen:false},
         {title:"리뷰를 삭제하고 싶어요.", content:"리뷰 삭제 방법에 대한 내용입니다. ", isOpen:false},
-      ]
+      ],
+      isMobile: window.innerWidth <= 1000,
     }),
     methods: {
+      updateIsMobile() {
+      this.isMobile = window.innerWidth <= 1000; // 화면 크기 업데이트
+      },
+
       listClick(item){
         this.pageStatus = item;
 
@@ -257,7 +266,15 @@
       backBtn() {
         this.infoStatus = 'main'; // 고객센터 메인으로 돌아가기
       },
-    }
+    },
+
+    mounted() {
+    window.addEventListener('resize', this.updateIsMobile); // 화면 크기 변경 이벤트 등록
+    },
+
+    beforeDestroy() {
+      window.removeEventListener('resize', this.updateIsMobile); // 이벤트 해제
+    },
   }
 </script>
 

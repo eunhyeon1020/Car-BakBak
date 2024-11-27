@@ -125,7 +125,7 @@
 
 .mypage-profile {
   padding: 20px;
-  border: 1px solid #022015af;
+  border: 1px solid #02201538;
   border-radius: 20px;
   box-shadow: 2px 2px 14px 0 rgba(1, 59, 27, 0.233);
 }
@@ -351,3 +351,168 @@
 }
 
 
+/************************ 반응형 ***********************/
+
+@media screen and (max-width:1200px) {
+  .mypage-contain{
+    max-width: 1000px;
+  }
+}
+
+@media screen and (max-width:1000px) {
+  .mypage-contain {
+    height: auto;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .mypage-header {
+    width: 100%;
+    height: auto;
+    border-left: none;
+    box-shadow: none;
+  }
+
+  .mypage-header li:nth-child(1){
+    padding: 1rem;
+  }
+
+  .mypage-img {
+    padding: 0;
+  }
+
+  /* 메뉴(내프로필, 스토어, 고객센터) */
+  .mypage-header li:nth-child(3){
+    padding: 2rem 6rem 0;
+  }
+
+  .mypage-menu {
+    padding-bottom: 3rem;
+    flex-direction: row;
+    justify-content: center;
+    gap: 4rem;
+  }
+
+  .logout {
+    display: none;
+  }
+
+  /* 내프로필 */
+  .mypage-content{
+    width: 100%;
+    height: auto;
+    padding: 4rem 6rem;
+  }
+
+  .mypage-profile .profile-img{
+    display: none;
+  }
+
+  /* 스토어 */
+
+  /* 고객센터 */
+  .mypage-service{
+    padding: 10px;
+  }
+  .info-title > div{
+    padding: 10px 0 60px 10px;
+  }
+
+  /* 고객센터 상세 */
+
+  .login-page ,
+  .paymoney-page , 
+  .service-page , 
+  .ask-page  {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .login-page > div,
+  .paymoney-page > div, 
+  .service-page > div, 
+  .ask-page > div {
+    padding: 10px 10px 60px 10px;
+  }
+
+  .backBtn {
+    display: inline-block;
+    float: right;
+
+    margin: 50px 40px 0 0;
+  }
+
+  /* 상세 > 1 : 1 문의하기  */
+  .ask-content {
+    width: 39rem;
+  }
+
+  .askBtn {
+    display: inline-block;
+    float: inline-end;
+
+    margin: 50px 10px 0 0;
+  }
+
+  /* 모바일 로그아웃 버튼 */
+  .mobile-logoutBtn{
+    padding: 20px 10px 5rem;
+
+    color: #696969;
+    text-decoration: underline;
+    text-underline-position: under;
+    text-decoration-color: #696969;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: 768px){
+  .mypage-header li:nth-child(3){
+    padding: 2rem 4rem 0;
+  }
+  .mypage-content{
+    padding: 4rem;
+  }
+}
+
+@media screen and (max-width: 450px){
+  .mypage-header li:nth-child(3){
+    padding: 2rem 3rem 0;
+  }
+
+  /* 로고, 타이틀 */
+  .mypage-logo{
+    width: 80px;
+    height: 50px;
+  }
+
+  .mypage-header li:nth-child(1) >div{
+    font-size: 1.5rem;
+  }
+
+  /* 프로필 */
+  .mypage-img{
+    gap: 12px;
+
+  }
+
+  .profile-img{
+    width: 130px;
+    height: 130px;
+  }
+
+  .mypage-menu {
+    padding-bottom: 2rem;
+
+    gap: 2rem;
+  }
+
+  .mypage-menu > div {
+    font-size: 1.2rem;
+  }
+
+  .mypage-content{
+    padding: 2.5rem;
+  }
+}
