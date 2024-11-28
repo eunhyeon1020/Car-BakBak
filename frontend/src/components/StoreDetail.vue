@@ -27,7 +27,7 @@
                 <p class="item-name">블루 스피클 캠핑 세트(주전자(1) + 컵(1) 구성)</p>
                 <!-- <p class="item-text">이 머그컵은 고온 소성 에나멜 코팅으로 뛰어난 내구성과 깔끔한 디자인을 자랑합니다.<br/> 내충격 스틸 바디로 캠핑이나 아웃도어 환경에서도 안전하게 사용할 수 있고, <br/>인체공학적으로 설계된 손잡이는 편안한 그립감을 제공해 사용이 편리합니다.</p> -->
                 <div style="display: flex; font-weight: 700;align-items:center;">
-                    판매가:&nbsp;&nbsp;&nbsp;<p class="item-price">39,000원</p>
+                    판매가:&nbsp;&nbsp;&nbsp;<p class="item-price">39,900원</p>
                 </div>
                 
                 <div class="shipping-info">
@@ -54,7 +54,7 @@
 <script>
 export default {
     mounted() {
-        const Price = 39000; 
+        const Price = 39900; 
         const countInput = document.getElementById('count'); 
         const totalPrice = document.getElementById('total-price');
         const totalCount = document.getElementById('total-count');
