@@ -236,6 +236,10 @@
       },
 
       listClick(item){
+        if (item === 'store') {
+          this.$emit('showAlert', true);
+          return;
+        }
         this.pageStatus = item;
 
         /* item이 'info'와 같지 않다면 실행 --> 'info'가 아닌 다른 페이지를 선택했을 때만 조건문 실행 */

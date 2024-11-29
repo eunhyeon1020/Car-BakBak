@@ -34,9 +34,9 @@
           </div>
 
           <div>
-            <p>비밀번호 찾기</p>
+            <p @click="showAlert">비밀번호 찾기</p>
             <p>|</p>
-            <p>아이디 찾기</p>
+            <p @click="showAlert">아이디 찾기</p>
           </div>
 
         </div>
@@ -70,6 +70,10 @@
       updateIsMobile() {
       this.isMobile = window.innerWidth <= 750;
       },
+
+      showAlert() {
+        this.$emit('showAlert', true);
+      }
     },
     mounted() {
     window.addEventListener('resize', this.updateIsMobile); // 리사이즈 이벤트 등록

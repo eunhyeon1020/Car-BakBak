@@ -190,7 +190,7 @@
 
         window.$('.banner-content').slick({
           infinite: true,
-          autoplay: true,
+          // autoplay: true,
           speed: 1000,
           pauseOnHover: true,
           dots: true,

@@ -63,36 +63,27 @@
 }
 
 .banner-img {
-  position: relative;
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-}
-
-.banner-img {
   height: 300px; 
   padding: 0 3rem; 
-  display: flex; 
+  position: relative;
+  
+  display: flex !important;
   flex-flow: row nowrap; 
   justify-content: space-between; 
   align-items: center; 
   gap: 10px 3rem;
+  
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
-/* .custom-dots {
-  padding-top: 10px;
+.banner-img span:first-child {
 
-  display: flex !important;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
 }
-.custom-dots .dot {
-  width: 16px;
-  height: 16px;  
-} */
-.slick-dots li button {
-  content: ''; /* 숫자가 아닌 점 형태로 표시 */
+
+.banner-img span:last-child {
+
 }
 
 /* ******************* 내비게이션 영역 ******************* */
