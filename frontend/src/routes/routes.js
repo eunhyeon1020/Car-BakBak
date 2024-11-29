@@ -21,6 +21,11 @@ export const router = new VueRouter({
     }, {
       path: '/storedetail',
       component: () => import('@/components/StoreDetail.vue'),
+      meta: {
+        itemNm: '잠 잘오는 침낭',
+        price: 45250,
+        imgSrc: 'bestItem_1.png',
+      }
     }, {
       path: '/notice',
       component: () => import('@/components/Notice.vue'),

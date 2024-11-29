@@ -1,162 +1,198 @@
 <template>
-    <div id="store">
-<div class="header_content">
-    <div class="menu_inner">
+  <div id="store">
+    <div class="store-header">
+
+      <!-- 검색창 영역 --> 
+      <div class="menu-content">
+        <div class="searchBar">
+          <div class="search-box" id="search-box">
+            <input type="hidden" name="chkButton" id="chkButton" value="" />
+            <input
+              type="text"
+              class="header_search_input"
+              name=""
+              value=""
+              placeholder="상품, 브랜드 검색"
+            />
+            <i class="ico-search"></i>
+          </div>
+          <i class="ico-shopping"></i>
+        </div>
+      </div>
+
+      <!-- 광고 영역  -->
+      <div class="banner"><!-- 컨테이너가 되어야 할 부분 -->
+
+        <div class="banner-img" style="position: relative;" v-for="(item, index) in bannerList" :key="index"><!-- v-for 들어갈 부분 -->
+          <div style="
+            height: 100%; 
+            padding: 0 3rem; 
+            display: flex; 
+            flex-flow: row nowrap; 
+            justify-content: space-between; 
+            align-items: center; 
+            gap: 10px 3rem;"
+            :style="`background-image: ${item.imgUrl}`"
+          >
+            <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.title }}</span>
+            <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.content }}</span>
+          </div>
+        </div>
+        
+      </div>
+
+
+      <!-- 내비게이션 영역 (카테고리) -->
+      <div class="store-navigation">
         <ul>
-            <li>카테고리</li>
-            <li>신상품</li>
-            <li>랭킹</li>
-            <li>세일</li>
-            <li>고객센터</li>
-        </ul>
-        <div class="menu_right">
-            <div class="search_box" id="search_box">
-            <input type="text" class="header_search_input" placeholder="상품, 브랜드 검색">
+          <li>전체</li>
+          <li>텐트 ㆍ 타프</li>
+          <li>침낭 ㆍ 매트</li>
+          <li>라이팅</li>
+          <li>계절 용품</li>
+          <li>키친</li>
+          <li>전자 기기</li>
+          <li>etc</li>
+        </ul> 
+      </div>
+
+      <!-- 스토어 body -->
+      <div class="store-body">
+
+        <!-- 베스트 아이템 영역 -->
+        <div class="bestItem-contain">
+
+          <!-- 베스트 아이템 타이틀 -->
+          <div class="bestItem-title">
+            <span>BEST ITEM</span>
+            <span>이번 주 가장 인기있는 상품</span>
+          </div>
+          
+          <!-- 베스트 아이템 내용 -->
+          <div class="bestItem-content">
+            <!-- 베스트 아이템 캐러셀(슬라이드) -->
+            <div class="bestItem-carousel">
+              <!-- <div class="arrow-back">
+                <i class="ico-arrow-back"></i>
+              </div> -->
+
+              <div v-for="(item, index) in bestItemList" :key="index" class="bestItems">
+                <router-link :to="'storedetail'">
+                  <div class="bestitem-img">
+                    <img :src="item.imgUrl" alt="상품 이미지" />
+                  </div>
+                  <div class="bestitem-name"> {{ item.itemNm }} </div>
+                  <div class="bestitem-price"> {{ item.price.toLocaleString('ko') }} 원</div>               
+                </router-link>
+              </div>
+
+              <!-- <div class="arrow-front">
+                <i class="ico-arrow-front"></i>
+              </div> -->
             </div>
-            <i class="ico-shopping"></i>
-        </div>
-    </div>
-    <div class="banner-container">
-        <div class="banner">
-            <div class="banner-img1" v-bind:style="getBannerStyle(0)"></div>
-            <div class="banner-img2" v-bind:style="getBannerStyle(1)"></div>
-            <div class="banner-img3" v-bind:style="getBannerStyle(2)"></div>
-        </div>
-        <button class="arrow arrow-back" @click="prevSlide">
-            <i class="ico-arrow-back"></i>
-        </button>
-        <button class="arrow arrow-front" @click="nextSlide">
-            <i class="ico-arrow-front"></i>
-        </button>
-    </div>
-<div class="body_content">
-    <div class="section body_section1">
-    <div class="box sec1">
-        <span class="title">BEST ITEM</span>
-        <span class="mini-title">이번 주 가장 인기있는 상품</span>
-        <div class="content">
-        <div class="arrow-back"><i class="ico-arrow-back"></i></div>
-        <div class="item">
-            <router-link :to="'storedetail'">
-            <div class="item-img">
-                <img src="../assets/images/sec1-1.png" />
+
+            <!-- 베스트 아이템 박스 -->
+            <div class="bestItem-box">
+              <div class="box-items">
+                <div class="boxItem-img">
+                  <img src="../assets/images/bestItem-box1.png" />
+                  <img src="../assets/images/bestItem-box2.png" />
+                </div>
+              </div>
             </div>
-            </router-link>
-            <div class="item-txt">
-            <div>포켓 미니 백</div>
-            <div>19,250원</div>
+          </div> 
+
+        </div> <!-- 베스트 아이템 영역 끝 -->
+
+        
+        <!-- 뉴 아이템 영역 -->
+        <div class="newItem-contain">
+          <!-- 뉴아이템 타이틀 -->
+          <div class="newItem-title">
+            <span>NEW ITEM</span>
+            <span>이번 주 새로 들어온 상품</span>
+          </div>
+
+          <!-- 뉴아이템 내용 -->
+          <div class="newItem-content">
+            <div v-for="(item, index) in newItemList" :key="index" class="newItems">
+              <div class="newitem-img">
+                <img :src="item.imgUrl" alt="상품 이미지" />
+              </div>
+              <div class="newitem-name"> {{ item.itemNm }} </div>
+              <div class="newitem-price"> {{ item.price.toLocaleString('ko')}} 원</div>
             </div>
+          </div>
+
         </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec1-2.png"></div></router-link>
-                            <div class="item-txt">
-                                <div>LED 캠핑 램프</div>
-                                <div>12,000원</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec1-3.png"></div></router-link>
-                            <div class="item-txt">
-                                <div>미니 서바이벌 키트</div>
-                                <div>30,000원</div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec1-4.png"></div></router-link>
-                            <div class="item-txt">
-                                <div>블루 스피클 캠핑 세트</div>
-                                <div>39,900원</div>
-                            </div>
-                        </div>
-                        <div class="arrow-front">
-                        <i class="ico-arrow-front"></i>
+
+      <!-- <div class="section body_section4">
+            <div class="box sec4">
+                <span class="title">주목해야할브랜드</span>
+                <div class="content">
+                    <div class="item">
+                        <div class="item-img"><img src="../assets/images/camping-travel-knife-card.jpg"></div>
                     </div>
+                </div>
+                <div class="content">
+                    <div class="item">
+                        <div class="item-img"><img src="../assets/images/camping-travel-knife-card.jpg"></div>
+                        <div class="item-txt">잠 잘오는 침낭</div>
+                    </div>
+                    <div class="item">
+                        <div class="item-img"><img src="../assets/images/camping-travel-knife-card.jpg"></div>
+                        <div class="item-txt">잠 잘오는 침낭</div>
                     </div>
                 </div>
             </div>
-            <div class="section body_section2">
-                <div class="box sec2">
-                    <div class="content">
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec2-1.png"></div></router-link>
-                        </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec2-2.png"></div></router-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="section body_section3">
-                <div class="box sec3">
-                    <span class="title">NEW ITEM</span>
-                    <span class="mini-title">이번 주 새로 들어온 상품</span>
-                    <div class="content">
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec3-1.jpg"></div></router-link>
-                        </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec3-2.jpg"></div></router-link>
-                        </div>
-                        <div class="item">
-                            <router-link :to="'storedetail'"><div class="item-img"><img src="../assets/images/sec3-3.jpg"></div></router-link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+          </div> -->
+      </div>    
     </div>
-    </div>
+  </div>
 </template>
+
 <script>
-export default {
-data() {
-    return {
-    currentIndex: 0, 
-    intervalId: null, 
-    totalBanner: 3,
-    };
-},
-methods: {
-    nextSlide() { //다음 배너로 넘어가는 이벤트(오른쪽 화살표)
-        this.currentIndex += 1; //클릭할 때마다 현재 인덱스 +1 시킴
-        if (this.currentIndex >= this.totalBanner) { //인덱스가 배너 개수랑 같거나 크면
-            this.currentIndex = 0; //0으로 설정(처음부터 반복하게)
-        }
-    },
-
-    prevSlide() { //이전 배너로 넘어가는 이벤트(왼쪽 화살표)
-        this.currentIndex -= 1; //클릭할 때마다 현재 인덱스 -1 시킴
-        if (this.currentIndex < 0) { //인덱스가 0보다 작아지면(개수가작아지니까)
-            this.currentIndex = this.totalBanner - 1; //배너-1로 설정(뒤로 반복하게)
-        }
-    },
-
-
-    startAutoSlide() { //버튼 클릭하지 않아도 시간 지나면 알아서 돌아감
-        this.intervalId = setInterval(() => {
-            this.nextSlide(); //next함수 실행
-        }, 3000); //3초 뒤에
-    },
-    stopAutoSlide() {
-        clearInterval(this.intervalId); // 시간 초기화
-    },
-
-    getBannerStyle(index) {
-        return {
-            display: this.currentIndex === index ? "block" : "none", //인덱스마다 display 설정 다르게 줌(보이는건 block 나머지는 none)
-        };
-    },
-},
+  export default {
+    data:() => ({
+      bestItemList: [
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_2.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_2.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_4.png'), price: 45250 },
+        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
+      ],
+      newItemList: [
+        { itemNm: '신제품', imgUrl: require('@/assets/images/newItem_1.png'), price: 30000},
+        { itemNm: '신제품', imgUrl: require('@/assets/images/newItem_2.png'), price: 30000},
+        { itemNm: '신제품', imgUrl: require('@/assets/images/newItem_3.png'), price: 30000},
+      ],
+      bannerList: [
+        { title: '타이틀1', content: '안녕하세요', imgUrl: require('@/assets/images/banner1.png')},
+        { title: '타이틀2', content: '안녕히가세요', imgUrl: require('@/assets/images/banner2.png')},
+        { title: '타이틀3', content: '잘가요', imgUrl: require('@/assets/images/banner3.png')},
+      ],
+    }),
     mounted() {
-        this.startAutoSlide(); //DOM 이후
+      if (typeof $ === 'undefined') {
+        console.error('jQuery is not loaded');
+        return;
+      }
+      this.$nextTick(() => {
+        window.$('.bestItem-carousel').slick({
+          infinite: true,
+          // autoplay: true,
+          // pauseOnHover: true,
+          slidesToShow: 4,
+          slidesToScroll: 4,
+          prevArrow: `<i class="ico-arrow-back"></i>`,
+          nextArrow: `<i class="ico-arrow-front"></i>`,
+        });
+      });
     },
-    beforeDestroy() {
-        this.stopAutoSlide(); //마지막에 실행
+    methods: {
     },
-};
+  }
 </script>
-
-
-
-
-

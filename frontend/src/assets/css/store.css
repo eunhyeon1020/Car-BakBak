@@ -1,157 +1,214 @@
 #store {
-  position: relative; 
+  position: relative;
   width: 100%;
   height: 100%;
   top: 65px;
 }
-.store-logo-img {
-  background-image: url("../images/차박박\ copy.svg");
-  background-size: 270px 63px;
-  width: 270px;
-  height: 63px;
-}
-.header_inner {
+
+/* ******************* 검색창 영역 ******************* */
+.menu-content {
+  padding: 20px 0;
   display: flex;
+  justify-content: center;
+}
+
+.searchBar{
+  display: flex;
+  flex-direction: row;
   align-items: center;
-  justify-content: space-evenly;
+  gap: 15px;
 }
-.store-logo {
-  width: 20%;
+
+.search-box {
+  /* width: auto; */
+  width: 500px;
+  padding: 8px 10px;
+  border: 2px solid #07312181;
+  border-radius: 15px;
 }
-.search_box {
-  width: 250px;
-  border: 1px solid #D8D8D8;
-  height: 30px;
-  border-radius: 3px;
-  margin-right: 10px;
-}
-.menu_right {
-  display: flex; 
-  margin-right: 40px;
-}
-.header_search_input {
-  width: 100%;
-  border-radius: 3px;
-}
-.menu_inner {
-  height: 50px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center; 
-  border-bottom: 1px solid #f2f2f2;
-}
-.menu_inner ul {
-  display: flex; 
-  align-items: center; 
-  vertical-align: middle;
-  height: 100%;
-}
-.menu_inner li {
-  width: auto; 
-  text-align: center; 
-  padding: 0 40px; 
-  border-right: 1px solid #f2f2f2; 
-  line-height: 50px; 
-  height: 100%;
-}
-.section {display: flex; justify-content: space-between; margin: auto; width: 1000px; }
-.body_section1 {margin-top: 30px;}
-.body_section2, .body_section3, .body_section4 {margin-top: 80px;}
-.body_section3 {margin-bottom: 80px;}
-.box {display: flex; flex-direction: column; padding: 15px 0;}
-.sec1, .sec2, .sec3, .sec4 {width: 100%;}
-.content {display: flex; justify-content: space-evenly; align-items: center;}
-.sec1 > .content > .item {width: 22%;}
-.sec2 > .content > .item {width: 48%;}
-.sec3 > .content > .item {width: 32%;}
-.sec4 > .content > .item {width: 100%;}
-.item-img {height: 255px;}
-.sec2 > .content > .item > .item-img {height: 255px;}
-.item-img > img {background-size: cover; background-repeat: no-repeat; height: 255px;}
-.title {font-size: 25px; text-align: center; font-weight: 700;}
-.mini-title {text-align: center; margin: 2px 0px 20px 0px; font-size: 15px;}
-.item-txt {display: flex;justify-content: space-between;}
 
 .ico-shopping {
-  background-image: url(../images/ico-shopping_cart.png); 
-  background-size: 30px 30px; 
-  width: 30px; 
-  height: 30px; 
-  background-repeat: no-repeat; 
-  display: flex;
-}
-
-.ico-arrow-back {
-  background-image: url('../images/ico-arrow-back.png');
-}
-
-.ico-arrow-front {
-  background-image: url('../images/ico-arrow-front.png');
-}
-
-.banner-container {
-  position: relative;
-  width: 100%;
-  height: 350px;
-  overflow: hidden;
-}
-
-.banner {
-  position: relative;
-  width: 100%;
-  height: 100%;
-}
-
-.banner > div {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background-size: cover;
-  background-position: center;
-  display: none;
-}
-.banner > div:first-child {
-  display: block;
-}
-
-.banner-img1 {
-  background-image: url("../images/banner1.png");
-}
-.banner-img2 {
-  background-image: url("../images/banner2.png");
-}
-.banner-img3 {
-  background-image: url("../images/banner3.png");
-}
-
-.arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #ffffff;
-  opacity: 0.5;
-  border: none;
-  padding: 5px;
-  cursor: pointer;
-  z-index: 10;
-  border-radius: 50%;
-}
-
-.arrow-back {
-  left: 10px;
-}
-
-.arrow-front {
-  right: 10px;
-}
-
-.ico-arrow-back,
-.ico-arrow-front {
   width: 30px;
   height: 30px;
-  background-size: 30px 30px;
-  background-repeat: no-repeat;
-  display: block;
+  background-image: url(../images/ico-shopping_cart.png);
+  background-size: 100%;
 }
 
+/* ******************* 광고 영역 ******************* */
+.banner {
+  width: 100%;
+  height: 350px;
+}
+.banner > .banner-img:nth-of-type(1) {
+  background-image: url(../images/banner1.png);
+}
+.banner > .banner-img:nth-of-type(2) {
+  background-image: url(../images/banner2.png);
+}
+.banner > .banner-img:nth-of-type(3) {
+  background-image: url(../images/banner3.png);
+}
 
+.banner-img {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  height: 100%;
+}
+
+/* ******************* 내비게이션 영역 ******************* */
+.store-navigation {
+  padding: 40px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.store-navigation ul {
+  padding: 10px;
+
+  display: flex;
+  align-items: center;
+  
+  text-align: center;
+  line-height: 50px;
+} 
+
+.store-navigation li {
+  padding: 10px 30px;
+  border-right: 1px solid #f2f2f2;
+  white-space: nowrap;
+}
+
+/* 스토어 body 영역 */
+.store-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10rem;
+}
+
+.store-body > div {
+  max-width: 1000px;
+}
+
+.store-body > div:last-child {
+  padding-bottom: 10rem;
+}
+
+/* ******************* 베스트 상품 영역 ******************* */
+.bestItem-contain,
+.newItem-contain {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+
+/* 베스트, 뉴 아이템 타이틀  */
+.bestItem-title,
+.newItem-title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.bestItem-title > span:first-child,
+.newItem-title > span:first-child{
+  font-size: 25px;
+  text-align: center;
+  font-weight: 700;
+}
+
+/* 베스트 아이템 내용 */
+.bestItem-content {
+  display: flex;
+  flex-direction: column;
+  gap: 4rem;
+}
+
+/* 베스트 아이템 캐러셀(슬라이드) */
+.bestItem-carousel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* gap: 30px; */
+}
+
+.bestItems{
+  padding: 0 10px;
+}
+
+.bestItems > a > div {
+  white-space: nowrap;
+}
+
+.ico-arrow-front, 
+.ico-arrow-back {
+  min-width: 30px;
+  width: 30px;
+  height: 30px;
+
+  cursor: pointer;
+  
+  display: block;
+  
+  background-repeat: no-repeat; 
+  background-size: 100%;
+}
+.ico-arrow-back {
+  background-image: url(../images/ico-arrow-back.png);
+}
+.ico-arrow-front {
+  background-image: url(../images/ico-arrow-front.png);
+}
+
+/* 베스트 아이템 박스 */
+.box-items{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.boxItem-img {
+  width: 100%;
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}
+
+.boxItem-img > img {
+  width: calc(100% / 2 -10px);
+}
+
+/* ******************* 새로운 상품 영역 ******************* */
+
+/* 새로운 상품 이미지 */
+.newItem-content {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 20px;
+}
+
+.newItems {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* ******************* =slick 영역 ******************* */
+
+.slick-track {
+  display: flex;
+}
+.slick-prev, .slick-next {  
+  background-color: #FFF;
+}
+.slick-slide {
+  width: 100% !important;
+}
