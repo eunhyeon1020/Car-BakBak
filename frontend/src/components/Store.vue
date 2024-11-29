@@ -23,17 +23,8 @@
       <!-- 광고 영역  -->
       <div class="banner"><!-- 컨테이너가 되어야 할 부분 -->
 
-        <div class="banner-img" style="position: relative;" v-for="(item, index) in bannerList" :key="index"><!-- v-for 들어갈 부분 -->
-          <div style="
-            height: 100%; 
-            padding: 0 3rem; 
-            display: flex; 
-            flex-flow: row nowrap; 
-            justify-content: space-between; 
-            align-items: center; 
-            gap: 10px 3rem;"
-            :style="`background-image: ${item.imgUrl}`"
-          >
+        <div class="banner-content"><!-- v-for 들어갈 부분 -->
+          <div class="banner-img" v-for="(item, index) in bannerList" :key="index">
             <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.title }}</span>
             <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.content }}</span>
           </div>
@@ -45,14 +36,7 @@
       <!-- 내비게이션 영역 (카테고리) -->
       <div class="store-navigation">
         <ul>
-          <li>전체</li>
-          <li>텐트 ㆍ 타프</li>
-          <li>침낭 ㆍ 매트</li>
-          <li>라이팅</li>
-          <li>계절 용품</li>
-          <li>키친</li>
-          <li>전자 기기</li>
-          <li>etc</li>
+          <li v-for="(item, i) in naviList" :key="i" @click="showAlert">{{ item }}</li>
         </ul> 
       </div>
 
@@ -148,10 +132,13 @@
           </div> -->
       </div>    
     </div>
+    
+    
   </div>
 </template>
 
 <script>
+
   export default {
     data:() => ({
       bestItemList: [
@@ -174,6 +161,16 @@
         { title: '타이틀2', content: '안녕히가세요', imgUrl: require('@/assets/images/banner2.png')},
         { title: '타이틀3', content: '잘가요', imgUrl: require('@/assets/images/banner3.png')},
       ],
+      naviList: [
+        '전체',
+        '텐트 ㆍ 타프',
+        '침낭 ㆍ 매트',
+        '라이팅',
+        '계절 용품',
+        '키친',
+        '전자 기기',
+        'etc',
+      ]
     }),
     mounted() {
       if (typeof $ === 'undefined') {
@@ -190,9 +187,28 @@
           prevArrow: `<i class="ico-arrow-back"></i>`,
           nextArrow: `<i class="ico-arrow-front"></i>`,
         });
+
+        window.$('.banner-content').slick({
+          infinite: true,
+          autoplay: true,
+          speed: 1000,
+          pauseOnHover: true,
+          dots: true,
+          customPaging: () => {
+            return `<span class="custom-dot"></span>`; // 사용자 지정 dot
+          },
+          prevArrow: '',
+          nextArrow: '',
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        });
+
       });
     },
     methods: {
+      showAlert() {
+        this.$emit('showAlert', true);
+      }
     },
   }
 </script>

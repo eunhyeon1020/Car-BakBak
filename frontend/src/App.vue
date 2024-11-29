@@ -2,9 +2,11 @@
   <div id="app">
     <Header @NavToggle="NavToggleEvent" :appLogin="appLogin" v-if="headerShow"></Header>
 
-    <router-view @logInOut="logInOutEvent"></router-view>   <!-- mypage 컴포넌트에서 로그아웃 -->
+    <router-view @logInOut="logInOutEvent" @showAlert="showAlertEvt"></router-view>   <!-- mypage 컴포넌트에서 로그아웃 -->
 
     <Footer v-if="footerShow" ></Footer>
+    <!-- Alert 모달 호출 -->
+    <Alert :show-prop="isShowAlert" @closeAlert="closeAlertEvt" :message="'본페이지는 서비스 준비중입니다. '" />
   </div>
 </template>
 
@@ -15,12 +17,14 @@
 <script>
 import Header from "@/components/Header.vue";
 import Footer from "@/components/Footer.vue";
+import Alert from '@/components/Alert.vue';
 
 export default {
   // import 한 컴포넌트를 template에서 사용할 수 있게 해주는 부분 ( 태그로 사용 가능 )
   components: {
     Header,
     Footer,
+    Alert
   },
 
   // 변수의 초기 값을 지정해주는 부분
@@ -28,6 +32,7 @@ export default {
     currentPath : '',
     headerShow: true, // Boolean : true / false
     footerShow: true,
+    isShowAlert: false,
     appLogin: '', // 로그아웃, 로그인
   }),
   
@@ -95,6 +100,14 @@ export default {
         document.querySelector('body').style.overflow = '';
       }
     },
+    showAlertEvt(show) {
+      console.log("show event :: ", show);
+      this.isShowAlert = show;
+    },
+    closeAlertEvt (e) {
+      console.log("close event :: ", e);
+      this.isShowAlert = false;
+    }
   }
 };
 </script>
