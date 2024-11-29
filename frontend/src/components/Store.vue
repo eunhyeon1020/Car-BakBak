@@ -161,8 +161,8 @@
       this.$nextTick(() => {
         window.$('.bestItem-carousel').slick({
           infinite: true,
-          // autoplay: true,
-          // pauseOnHover: true,
+          autoplay: true,
+          pauseOnHover: true,
           slidesToShow: 4,
           slidesToScroll: 4,
           prevArrow: `<i class="ico-arrow-back"></i>`,
@@ -187,9 +187,9 @@
 
         window.$('.banner-content').slick({
           infinite: true,
-          // autoplay: true,
-          speed: 1000,
+          autoplay: true,
           pauseOnHover: true,
+          speed: 1000,
           dots: true,
           customPaging: () => {
             return `<span class="custom-dot"></span>`; // 사용자 지정 dot
