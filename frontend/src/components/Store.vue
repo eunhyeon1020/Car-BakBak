@@ -143,13 +143,13 @@
     data:() => ({
       bestItemList: [
         { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
+        { itemNm: '눈뽕 오지는 전구', imgUrl: require('@/assets/images/bestItem_2.png'), price: 45250 },
+        { itemNm: '다 고쳐 맥가이버 세트', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
+        { itemNm: '감수성 쩌는 주전자 세트', imgUrl: require('@/assets/images/bestItem_4.png'), price: 45250 },
         { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_2.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_2.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_4.png'), price: 45250 },
-        { itemNm: '잠 잘오는 침낭', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
+        { itemNm: '눈뽕 오지는 전구', imgUrl: require('@/assets/images/bestItem_3.png'), price: 45250 },
+        { itemNm: '다 고쳐 맥가이버 세트', imgUrl: require('@/assets/images/bestItem_4.png'), price: 45250 },
+        { itemNm: '감수성 쩌는 주전자 세트', imgUrl: require('@/assets/images/bestItem_1.png'), price: 45250 },
       ],
       newItemList: [
         { itemNm: '신제품', imgUrl: require('@/assets/images/newItem_1.png'), price: 30000},
@@ -186,6 +186,22 @@
           slidesToScroll: 4,
           prevArrow: `<i class="ico-arrow-back"></i>`,
           nextArrow: `<i class="ico-arrow-front"></i>`,
+          responsive: [
+            {
+              breakpoint: 768,
+              settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3
+              }
+            },
+            {
+              breakpoint: 580,
+              settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2
+              }
+            }
+          ]
         });
 
         window.$('.banner-content').slick({

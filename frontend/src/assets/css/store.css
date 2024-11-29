@@ -212,7 +212,7 @@
 }
 
 .boxItem-img > img {
-  width: calc(100% / 2 -10px);
+  width: calc(100% / 2 - 10px);
 }
 
 /* ******************* 새로운 상품 영역 ******************* */
@@ -262,4 +262,20 @@ span.custom-dot {
 }
 .slick-active span.custom-dot {
   filter: brightness(1);
+}
+
+@media all and (max-width: 1000px) {
+  .bestItem-carousel .slick-list {
+    max-width: 650px;
+  }
+}
+@media all and (max-width: 768px) {
+  .bestItem-carousel .slick-list {
+    max-width: 500px;
+  }
+}
+@media all and (max-width: 580px) {
+  .bestItem-carousel .slick-list {
+    max-width: 300px;
+  }
 }
