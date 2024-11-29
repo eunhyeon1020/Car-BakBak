@@ -4,5 +4,10 @@ module.exports = {
   publicPath: '/',
   devServer: {
     port,
+  }, 
+  configureWebpack: {
+    externals: {
+      jquery: 'jQuery'
+    }
   }
 }
