@@ -23,6 +23,7 @@ export const router = new VueRouter({
       component: () => import('@/components/StoreDetail.vue'),
       meta: {
         itemNm: '잠 잘오는 침낭',
+        itemDesc: '침낭 세트 ( 침낭(1) + 침낭커버(1) + 베개 )',
         price: 45250,
         imgSrc: 'bestItem_1.png',
       }
