@@ -275,29 +275,56 @@ span.custom-dot {
 }
 
 @media all and (max-width: 1000px) {
-  .bestItem-carousel .slick-list {
-    max-width: 650px;
-  }
+  /****   스토어 아이템 내비게이션   ****/
   .store-navigation ul {
     grid-template-columns: repeat(4, 1fr);
   }
   .store-navigation ul > li:nth-child(4n + 4) {
     border-right: none;
   }
+
+  /****   BEST ITEM 슬라이드 리스트   ****/
+  .bestItem-carousel .slick-list {
+    max-width: 650px;
+  }
+
+  /****    BEST ITEM 슬라이드 리스트 서브 이미지    ****/
+  .bestItem-box {
+    padding: 0 40px;
+  }
+  .boxItem-img {
+    min-width: 550px;
+  }
 }
+
 @media all and (max-width: 768px) {
+  /****   BEST ITEM 슬라이드 리스트   ****/
   .bestItem-carousel .slick-list {
     max-width: 500px;
   }
 }
+
 @media all and (max-width: 580px) {
-  .bestItem-carousel .slick-list {
-    max-width: 300px;
-  }
+  /****   스토어 아이템 내비게이션   ****/
   .store-navigation ul {
     grid-template-columns: repeat(2, 1fr);
   }
   .store-navigation ul > li:nth-child(2n + 2) {
     border-right: none;
+  }
+
+  /****   BEST ITEM 슬라이드 리스트   ****/
+  .bestItem-carousel .slick-list {
+    max-width: 300px;
+  }
+
+  /****    BEST ITEM 슬라이드 리스트 서브 이미지    ****/
+  .boxItem-img {
+    flex-wrap: wrap;
+    justify-content: center;
+    min-width: 320px;
+  }
+  .boxItem-img > img {
+    width: 80%;
   }
 }
