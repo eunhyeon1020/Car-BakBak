@@ -32,7 +32,6 @@
         
       </div>
 
-
       <!-- 내비게이션 영역 (카테고리) -->
       <div class="store-navigation">
         <ul>
@@ -56,9 +55,6 @@
           <div class="bestItem-content">
             <!-- 베스트 아이템 캐러셀(슬라이드) -->
             <div class="bestItem-carousel">
-              <!-- <div class="arrow-back">
-                <i class="ico-arrow-back"></i>
-              </div> -->
 
               <div v-for="(item, index) in bestItemList" :key="index" class="bestItems">
                 <router-link :to="'storedetail'">
@@ -69,10 +65,6 @@
                   <div class="bestitem-price"> {{ item.price.toLocaleString('ko') }} 원</div>               
                 </router-link>
               </div>
-
-              <!-- <div class="arrow-front">
-                <i class="ico-arrow-front"></i>
-              </div> -->
             </div>
 
             <!-- 베스트 아이템 박스 -->
@@ -88,7 +80,6 @@
 
         </div> <!-- 베스트 아이템 영역 끝 -->
 
-        
         <!-- 뉴 아이템 영역 -->
         <div class="newItem-contain">
           <!-- 뉴아이템 타이틀 -->
@@ -133,7 +124,6 @@
       </div>    
     </div>
     
-    
   </div>
 </template>
 
@@ -161,16 +151,7 @@
         { title: '타이틀2', content: '안녕히가세요', imgUrl: require('@/assets/images/banner2.png')},
         { title: '타이틀3', content: '잘가요', imgUrl: require('@/assets/images/banner3.png')},
       ],
-      naviList: [
-        '전체',
-        '텐트 ㆍ 타프',
-        '침낭 ㆍ 매트',
-        '라이팅',
-        '계절 용품',
-        '키친',
-        '전자 기기',
-        'etc',
-      ]
+      naviList: [ '전체', '텐트 ㆍ 타프', '침낭 ㆍ 매트', '라이팅', '계절 용품', '키친', '전자 기기', 'etc' ],
     }),
     mounted() {
       if (typeof $ === 'undefined') {

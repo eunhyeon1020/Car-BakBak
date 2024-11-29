@@ -96,11 +96,18 @@
 }
 
 .store-navigation ul {
+  width: 100%;
+  max-width: 1000px;
+
+  /*display: flex;*/
+  /*justify-content: center;*/
+  /*align-items: center;*/
+
+  /* flex를 grid 속성으로 대체. 미디어 쿼리를 사용해 열의 개수를 지정 */
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
   padding: 10px;
 
-  display: flex;
-  align-items: center;
-  
   text-align: center;
   line-height: 50px;
 } 
@@ -110,6 +117,9 @@
   border-right: 1px solid #f2f2f2;
   white-space: nowrap;
   cursor: pointer;
+}
+.store-navigation li:last-child {
+  border-right: none;
 }
 
 /* 스토어 body 영역 */
@@ -268,6 +278,12 @@ span.custom-dot {
   .bestItem-carousel .slick-list {
     max-width: 650px;
   }
+  .store-navigation ul {
+    grid-template-columns: repeat(4, 1fr);
+  }
+  .store-navigation ul > li:nth-child(4n + 4) {
+    border-right: none;
+  }
 }
 @media all and (max-width: 768px) {
   .bestItem-carousel .slick-list {
@@ -277,5 +293,11 @@ span.custom-dot {
 @media all and (max-width: 580px) {
   .bestItem-carousel .slick-list {
     max-width: 300px;
+  }
+  .store-navigation ul {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .store-navigation ul > li:nth-child(2n + 2) {
+    border-right: none;
   }
 }
