@@ -90,7 +90,7 @@
 
           <!-- 뉴아이템 내용 -->
           <div class="newItem-content">
-            <div v-for="(item, index) in newItemList" :key="index" class="newItems">
+            <div class="newItems" v-for="(item, index) in newItemList" :key="index">
               <div class="newitem-img">
                 <img :src="item.imgUrl" alt="상품 이미지" />
               </div>

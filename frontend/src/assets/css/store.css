@@ -7,21 +7,25 @@
 
 /* ******************* 검색창 영역 ******************* */
 .menu-content {
-  padding: 20px 0;
+  padding: 20px 15px;
   display: flex;
   justify-content: center;
 }
 
-.searchBar{
+.searchBar {
+  width: 100%;
+  max-width: 1000px;
+
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: center;
   gap: 15px;
 }
 
 .search-box {
-  /* width: auto; */
-  width: 500px;
+  width: 100%;
+  max-width: 500px;
   padding: 8px 10px;
 
   display: flex;
@@ -30,6 +34,10 @@
 
   border: 2px solid #07312181;
   border-radius: 15px;
+}
+
+.header_search_input {
+  width: 100%;
 }
 
 .ico-search {
@@ -295,12 +303,28 @@ span.custom-dot {
   .boxItem-img {
     min-width: 550px;
   }
+
+  /****   NEW ITEM 리스트   ****/
+  .newItem-content {
+    padding: 0 40px;
+  }
 }
 
 @media all and (max-width: 768px) {
   /****   BEST ITEM 슬라이드 리스트   ****/
   .bestItem-carousel .slick-list {
     max-width: 500px;
+  }
+
+  /****   NEW ITEM 리스트   ****/
+  .newItem-content {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  .newItems {
+    width: 80%;
+    min-width: 155px;
+    gap: 5px;
   }
 }
 
@@ -326,5 +350,9 @@ span.custom-dot {
   }
   .boxItem-img > img {
     width: 80%;
+  }
+
+  .newItems img {
+    border-radius: 24px 0 24px 0;
   }
 }
