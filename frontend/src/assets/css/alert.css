@@ -2,6 +2,8 @@
   width: 100vw;
   height: 100vh;
 
+  padding: 0 20px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,8 +70,24 @@
   background-size: 100%;
 }
 
+/* 내용창 */
 .alert-content {
-  font-size: 1.2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.alert-content > div:nth-child(1){
+  padding-bottom: 20px;
+  font-size: 1.6rem;
   font-weight: 600;
   color: #3f3f3f;
+}
+
+.alert-content > div:nth-child(2),
+.alert-content > div:nth-child(3){
+  font-size: 0.9rem;
+  font-weight: 400;
 }

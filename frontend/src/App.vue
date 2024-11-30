@@ -6,7 +6,7 @@
 
     <Footer v-if="footerShow" ></Footer>
     <!-- Alert 모달 호출 -->
-    <Alert :show-prop="isShowAlert" @closeAlert="closeAlertEvt" :message="'본페이지는 서비스 준비중입니다. '" />
+    <Alert :show-prop="isShowAlert" @closeAlert="closeAlertEvt" :message="'서비스 준비중입니다. '" />
   </div>
 </template>
 
