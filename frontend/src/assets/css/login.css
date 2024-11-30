@@ -74,16 +74,16 @@
   background-color: #f5f5f5;
 }
 
-#login-form input[type="button"] {
+#login-form input[type="submit"] {
   background-color: #01321f;
   color: white;
   height: 40px;
 }
-#login-form input[type="button"]:hover {
+#login-form input[type="submit"]:hover {
   background-color: #044f32;
 }
 
-#login-form input[type="button"]:active {
+#login-form input[type="submit"]:active {
   background-color: #056942;
 }
 

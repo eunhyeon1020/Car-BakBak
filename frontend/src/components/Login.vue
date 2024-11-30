@@ -8,7 +8,7 @@
       </router-link>
 
       <!-- 로그인 입력 부분 -->
-      <form id="login-form"> 
+      <form id="login-form" @submit.prevent="submitForm"> 
         <!-- @submit.prevent="formSubmit" -->
         <div class="login-top-text">
           <h3>로그인</h3>
@@ -19,9 +19,9 @@
             </router-link>
           </div>
           
-          <input @keydown.enter="login" type="text" id="userID" name="userID" placeholder="아이디 입력" v-model="myId" />
-          <input @keydown.enter="login" type="password" id="userPassword" name="userPassword" placeholder="비밀번호 입력" v-model="myPw"/>
-          <input @click="login" type="button" value="로그인" style="cursor: pointer;">
+          <input type="text" id="userID" name="userID" placeholder="아이디 입력" v-model="userID" />
+          <input type="password" id="userPassword" name="userPassword" placeholder="비밀번호 입력" v-model="userPassword"/>
+          <input type="submit" value="로그인" style="cursor: pointer;">
           
         </div>
 
@@ -50,23 +50,33 @@
 
   export default {
     data: () => ({      
-      myId : '',
-      myPw : '',
+      userID : '',
+      userPassword : '',
       isMobile: window.innerWidth <= 1024,
     }),
     methods: {      
-      login(event) {
-        if (this.myId === 'admin' && this.myPw === '123456'){
+      submitForm() {
+        //로컬스토리지에 저장된 회원정보 가져옴
+      const storedData = localStorage.getItem("userData");
+      if (!storedData) {
+        alert("저장된 계정 정보가 없습니다. 회원가입을 진행해주세요.");
+        return;
+      }
 
-          alert('로그인이 되었습니다.');
-          this.$emit('logInOut', '로그인') ;
-          this.$router.push({path: '/'});
+      const userData = JSON.parse(storedData);
+      console.log("userData:" ,userData);
 
-        } else {
-          alert('아이디와 비밀번호를 다시 입력해주세요.');
-          event.preventDefault();   // 중지          
-        }
-      },
+      //입력 정보랑 저장된 회원 정보 일치하면
+      if (this.userID === userData.userID && this.userPassword === userData.userPassword) {
+        userData.loginYorN = 'Y';
+        localStorage.setItem('userData', JSON.stringify(userData));
+
+        alert("로그인 성공!");
+        this.$router.push("/"); 
+      } else { //불일치
+        alert("아이디 또는 비밀번호가 올바르지 않습니다.");
+      }
+    },
       updateIsMobile() {
       this.isMobile = window.innerWidth <= 750;
       },

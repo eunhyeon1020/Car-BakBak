@@ -65,24 +65,38 @@
 </template>
 <script>
 export default {
-  mounted() {
-    const Price = this.$route.meta.price;
-    console.log("Price :: ", Price);
-    const countInput = document.getElementById("count");
-    const totalPrice = document.getElementById("total-price");
-    const totalCount = document.getElementById("total-count");
+    mounted() {
+        const Price = this.$route.meta.price; // 상품 가격
+        const countInput = document.getElementById("count"); //상품 개수
+        const totalPrice = document.getElementById("total-price"); //총 가격
+        const totalCount = document.getElementById("total-count"); //총 개수
 
-    countInput.addEventListener("input", function () {
-      const count = parseInt(countInput.value, 10);
-      const total = Price * count;
-      totalPrice.textContent = total.toLocaleString() + "원";
-      totalCount.textContent = "(" + count + "개)";
+        countInput.addEventListener("input", function () {
+        let count = parseInt(countInput.value, 10);
+
+        if (isNaN(count)) { //널값이면(사용자가 값을 지우면) 0으로 계산하게 함
+            count = 0;
+        }
+        const total = Price * count;
+
+        totalPrice.textContent = total.toLocaleString() + "원";
+        totalCount.textContent = "(" + count + "개)";
     });
-  },
-  methods: {
-    showAlert() {
-      this.$emit('showAlert', true);
+
+    countInput.addEventListener("blur", function () { //블러이벤트 추가(포커스 잃으면) 기본값인 1로 설정
+        if (countInput.value === "" || parseInt(countInput.value, 10) <= 0) {
+        countInput.value = 1;
+        const total = Price * 1;
+        totalPrice.textContent = total.toLocaleString() + "원";
+        totalCount.textContent = "(1개)";
+        }
+    });
+},
+
+    methods: {
+        showAlert() {
+            this.$emit('showAlert', true);
+        }
     }
-  }
 };
 </script>

@@ -98,7 +98,7 @@
 
         <!-- 로그인 후 header right 변환 -->
         <template v-else>
-          <div class="user"><p>김은현 님</p></div>
+          <div class="user"><p>{{userName}} 님</p></div>
 
           <div>|</div>
           
@@ -180,6 +180,8 @@ export default {
     currentPath: '',
     navContain: false,
     isMobile: window.innerWidth <= 1024,
+    userName: '',
+    loginYorN: '',
   }),
   
   methods: {
@@ -196,6 +198,9 @@ export default {
     logOut() {
       this.isLogin = false;
       alert('로그아웃 되었습니다.');
+      const userData = JSON.parse(localStorage.getItem('userData'));
+      userData.loginYorN = 'N';
+      localStorage.setItem('userData', JSON.stringify(userData));
       if (this.$route.path !== '/') {
         this.$router.replace('/');
       }     
@@ -235,11 +240,16 @@ export default {
 
   // 창변환에 따라 남겨지는 메뉴들을 삭제 
   mounted() {
+    const userData = JSON.parse(localStorage.getItem('userData')); //회원가입 정보 가져옴
+    if (userData) {
+      this.userName = userData.userName; // userName 가져오기
+    }
+    
     window.addEventListener('resize', this.handleResize);
 
-    if (this.appLogin === '로그아웃') {
+    if (userData.loginYorN === 'N') {
       this.isLogin = false;
-    } else if (this.appLogin === '로그인') {
+    } else if (userData.loginYorN === 'Y') {
       this.isLogin = true;
     }
   },

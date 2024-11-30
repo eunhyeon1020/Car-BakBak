@@ -12,8 +12,8 @@
           
           <li class="mypage-img">
             <div class="profile-img"></div>
-            <div class="userName">김은현</div>
-            <div class="userId">admin</div>
+            <div class="userName">{{ userName }}</div>
+            <div class="userId">{{ userID }}</div>
           </li>
 
           <li>
@@ -46,8 +46,8 @@
             <ul>
               <li class="profile-img"></li>
               <li>
-                <div class="userName">김은현</div>
-                <div class="userId">admin</div>
+                <div class="userName">{{ userName }}</div>
+            <div class="userId">{{ userID }}</div>
               </li>
             </ul>
   
@@ -55,7 +55,7 @@
               <li>
                 <div class="tel">
                   <div></div>
-                  <div>010-1234-5678</div>
+                  <div>{{ phoneNum }}</div>
                 </div>
               </li>
             </ul>
@@ -64,11 +64,11 @@
               <li>
                 <div class="id">
                   <div></div>
-                  <div>admin</div> 
+                  <div>{{ userID }}</div> 
                 </div>
                 <div class="pw">
                   <div></div>
-                  <div>123456</div>
+                  <div>{{ userPassword }}</div>
                 </div>
               </li>
             </ul>
@@ -77,7 +77,7 @@
               <li>
                 <div class="adress">
                   <div></div>
-                  <div>서울특별시 00구 00동 00길 00-0 </div>
+                  <div>{{ userAdress }}</div>
                 </div>
               </li>
             </ul>
@@ -86,7 +86,7 @@
               <li>
                 <div class="email">
                   <div></div>
-                  <div>email@naver.com</div>
+                  <div>{{userEmail}}</div>
                 </div>
               </li>
             </ul>
@@ -229,6 +229,13 @@
         {title:"리뷰를 삭제하고 싶어요.", content:"리뷰 삭제 방법에 대한 내용입니다. ", isOpen:false},
       ],
       isMobile: window.innerWidth <= 1000,
+      userName: '',
+      userID: '',
+      userPassword: '',
+      phoneNum: '',
+      userAdress: '',
+      userEmail: '',
+      loginYorN: '',
     }),
     methods: {
       updateIsMobile() {
@@ -255,6 +262,9 @@
         
         if (!logoutAsk) return;
         this.$emit('logInOut', '로그아웃');
+        const userData = JSON.parse(localStorage.getItem('userData'));
+        userData.loginYorN = 'N';
+        localStorage.setItem('userData', JSON.stringify(userData));
         this.$router.push({path: '/'});
       },
 
@@ -274,6 +284,15 @@
 
     mounted() {
     window.addEventListener('resize', this.updateIsMobile); // 화면 크기 변경 이벤트 등록
+    const userData = JSON.parse(localStorage.getItem('userData')); //회원가입 정보 가져옴
+    if (userData) {
+      this.userName = userData.userName;
+      this.userID = userData.userID; 
+      this.userPassword = userData.userPassword;
+      this.phoneNum = userData.phoneNum; 
+      this.userAdress = userData.userAdress;
+      this.userEmail = userData.userEmail;
+    }
     },
 
     beforeDestroy() {
