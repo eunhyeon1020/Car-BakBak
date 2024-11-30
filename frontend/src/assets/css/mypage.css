@@ -1,13 +1,13 @@
 #mypage {
   width: 100vw;
-  height: 100vh;
+  height: 100%;
   /* position: absolute; */
 }
 
 .mypage-contain {
   /* position: relative; */
   max-width: 1200px;
-  height: 100vh;
+  height: 100%;
   margin: 0 auto;
 
   display: flex;
@@ -16,7 +16,7 @@
 /*******************마이페이지 프로필 부분 *******************/
 .mypage-header {
   width: 395px;
-  height: 100vh;
+  height: auto;
 
   border-left: 1px solid rgba(0,0,0,.08);
   box-shadow: 5px 1px 8px 0 rgba(0,0,0,.06);
@@ -118,7 +118,7 @@
   padding: 4.5rem 4rem 0 6rem;
   
   width: 804px;
-  height: 100vh;
+  height: 100%;
   
   /* border: 1px solid red; */
 }
