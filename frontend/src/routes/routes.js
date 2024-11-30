@@ -22,9 +22,9 @@ export const router = new VueRouter({
       path: '/storedetail',
       component: () => import('@/components/StoreDetail.vue'),
       meta: {
-        itemNm: '잠 잘오는 침낭',
-        itemDesc: '침낭 세트 ( 침낭(1) + 침낭커버(1) + 베개 )',
-        price: 45250,
+        itemNm: '블루 스피클 캠핑 세트',
+        itemDesc: '블루 스피클 캠핑 세트 ( 컵(1) + 주전자(1))',
+        price: 39900,
         imgSrc: 'bestItem_1.png',
       }
     }, {
