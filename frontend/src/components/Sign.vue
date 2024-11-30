@@ -1,17 +1,20 @@
 <template>
   <div id="sign">
     <div class="sign-content">
-      <div class="sign-logo">
+      <!-- <div class="sign-logo">
         <router-link :to="'/'">
           <div class="sign-logo-img"></div>
         </router-link>
-      </div>
+      </div> -->
 
       <div class="sign-box">
         <form id="sign-form" @submit.prevent="submitForm">
           <!-- 회원가입 타이틀 -->
           <div class="sign-title">
-            <h3>회원가입</h3>
+            <div>
+              <div class="sign-logo"></div>
+              <h3>회원가입</h3> 
+            </div>
             <div>
               <span>차박박과 함께 여행을 떠날 준비 되셨나요?</span>
             </div>
