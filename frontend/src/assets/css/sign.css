@@ -105,7 +105,9 @@
   background-color: #f5f5f5;
 }
 
-.input-IdPw,
+.input-id,
+.input-pw,
+.input-aginPw,
 .input-name,
 .input-adress,
 .input-email,
@@ -235,10 +237,6 @@
 
   .sign-input-area {
     gap: 20px;
-  }
-
-  .signup-btn {
-    
   }
 }
 

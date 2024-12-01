@@ -21,12 +21,6 @@ export const router = new VueRouter({
     }, {
       path: '/storedetail',
       component: () => import('@/components/StoreDetail.vue'),
-      meta: {
-        itemNm: '블루 스피클 캠핑 세트',
-        itemDesc: '블루 스피클 캠핑 세트 ( 컵(1) + 주전자(1))',
-        price: 39900,
-        imgSrc: 'bestItem_1.png',
-      }
     }, {
       path: '/notice',
       component: () => import('@/components/Notice.vue'),

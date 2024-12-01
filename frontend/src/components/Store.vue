@@ -61,10 +61,11 @@
                   <div class="bestitem-img">
                     <img :src="item.imgUrl" alt="상품 이미지" />
                   </div>
-                  <div class="bestitem-name"> {{ item.itemNm }} </div>
+                  <div class="bestitem-name" > {{ item.itemNm }} </div>
                   <div class="bestitem-price"> {{ item.price.toLocaleString('ko') }} 원</div>               
                 </a>
               </div>
+
             </div>
 
             <!-- 베스트 아이템 박스 -->
@@ -91,11 +92,13 @@
           <!-- 뉴아이템 내용 -->
           <div class="newItem-content">
             <div class="newItems" v-for="(item, index) in newItemList" :key="index">
+              <a @click="goToDetail(item)">
               <div class="newitem-img">
                 <img :src="item.imgUrl" alt="상품 이미지" />
               </div>
               <div class="newitem-name"> {{ item.itemNm }} </div>
               <div class="newitem-price"> {{ item.price.toLocaleString('ko')}} 원</div>
+            </a>
             </div>
           </div>
 
@@ -128,23 +131,22 @@
 </template>
 
 <script>
-
   export default {
     data:() => ({
       bestItemList: [
-        { itemNm: '블루 스피클 캠핑 세트', imgUrl: require('@/assets/images/bestItem_1.png'), price: 39900 },
-        { itemNm: '컴팩트 마이크로파이버 타월', imgUrl: require('@/assets/images/bestItem_2.png'), price: 15000 },
-        { itemNm: '어드벤터 EDC 생존 키드', imgUrl: require('@/assets/images/bestItem_3.png'), price: 35000 },
-        { itemNm: '루나블루 LED 캠핑 랜턴', imgUrl: require('@/assets/images/bestItem_4.png'), price: 22000 },
-        { itemNm: '접이식 캠핑백', imgUrl: require('@/assets/images/bestItem_5.png'), price: 29000 },
-        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/bestItem_6.png'), price: 12000 },
-        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/bestItem_7.png'), price: 18500 },
-        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/bestItem_8.png'), price: 49000 },
+        { itemNm: '블루 스피클 캠핑 세트', imgUrl: require('@/assets/images/bestItem_1.png'),itemDesc:'블루 스피클 캠핑 세트 ( 컵(1) + 주전자(1))', price: 39900 },
+        { itemNm: '컴팩트 마이크로파이버 타월', imgUrl: require('@/assets/images/bestItem_2.png'), itemDesc:'흡수력 좋은 오렌지 마이크로파이버 타월 1종', price: 15000 },
+        { itemNm: '어드벤터 EDC 생존 키드', imgUrl: require('@/assets/images/bestItem_3.png'), itemDesc:'휴대하기 좋은 생존형(비상용) 다용도 키트',  price: 35000 },
+        { itemNm: '루나블루 LED 캠핑 랜턴', imgUrl: require('@/assets/images/bestItem_4.png'),  itemDesc:'한 번 충전으로 최대 48시간 지속 가능한 휴대LED', price: 22000 },
+        { itemNm: '접이식 캠핑백', imgUrl: require('@/assets/images/bestItem_5.png'),  itemDesc:'휴대하기 좋은 라임색 접이식 가방', price: 29000 },
+        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/bestItem_6.png'), itemDesc:'',  price: 12000 },
+        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/bestItem_7.png'), itemDesc:'',  price: 18500 },
+        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/bestItem_8.png'), itemDesc:'',  price: 49000 },
       ],
       newItemList: [
-        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/newItem_1.png'), price: 19000},
-        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/newItem_2.png'), price: 32000},
-        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/newItem_3.png'), price: 45000},
+        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/newItem_1.png'), itemDesc:'', price: 19000},
+        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/newItem_2.png'), itemDesc:'', price: 32000},
+        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/newItem_3.png'), itemDesc:'', price: 45000},
       ],
       bannerList: [
         { title: '모든 캠핑의 시작과 끝,', content: '여기서 만나요', imgUrl: require('@/assets/images/banner1.png')},
@@ -154,14 +156,6 @@
       naviList: [ '전체', '텐트 ㆍ 타프', '침낭 ㆍ 매트', '라이팅', '계절 용품', '키친', '전자 기기', 'etc' ],
     }),
     mounted() {
-      localStorage.setItem('bestItemList', JSON.stringify(this.bestItemList));
-      localStorage.setItem('newItemList', JSON.stringify(this.newItemList));
-      localStorage.setItem('bannerList', JSON.stringify(this.bannerList));
-      
-      console.log("bestItemList", this.bestItemList);
-      console.log("newItemList", this.newItemList);
-      console.log("bannerList", this.bannerList);
-
       if (typeof $ === 'undefined') {
         console.error('jQuery is not loaded');
         return;
@@ -211,17 +205,34 @@
       });
     },
     methods: {
-    goToDetail(item) {
-      this.$router.push({
-        path: '/storedetail',
-        meta: {
+
+      goToDetail(item) {
+        const itemInfo = {
           itemNm: item.itemNm,
-          itemDesc: '이 상품은 최고의 캠핑용품입니다.',
+          imgUrl: item.imgUrl,
+          itemDesc: item.itemDesc,
           price: item.price,
-          imgSrc: item.imgUrl,
-        },
-      });
-    },
+      };
+
+      console.log("itemInfo:", itemInfo);
+      localStorage.setItem('itemInfo', JSON.stringify(itemInfo));
+      this.$router.push('/storedetail');
+
+      },
+    // goToDetail(item) {
+    //   this.$router.push({
+    //     path: '/storedetail',
+    //     meta: {
+    //       itemNm: item.itemNm,
+    //       itemDesc: '이 상품은 최고의 캠핑용품입니다.',
+    //       price: item.price,
+    //       imgSrc: item.imgUrl,
+    //     },
+    //   });
+    //   console.log("item:", item);
+    //   localStorage.setItem('itemInfo', JSON.stringify(item));
+    // },
+
     showAlert() {
         this.$emit('showAlert', true);
       }
