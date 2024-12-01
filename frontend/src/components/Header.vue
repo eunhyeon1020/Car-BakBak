@@ -247,10 +247,14 @@ export default {
     
     window.addEventListener('resize', this.handleResize);
 
-    if (userData.loginYorN === 'N') {
+    if (userData) {
+      if (userData.loginYorN === 'N') {
       this.isLogin = false;
     } else if (userData.loginYorN === 'Y') {
       this.isLogin = true;
+    }
+    } else {
+      console.log("userData 없음");
     }
   },
 
