@@ -52,7 +52,7 @@
     data: () => ({      
       userID : '',
       userPassword : '',
-      isMobile: window.innerWidth <= 1024,
+      isMobile: window.innerWidth <= 750,
     }),
     methods: {      
       submitForm() {

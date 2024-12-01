@@ -145,13 +145,16 @@ export default {
       const data = localStorage.getItem("userData");
       const userData = JSON.parse(data);
       console.log(userData.loginYorN);
-      if (userData.loginYorN === "Y") {
-        this.$router.push("/map");
+      if (userData) {
+        if (userData.loginYorN === "Y") {
+          this.$router.push("/map");
+        } else {
+          this.$router.push("/login");
+        }
       } else {
         this.$router.push("/login");
       }
     },
-
   }
 };
 

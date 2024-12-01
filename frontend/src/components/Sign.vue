@@ -1,11 +1,11 @@
 <template>
   <div id="sign">
     <div class="sign-content">
-      <!-- <div class="sign-logo">
+      <div class="sign-logo later">
         <router-link :to="'/'">
           <div class="sign-logo-img"></div>
         </router-link>
-      </div> -->
+      </div>
 
       <div class="sign-box">
         <form id="sign-form" @submit.prevent="submitForm">
@@ -159,7 +159,7 @@ export default {
     validatePhoneNum() {
       const phoneRegex = /^\d{11}$/;
       this.error.phoneNum = !phoneRegex.test(this.phoneNum)
-        ? '전화번호는 - 없이 숫자 11자이어야 합니다.'
+        ? '올바른 전화번호 형식을 입력해 주세요.'
         : '';
     },
     submitForm() {

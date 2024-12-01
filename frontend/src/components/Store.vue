@@ -25,8 +25,8 @@
 
         <div class="banner-content"><!-- v-for 들어갈 부분 -->
           <div class="banner-img" v-for="(item, index) in bannerList" :key="index">
-            <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.title }}</span>
-            <span style="color: #FFF; font-size: 2rem; white-space: nowrap;">{{ item.content }}</span>
+              <span style="color: #FFF; font-size: 2rem; white-space: nowrap; font-weight: 600;">{{ item.title }}</span>
+              <span style="color: #FFF; font-size: 2rem; white-space: nowrap; font-weight: 600;">{{ item.content }}</span>
           </div>
         </div>
         
@@ -58,7 +58,7 @@
 
               <div v-for="(item, index) in bestItemList" :key="index" class="bestItems">
                 <a @click="goToDetail(item)">
-                  <div class="bestitem-img">
+                  <div class="bestitem-img" style="cursor: pointer;">
                     <img :src="item.imgUrl" alt="상품 이미지" />
                   </div>
                   <div class="bestitem-name" > {{ item.itemNm }} </div>
@@ -139,14 +139,14 @@
         { itemNm: '어드벤터 EDC 생존 키드', imgUrl: require('@/assets/images/bestItem_3.png'), itemDesc:'휴대하기 좋은 생존형(비상용) 다용도 키트',  price: 35000 },
         { itemNm: '루나블루 LED 캠핑 랜턴', imgUrl: require('@/assets/images/bestItem_4.png'),  itemDesc:'한 번 충전으로 최대 48시간 지속 가능한 휴대LED', price: 22000 },
         { itemNm: '접이식 캠핑백', imgUrl: require('@/assets/images/bestItem_5.png'),  itemDesc:'휴대하기 좋은 라임색 접이식 가방', price: 29000 },
-        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/bestItem_6.png'), itemDesc:'',  price: 12000 },
-        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/bestItem_7.png'), itemDesc:'',  price: 18500 },
-        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/bestItem_8.png'), itemDesc:'',  price: 49000 },
+        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/bestItem_6.png'), itemDesc:'작고 가벼운 휴대용 와어어 톱',  price: 12000 },
+        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/bestItem_7.png'), itemDesc:'날카로운 칼날과 접이식 구조로 안전성을 동시에 챙긴 미니 칼',  price: 18500 },
+        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/bestItem_8.png'), itemDesc:'따뜻함과 편안함을 모두 잡은 초경량 침낭',  price: 49000 },
       ],
       newItemList: [
-        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/newItem_1.png'), itemDesc:'', price: 19000},
-        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/newItem_2.png'), itemDesc:'', price: 32000},
-        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/newItem_3.png'), itemDesc:'', price: 45000},
+        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/newItem_1.png'), itemDesc:'실용성과 스타일을 동시에 갖춘 키체인 캡슐', price: 19000},
+        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/newItem_2.png'), itemDesc:'다양한 기능을 한 곳에 담은 올인원 멀티툴', price: 32000},
+        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/newItem_3.png'), itemDesc:'보온성과 보냉성이 뛰어난 클래식한 보온병', price: 45000},
       ],
       bannerList: [
         { title: '모든 캠핑의 시작과 끝,', content: '여기서 만나요', imgUrl: require('@/assets/images/banner1.png')},
@@ -219,20 +219,6 @@
       this.$router.push('/storedetail');
 
       },
-    // goToDetail(item) {
-    //   this.$router.push({
-    //     path: '/storedetail',
-    //     meta: {
-    //       itemNm: item.itemNm,
-    //       itemDesc: '이 상품은 최고의 캠핑용품입니다.',
-    //       price: item.price,
-    //       imgSrc: item.imgUrl,
-    //     },
-    //   });
-    //   console.log("item:", item);
-    //   localStorage.setItem('itemInfo', JSON.stringify(item));
-    // },
-
     showAlert() {
         this.$emit('showAlert', true);
       }

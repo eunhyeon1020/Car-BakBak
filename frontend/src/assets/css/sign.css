@@ -34,10 +34,14 @@
   background-size: 100%;
 } */
 
+.later {
+  display: none;
+}
+
 /******************* 회원가입 박스 영역 *******************/
 
 .sign-box {
-  /* width: 570px; */
+  max-width: 570px;
   height: auto;
   padding: 20px;
   
@@ -207,14 +211,21 @@
     align-items: center;
   }
   
-  .sign-logo {
+  /* .sign-logo {
     padding: 0px;
-  }
+  } */
   
-  .sign-logo-img {
+  /* .sign-logo-img {
     background-image: url("../images/차박박\ copy.svg");
     width: 180px;
     background-size: 100%;
+  } */
+  .sign-logo.later {
+    background-image: url("../images/차박박\ copy.svg");
+    width: 200px;
+    height: 100px;
+    background-size: 200px 100px;
+    display: inline-block;
   }
 
   .sign-box {
