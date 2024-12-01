@@ -94,6 +94,11 @@
   align-items: center;
   justify-content: center;
   gap: 15px;
+
+  /* 12.01 스크립트 넣으니까 이상해져서 추가함 */
+  width: 170px;
+  color: #ffffff;
+  margin-top: 15px;
 }
 
 a .review-btn {

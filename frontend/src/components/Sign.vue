@@ -12,7 +12,9 @@
           <!-- 회원가입 타이틀 -->
           <div class="sign-title">
             <div>
-              <div class="sign-logo"></div>
+              <router-link :to="'/'">
+                <div class="sign-logo"></div>
+              </router-link>
               <h3>회원가입</h3> 
             </div>
             <div>
