@@ -312,6 +312,7 @@
   .inquiry-title::after {
     content: '';
     width: 30px;
+    min-width: 30px;
     height: 30px;
 
     margin-left: auto;
@@ -324,6 +325,6 @@
     cursor: pointer;
   }
   .inquiry-title.active::after {
-  background-image: url(../assets/images/ico-keyUp.svg);
+    background-image: url(../assets/images/ico-keyUp.svg);
   }
 </style>
