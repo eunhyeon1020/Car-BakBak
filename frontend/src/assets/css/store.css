@@ -302,7 +302,7 @@ span.custom-dot {
     padding: 0 40px;
   }
   .boxItem-img {
-    min-width: 550px;
+    min-width: 550px; 
   }
 
   /****   NEW ITEM 리스트   ****/
