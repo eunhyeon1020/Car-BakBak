@@ -12,7 +12,6 @@
 
 .noti-contain {
   max-width: 1600px;
-  height: calc(100vh -65px);
   position: relative;
 
   margin: 0 auto;
