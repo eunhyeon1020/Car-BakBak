@@ -312,6 +312,15 @@ span.custom-dot {
 }
 
 @media all and (max-width: 768px) {
+  .banner-img {
+    padding: 0 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 20px;
+  }
+
   /****   BEST ITEM 슬라이드 리스트   ****/
   .bestItem-carousel .slick-list {
     max-width: 500px;
