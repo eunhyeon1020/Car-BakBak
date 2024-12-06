@@ -1,11 +1,9 @@
 <template>
   <div id="sign">
     <div class="sign-content">
-      <div class="sign-logo later">
-        <router-link :to="'/'">
-          <div class="sign-logo-img"></div>
-        </router-link>
-      </div>
+      <router-link :to="'/'">
+        <div class="sign-logo later"></div>
+      </router-link>
 
       <div class="sign-box">
         <form id="sign-form" @submit.prevent="submitForm">
