@@ -37,6 +37,7 @@
 .intro-contain {
   max-width: 700px;
   height: 100%;
+  min-height: 100vh;
   margin: 0 auto;
   padding: 130px 10px;
   /* border: 1px solid black; */
@@ -248,6 +249,7 @@ a .review-btn {
 /**************** 3. 구성원 소개 영역 시작   ****************/
 .intro-contain:nth-child(3) {
   max-width: 800px;
+  min-height: 100vh;
   padding: 130px 20px;
   align-items: center;
   gap: 7.6rem;
