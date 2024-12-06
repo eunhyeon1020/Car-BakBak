@@ -117,7 +117,7 @@
               <div></div>
             </li>
             <li>팀장 박소정</li>
-            <li><span>웹페이지 디자인</span><br /><span>웹페이지 UI/UX 구현</span></li>
+            <li><span>웹 디자인(주)</span><br /><span>UI 구현(보조)</span><br /><span>데이터 처리 및 연결</span></li>
           </ul>
 
           <ul class="kim">
@@ -125,7 +125,7 @@
               <div></div>
             </li>
             <li>조원 김은현</li>
-            <li><span>웹페이지 디자인</span><br /><span>웹페이지 UI/UX 구현</span></li>
+            <li><span>웹 디자인(보조)</span><br /><span>반응형 웹 디자인</span><br /><span>UI/UX 개발(주)</span></li>
           </ul>
         </div>
       </div>
