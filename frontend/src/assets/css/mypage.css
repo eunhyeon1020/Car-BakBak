@@ -1,6 +1,6 @@
 #mypage {
   width: 100vw;
-  height: 100%;
+  height: auto;
   /* position: absolute; */
 }
 
@@ -16,7 +16,8 @@
 /*******************마이페이지 프로필 부분 *******************/
 .mypage-header {
   width: 395px;
-  height: auto;
+  height: 100%;
+  min-height: 100vh;
 
   border-left: 1px solid rgba(0,0,0,.08);
   box-shadow: 5px 1px 8px 0 rgba(0,0,0,.06);
@@ -332,7 +333,8 @@
 
 /* 문의하기 페이지 */
 .ask-content {
-  width: 30rem;
+  width: 100%;
+  max-width: 30rem;
   height: auto;
   min-height: 20rem;
 
@@ -366,13 +368,14 @@
 @media screen and (max-width:1000px) {
   .mypage-contain {
     height: auto;
+    overflow-y: auto;
     flex-direction: column;
     align-items: center;
   }
 
   .mypage-header {
     width: 100%;
-    height: auto;
+    min-height: auto;
     border-left: none;
     box-shadow: none;
   }
@@ -447,7 +450,7 @@
 
   /* 상세 > 1 : 1 문의하기  */
   .ask-content {
-    width: 39rem;
+    
   }
 
   .askBtn {
