@@ -112,6 +112,7 @@ a .review-btn {
 /* 안전지도 소개 */
 .intro-contain:nth-child(2) {
   width: 100%;
+  min-height: 100vh;
   padding: 130px 50px;
   max-width: unset;
   background-color: #01321f;
