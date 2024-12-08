@@ -52,13 +52,13 @@
   width: 150px;
   height: 150px;
 
-  background-image: url(../images/psj.png);
+  background-image: url(../images/ico-profile.png);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: 50% 50%;
   
   border-radius: 50%;
-  box-shadow: 0 3px 6px 0 rgba(29, 34, 53, .08);
+  /* box-shadow: 0 3px 6px 0 rgba(29, 34, 53, .08); */
 }
 
 .mypage-img {
@@ -170,7 +170,7 @@
 }
 
 .accountCircle >div:nth-child(1){
-  background-image: url(../images/ico-accountCircle.svg);
+  background-image: url(../images/ico-info.svg);
 }
 
 .tel> div:nth-child(1){

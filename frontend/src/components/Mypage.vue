@@ -11,7 +11,7 @@
           </li>
           
           <li class="mypage-img">
-            <div class="profile-img"></div>
+              <div class="profile-img"></div>
             <div class="userName">{{ userName }}</div>
             <div class="userId">{{ userID }}</div>
           </li>

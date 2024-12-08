@@ -59,8 +59,8 @@
     data:() => ({
       notiList: [
         { num: '1', type: '작업', title: '웹 사용 공지사항', createDt: '2024.10.23' },
-        { num: '2', type: '업데이트', title: '2024 업데이트', createDt: '2024.10.31' },
-        { num: '3', type: '이벤트', title: 'open 이벤트 ', createDt: '2024.10.26' },
+        { num: '2', type: '업데이트', title: '2024 업데이트', createDt: '2024.10.26' },
+        { num: '3', type: '이벤트', title: 'open 이벤트 ', createDt: '2024.10.31' },
       ],
       isMobile: window.innerWidth <= 900,
     }),
