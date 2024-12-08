@@ -193,6 +193,7 @@
 }
 
 .bestItems > a > div {
+  padding-top: 2px;
   white-space: nowrap;
 }
 
@@ -299,6 +300,9 @@ span.custom-dot {
   }
 
   /****    BEST ITEM 슬라이드 리스트 서브 이미지    ****/
+  .bestItems > a > div {
+    font-size: 13px;
+  }
   .bestItem-box {
     padding: 0 40px;
   }
@@ -349,6 +353,9 @@ span.custom-dot {
   }
 
   /****   BEST ITEM 슬라이드 리스트   ****/
+  .bestItems > a > div {
+    font-size: 12px;
+  }
   .bestItem-carousel .slick-list {
     max-width: 300px;
   }
