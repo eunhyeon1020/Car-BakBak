@@ -398,8 +398,6 @@ color: #01321f;
 
   .sidebar{
     height: calc(100vh - 71px);
-
-    top: 71px;
   }
 }
 
