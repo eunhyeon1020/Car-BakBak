@@ -91,7 +91,7 @@
               </li>
             </ul>
   
-            <div class="change">
+            <div class="change" @click="change">
               <div>수정하기</div>
             </div>
           </div>
@@ -238,6 +238,9 @@
       loginYorN: '',
     }),
     methods: {
+      change() {
+        this.$emit('showAlert', true);
+      },
       updateIsMobile() {
       this.isMobile = window.innerWidth <= 1000; // 화면 크기 업데이트
       },
