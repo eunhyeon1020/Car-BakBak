@@ -47,7 +47,7 @@
     </div>
 
     <div class="body_content bottom detail">
-      <img src="../assets/images/item-detail-img.jpg" alt="캠핑 상세 이미지" class="detail-banner" />
+      <img src="@/assets/images/products/item-detail-img.jpg" alt="캠핑 상세 이미지" class="detail-banner" />
     </div>
   </div>
 </template>

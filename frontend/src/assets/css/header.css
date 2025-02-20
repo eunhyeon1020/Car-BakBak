@@ -33,7 +33,7 @@
 .gnb-logo {
   width: 130px;
   height: 65px;
-  /* background: 50% 50% url(../images/차박박.svg) no-repeat;
+  /* background: 50% 50% url(@/assets/images/logos/car-bakbak-whitelogo.svg) no-repeat;
   background-size: 96%; */
   transform: scale(0.9);
   cursor: pointer;
@@ -110,19 +110,19 @@
 
 
 .about-menu {
-  background-image: url(../images/ico-about.svg);
+  background-image: url(@/assets/images/icons/ico-car.svg);
 }
 
 .map-menu {
-  background-image: url(../images/ico-map.svg);
+  background-image: url(@/assets/images/icons/ico-map.svg);
 }
 
 .store-menu {
-  background-image: url(../images/ico-store.svg);
+  background-image: url(@/assets/images/icons/ico-store.svg);
 }
 
 .notice-menu {
-  background-image: url(../images/ico-notice.svg);
+  background-image: url(@/assets/images/icons/ico-notice.svg);
 }
 
 /* 로그인, 회원가입*/

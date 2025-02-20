@@ -10,7 +10,7 @@
   align-items: center;
   gap: 10px;
 
-  background: url(../images/blur-background.png) fixed center center / cover;
+  background: url(@/assets/images/backgrounds/main-blur-bg.png) fixed center center / cover;
 }
 
 .sign-content {
@@ -33,7 +33,7 @@
 
   padding: 10px;
 
-  background-image: url("../images/차박박.svg");
+  background-image: url("@/assets/images/logos/car-bakbak-whitelogo.svg");
   background-repeat: no-repeat;
   background-size: 100%;
 } */
@@ -86,7 +86,7 @@
   width: 50px;
   height: 50px;
 
-  background-image: url(../images/carbakbakfire-log.svg);
+  background-image: url(@/assets/images/logos/carbakbakfire-logo.svg);
   background-repeat: no-repeat;
   background-size: 100%;
   background-position: center;
@@ -236,12 +236,12 @@
   } */
   
   /* .sign-logo-img {
-    background-image: url("../images/차박박\ copy.svg");
+    background-image: url("@/assets/images/logos/car-bakbak-greenlogo.svg");
     width: 180px;
     background-size: 100%;
   } */
   .sign-logo.later {
-    background-image: url("../images/차박박\ copy.svg");
+    background-image: url("@/assets/images/logos/car-bakbak-greenlogo.svg");
     width: 200px;
     height: 100px;
     background-size: 200px 100px;

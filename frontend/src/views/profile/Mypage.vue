@@ -321,13 +321,13 @@
     margin-left: auto;
 
     display: inline-block;  
-    background-image: url(../assets/images/ico-keyDown.svg);
+    background-image: url(@/assets/images/icons/ico-keyDown.svg);
     background-repeat: no-repeat;
     background-size: 100%;
     background-position: right center;
     cursor: pointer;
   }
   .inquiry-title.active::after {
-    background-image: url(../assets/images/ico-keyUp.svg);
+    background-image: url(@/assets/images/icons/ico-keyUp.svg);
   }
 </style>

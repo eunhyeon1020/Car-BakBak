@@ -8,34 +8,34 @@ export const router = new VueRouter({
   routes: [
     {
       path: '/',
-      component: () => import('@/components/Main.vue'),
+      component: () => import('@/views/main/Main.vue'),
     }, {
       path: '/intro',
-      component: () => import('@/components/Main.vue'),
+      component: () => import('@/views/main/Main.vue'),
     }, {
       path: '/map',
-      component: () => import('@/components/Map.vue'),
+      component: () => import('@/views/map/Map.vue'),
     }, {
       path: '/store',
-      component: () => import('@/components/Store.vue'),
+      component: () => import('@/views/store/Store.vue'),
     }, {
       path: '/storedetail',
-      component: () => import('@/components/StoreDetail.vue'),
+      component: () => import('@/views/store/StoreDetail.vue'),
     }, {
       path: '/notice',
-      component: () => import('@/components/Notice.vue'),
+      component: () => import('@/views/notice/Notice.vue'),
     }, {
       path: '/noticedetail',
-      component: () => import('@/components/NoticeDetail.vue'),
+      component: () => import('@/views/notice/NoticeDetail.vue'),
     }, {
       path: '/login',
-      component: () => import('@/components/Login.vue'),
+      component: () => import('@/views/main/login/Login.vue'),
     }, {
       path: '/sign',
-      component: () => import('@/components/Sign.vue'),
+      component: () => import('@/views/main/login/Sign.vue'),
     },{
       path: '/mypage',
-      component: () => import('@/components/Mypage.vue'),
+      component: () => import('@/views/profile/Mypage.vue'),
     },{
       path: '/error',
       component: () => import('@/components/Error.vue'),

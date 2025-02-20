@@ -124,7 +124,7 @@
   margin-left: 10px;
 
   display: inline-block;
-  background-image: url(../images/ico-search_map.svg);
+  background-image: url(@/assets/images/icons/ico-search_map.svg);
   background-repeat: no-repeat;
   background-size: 100%;
 }
@@ -178,17 +178,17 @@
   justify-content: center;
   align-items: center;
 
-  background-image: url(../images/linkmove/icon-linkmove.svg);
+  background-image: url(@/assets/images/linkmoves/icon-linkmove.svg);
   background-repeat: no-repeat;
   background-size: 100%;
 
   font-size: 0.8rem;
 } 
 .newsbar-link:hover {
-  background-image: url(../images/linkmove/icon-hover_linkmove.svg);
+  background-image: url(@/assets/images/linkmoves/icon-hover_linkmove.svg);
 }
 .newsbar-link:active {
-  background-image: url(../images/linkmove/icon-hover_linkmove.svg);
+  background-image: url(@/assets/images/linkmoves/icon-hover_linkmove.svg);
 }
 
 .newsbar-datetime {
@@ -235,7 +235,7 @@
   width: 25px;
   height: 25px;
 
-  background-image: url(../images/icon-chatting.png);
+  background-image: url(@/assets/images/icons/ico-chatting.svg);
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;

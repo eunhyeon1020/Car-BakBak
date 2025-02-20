@@ -72,8 +72,8 @@
             <div class="bestItem-box">
               <div class="box-items">
                 <div class="boxItem-img">
-                  <img src="../assets/images/bestItem-box1.png" />
-                  <img src="../assets/images/bestItem-box2.png" />
+                  <img src="@/assets/images/products/bestItem-box1.png" />
+                  <img src="@/assets/images/products/bestItem-box2.png" />
                 </div>
               </div>
             </div>
@@ -134,24 +134,24 @@
   export default {
     data:() => ({
       bestItemList: [
-        { itemNm: '블루 스피클 캠핑 세트', imgUrl: require('@/assets/images/bestItem_1.png'),itemDesc:'블루 스피클 캠핑 세트 ( 컵(1) + 주전자(1))', price: 39900 },
-        { itemNm: '컴팩트 마이크로파이버 타월', imgUrl: require('@/assets/images/bestItem_2.png'), itemDesc:'흡수력 좋은 오렌지 마이크로파이버 타월 1종', price: 15000 },
-        { itemNm: '어드벤터 EDC 생존 키드', imgUrl: require('@/assets/images/bestItem_3.png'), itemDesc:'휴대하기 좋은 생존형(비상용) 다용도 키트',  price: 35000 },
-        { itemNm: '루나블루 LED 캠핑 랜턴', imgUrl: require('@/assets/images/bestItem_4.png'),  itemDesc:'한 번 충전으로 최대 48시간 지속 가능한 휴대LED', price: 22000 },
-        { itemNm: '접이식 캠핑백', imgUrl: require('@/assets/images/bestItem_5.png'),  itemDesc:'휴대하기 좋은 라임색 접이식 가방', price: 29000 },
-        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/bestItem_6.png'), itemDesc:'작고 가벼운 휴대용 와어어 톱',  price: 12000 },
-        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/bestItem_7.png'), itemDesc:'날카로운 칼날과 접이식 구조로 안전성을 동시에 챙긴 미니 칼',  price: 18500 },
-        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/bestItem_8.png'), itemDesc:'따뜻함과 편안함을 모두 잡은 초경량 침낭',  price: 49000 },
+        { itemNm: '블루 스피클 캠핑 세트', imgUrl: require('@/assets/images/products/bestItem_1.png'),itemDesc:'블루 스피클 캠핑 세트 ( 컵(1) + 주전자(1))', price: 39900 },
+        { itemNm: '컴팩트 마이크로파이버 타월', imgUrl: require('@/assets/images/products/bestItem_2.png'), itemDesc:'흡수력 좋은 오렌지 마이크로파이버 타월 1종', price: 15000 },
+        { itemNm: '어드벤터 EDC 생존 키드', imgUrl: require('@/assets/images/products/bestItem_3.png'), itemDesc:'휴대하기 좋은 생존형(비상용) 다용도 키트',  price: 35000 },
+        { itemNm: '루나블루 LED 캠핑 랜턴', imgUrl: require('@/assets/images/products/bestItem_4.png'),  itemDesc:'한 번 충전으로 최대 48시간 지속 가능한 휴대LED', price: 22000 },
+        { itemNm: '접이식 캠핑백', imgUrl: require('@/assets/images/products/bestItem_5.png'),  itemDesc:'휴대하기 좋은 라임색 접이식 가방', price: 29000 },
+        { itemNm: '휴대용 와이어 톱', imgUrl: require('@/assets/images/products/bestItem_6.png'), itemDesc:'작고 가벼운 휴대용 와어어 톱',  price: 12000 },
+        { itemNm: '미니 접이식 칼', imgUrl: require('@/assets/images/products/bestItem_7.png'), itemDesc:'날카로운 칼날과 접이식 구조로 안전성을 동시에 챙긴 미니 칼',  price: 18500 },
+        { itemNm: '초경량 침낭', imgUrl: require('@/assets/images/products/bestItem_8.png'), itemDesc:'따뜻함과 편안함을 모두 잡은 초경량 침낭',  price: 49000 },
       ],
       newItemList: [
-        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/newItem_1.png'), itemDesc:'실용성과 스타일을 동시에 갖춘 키체인 캡슐', price: 19000},
-        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/newItem_2.png'), itemDesc:'다양한 기능을 한 곳에 담은 올인원 멀티툴', price: 32000},
-        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/newItem_3.png'), itemDesc:'보온성과 보냉성이 뛰어난 클래식한 보온병', price: 45000},
+        { itemNm: '레드 미니멀 키체인 캡슐', imgUrl: require('@/assets/images/products/newItem_1.png'), itemDesc:'실용성과 스타일을 동시에 갖춘 키체인 캡슐', price: 19000},
+        { itemNm: '컴팩트 올인원 멀티툴', imgUrl: require('@/assets/images/products/newItem_2.png'), itemDesc:'다양한 기능을 한 곳에 담은 올인원 멀티툴', price: 32000},
+        { itemNm: '클래식 스테인리스 보온병', imgUrl: require('@/assets/images/products/newItem_3.png'), itemDesc:'보온성과 보냉성이 뛰어난 클래식한 보온병', price: 45000},
       ],
       bannerList: [
-        { title: '모든 캠핑의 시작과 끝,', content: '여기서 만나요', imgUrl: require('@/assets/images/banner1.png')},
-        { title: '밤하늘과 맞닿는', content: '당신만의 쉼터', imgUrl: require('@/assets/images/banner2.png')},
-        { title: '일상의 틀을 벗어나,', content: '자유를 마주하다', imgUrl: require('@/assets/images/banner3.png')},
+        { title: '모든 캠핑의 시작과 끝,', content: '여기서 만나요', imgUrl: require('@/assets/images/products/banner1.png')},
+        { title: '밤하늘과 맞닿는', content: '당신만의 쉼터', imgUrl: require('@/assets/images/products/banner2.png')},
+        { title: '일상의 틀을 벗어나,', content: '자유를 마주하다', imgUrl: require('@/assets/images/products/banner3.png')},
       ],
       naviList: [ '전체', '텐트 ㆍ 타프', '침낭 ㆍ 매트', '라이팅', '계절 용품', '키친', '전자 기기', 'etc' ],
     }),
