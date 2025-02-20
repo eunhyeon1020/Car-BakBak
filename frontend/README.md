@@ -1,24 +1,47 @@
-# frontend
+# 🚗 차박러를 위한 안전 정보 플랫폼 _ 차박박 
+- 배포 URL : https://eunhyeon1020.github.io/
 
-## Project setup
-```
-npm install
-```
+## 차박박 소개 💨
+- 차박을 즐기는 사람들에게 안전과 편의를 제공하는 새로운 개념의 차박 플랫폼입니다. 
+- 실시간으로 차박지의 안전 뉴스와 자신의 경험을 남길 수 있습니다. 
+- 차박에 관련된 제품을 스토어를 통해 한눈에 확인하고 구입할 수 있습니다. 
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+## 🙂 팀원 구성
+ **김은현** | **박소정** 
+:-----:|:------:
+![김은현](../frontend/src/assets/images/150px_keh.jpg) | ![박소정](/./frontend/src/assets/images/150px_psj.jpg) 
+반응형 웹 디자인 <br> UI/UX 구현 | 웹 디자인 <br> UI 구현(보조) <br> 데이터 처리 및 연결 
 
-### Compiles and minifies for production
-```
-npm run build
-```
+## 1. 개발환경 
+- frontend : HTML, css, Vue.js, javascript   
+- 라이브러리 : Vue CLI, Axios, slick-side   
+- API : 지도 API, 검색 API   
+- 데이터 베이스 : LocalStorage   
+- 형상 관리 : Github   
 
-### Lints and fixes files
-```
-npm run lint
-```
+## 2. 프로젝트 구성 
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## 3. 개발 기간 및 작업 관리 
+#### 개발 기간 
+내용 3번 변경 _ SignalButton → 차박박(앱) → 차박박(웹)
+- 전체 개발 기간 : 2024.03 ~ 2024.12 
+- 기획 및 변경 : 2024.03 ~ 2024.06
+- 시장 분석 및 타켓층 설정 : 2024.06
+- UI/UX 설계 및 시스템 구상 : 2024.06 ~ 2024.08
+- UI/UX 구현 : 2024.10 ~ 2024.12 
+- 테스트 :  2024.12
+
+#### 작업관리 
+- Github를 사용하여 코드 리뷰와 진행 상황을 공유했습니다.
+- 주기적인 회의를 통해 작업 순서와 방향성에 대해 생각해 나가며 Google sheet에 기록해 나갔습니다. 
+
+## 4. 페이지 별 기능 
+### Header 
+
+### 
+
+
+
+
+
+ 
