@@ -67,7 +67,6 @@
                 type="text"
                 v-model="userAdress"
                 placeholder="주소 입력"
-                @input="validateAdress"
               />
               <span v-if="error.userAdress" class="error-message">{{ error.userAdress }}</span>
             </div>
@@ -140,7 +139,7 @@ export default {
     validatePassword() {
       const passwordRegex = /^(?=.*[a-zA-Z])(?=.*\d).{8,}$/;
       this.error.userPassword = !passwordRegex.test(this.userPassword)
-        ? '비밀번호는 최소 8자 이상, 숫자를 포함해야 합니다.'
+        ? '비밀번호는 최소 8자 이상, 문자와 숫자를 포함해야 합니다.'
         : '';
     },
     validateName() {
@@ -161,12 +160,6 @@ export default {
         ? '올바른 전화번호 형식을 입력해 주세요.'
         : '';
     },
-    
-    validateAdress() {
-      this.error.userAdress = this.userAdress.trim().length < 5
-        ? '주소를 정확히 입력해 주세요.'
-        : '';
-    },
     submitForm() {
       this.validateID();
       this.validatePassword();
@@ -175,7 +168,7 @@ export default {
           ? '비밀번호가 일치하지 않습니다.'
           : '';
       this.validateName();
-      this.validateAdress();
+      this.error.userAdress = !this.userAdress ? '주소를 입력해 주세요.' : '';
       this.validateEmail();
       this.validatePhoneNum();
 

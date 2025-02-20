@@ -110,23 +110,16 @@
 
   box-sizing: border-box;
   text-indent: 15px;
-  background-color: #f5f5f5 !important;
+  background-color: #f5f5f5;
   border-radius: 5px;
 }
-.sign-id {
-  border-radius: 5px 5px 0 0 !important;
-}
-.sign-aginPw {
-  border-radius: 0 0 5px 5px !important;
-}
-
-/* .input-IdPw {
+.input-IdPw {
   border-radius: 5px;
-} */
-
+  background-color: #f5f5f5;
+}
 .input-IdPw input {
   background-color: unset !important;
-  /* border-radius: 0 !important; */
+  border-radius: 0 !important;
 }
 
 .input-id,
@@ -142,7 +135,6 @@
 .sign-pw {
   border-top: 1px solid #D8D8D8;
   border-bottom: 1px solid #D8D8D8;
-  border-radius: 0px !important;
 }
 
 #sign-form input[type="submit"] {
