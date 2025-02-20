@@ -29,10 +29,10 @@ export const router = new VueRouter({
       component: () => import('@/views/notice/NoticeDetail.vue'),
     }, {
       path: '/login',
-      component: () => import('@/views/main/login/Login.vue'),
+      component: () => import('@/views/login/Login.vue'),
     }, {
       path: '/sign',
-      component: () => import('@/views/main/login/Sign.vue'),
+      component: () => import('@/views/login/Sign.vue'),
     },{
       path: '/mypage',
       component: () => import('@/views/profile/Mypage.vue'),
