@@ -163,12 +163,12 @@
       this.$nextTick(() => {
         window.$('.bestItem-carousel').slick({
           infinite: true,
-          autoplay: true,
+          autoplay: false,
           pauseOnHover: true,
           slidesToShow: 4,
           slidesToScroll: 4,
-          prevArrow: `<i class="ico-arrow-back"></i>`,
-          nextArrow: `<i class="ico-arrow-front"></i>`,
+          prevArrow: `<i class="ico-arrow-front"></i>`,
+          nextArrow: `<i class="ico-arrow-back"></i>`,
           responsive: [
             {
               breakpoint: 768,
@@ -214,11 +214,16 @@
           price: item.price,
       };
 
-      console.log("itemInfo:", itemInfo);
+      // console.log("itemInfo:", itemInfo);
+      // JOSN.stringify(arg)를 사용해 위에 itemInfo 객체를 문자열로 변환
+      // 로컬스토리지에 itemInfo가 저장됨.
       localStorage.setItem('itemInfo', JSON.stringify(itemInfo));
+
+      // storedetail로 이동 
       this.$router.push('/storedetail');
 
       },
+
     showAlert() {
         this.$emit('showAlert', true);
       }

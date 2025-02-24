@@ -3,6 +3,7 @@
 
     <div class="gnb">
       <div class="header-left">
+        <!-- 로고 이미지  -->
         <svg class="gnb-logo" @click="goHome" id="_레이어_1" data-name="레이어_1" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 610.44 247.53">
           <!-- Generator: Adobe Illustrator 29.0.0, SVG Export Plug-In . SVG Version: 2.1.0 Build 186)  -->
           <path class="st0" d="M242.63,218.65s11.68-5.68,12.82-3.89,1.79,4.22,0,6.82c-1.79,2.6-10.22.49-11.2,0s-1.62-2.92-1.62-2.92Z"/>
@@ -36,8 +37,10 @@
         </svg>
         <!-- <div class="gnb-logo" @click="goHome"></div> -->
 
+        <!-- 메뉴 버튼 -->
         <div class="top-menu">
           <ul>
+            <!-- introLink : 현재 path일 때 -->
             <li @click="introLink('/intro')" >
               <i class="ico about-menu"></i>
               <router-link :to="'intro'">
@@ -45,6 +48,7 @@
               </router-link>
             </li>
 
+            <!-- isLogin: 로그인 여부를 묻는 boolean 값 -->
             <li @click="introLink('/map')" v-if="isLogin">
               <i class="ico map-menu"></i>
               <router-link :to="'map'">
@@ -195,6 +199,7 @@ export default {
         });
       }
     },
+
     logOut() {
       this.isLogin = false;
       alert('로그아웃 되었습니다.');
@@ -205,8 +210,10 @@ export default {
         this.$router.replace('/');
       }     
     },
+
+    // SPA에서 페이지 전화 시 UX을 개선 
     introLink(link) {
-      const currentPath = this.$route.path;
+      const currentPath = this.$route.path; 
       const targetPath = link;
 
       if (currentPath === targetPath) {
@@ -215,10 +222,11 @@ export default {
           this.$router.replace(targetPath);
         });
       } else {
-        // 다른 경로에서는 /intro 경로로 이동
+        // 다른 경로에서는 눌렀을 때 누른 경로로 이동(원래대로 작동)
         this.$router.push(targetPath);
       }
     },
+
 
     NavToggle() {
       this.navToggle = !this.navToggle;

@@ -1,5 +1,5 @@
-
 <template>
+  <!-- showProp 가 true 일때 아래 상태 보여짐 -->
   <div id="alertModal" class="black-screen" v-if="showProp">
     <div class="alert-modal">
       <div class="alert-header">
@@ -24,6 +24,7 @@ export default {
     showProp: Boolean,  // App.vue 에서 false를 넘겨줌
   },
   methods: {
+    // closeModal 기본값 : 
     closeModal(e) {
       this.$emit('closeAlert', e);
     },

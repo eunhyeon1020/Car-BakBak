@@ -167,6 +167,7 @@ export default {
         ? '주소를 정확히 입력해 주세요.'
         : '';
     },
+    
     submitForm() {
       this.validateID();
       this.validatePassword();
