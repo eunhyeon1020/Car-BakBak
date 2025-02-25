@@ -8,9 +8,10 @@
   position: absolute;
   bottom: 0;
   width: 100vw;
-  height: 160px;
+  height: 100%;
   padding: 0 9rem;
   display: flex;
+  gap: 20px;
   align-items: center;
   border-top: 1px solid #ccc;
   background-color: #FFF;
@@ -19,7 +20,6 @@
 .ft_logo {
   width: 250px;
   height: 140px;
-  margin: 20px;
   /* background-color: whitesmoke; */
   background-image: url(@/assets/images/logos/car-bakbak-greenlogo.svg );
   background-repeat: no-repeat;
