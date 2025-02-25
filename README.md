@@ -9,7 +9,7 @@
 ## 🙂 팀원 구성
  **김은현** | **박소정** 
 :-----:|:------:
-![김은현](../Car-BakBak/frontend/src/assets/images/profiles/150px_keh.jpg) | ![박소정](../Car-BakBak/frontend/src/assets/images/profiles/150px_psj.jpg) 
+![김은현](/frontend/src/assets/images/profiles/150px_keh.jpg) | ![박소정](/frontend/src/assets/images/profiles/150px_psj.jpg) 
 반응형 웹 디자인 <br> UI/UX 구현 | 웹 디자인 <br> UI 구현(보조) <br> 데이터 처리 및 연결 
 
 ## 1. 개발환경 
